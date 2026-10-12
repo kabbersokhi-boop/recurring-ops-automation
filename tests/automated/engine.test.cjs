@@ -14,6 +14,8 @@ test('1 recurrence: completion creates next linked 7-day cycle, weekend rolls fo
   assert.equal(r.nextCycle,'P7:2026-10-16');assert.equal(r.state.cycles.find(c=>c.id===r.nextCycle).previousCycle,'P7:2026-10-09');
   const p=E.complete(s,'P15:2026-10-09',{ticketId:'OPS-124'},'c@example.invalid',at('2026-10-09','16:00'));
   assert.equal(p.nextCycle,'P15:2026-10-26');
+  const q=E.complete(s,'P30:2026-10-09',{ticketId:'OPS-125'},'d@example.invalid',at('2026-10-09','16:00'));
+  assert.equal(q.nextCycle,'P30:2026-11-09');
 });
 test('2 one point ticket completion records proof, identity, time, history',()=>{
  const r=E.complete(generated(),'P7:2026-10-09',{ticketId:'OPS-123'},'b@example.invalid',at('2026-10-09','15:00'));

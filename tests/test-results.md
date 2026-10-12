@@ -1,12 +1,12 @@
 # Executed test results
 
-Command: `node --test tests/automated/engine.test.cjs`
+Commands: `node --test tests/automated/engine.test.cjs` and `node --test tests/automated/apps-script.test.cjs`
 
-Executed on 2026-10-13 in the local workspace with Node.js 22. Result: **11 passed, 0 failed**. The injected clock uses Asia/Kolkata timestamps. No email was sent.
+Executed on 2026-10-13 in the local workspace with Node.js 22. Result: **14 passed, 0 failed** (11 engine tests and 3 mocked Apps Script service tests). The injected clock uses Asia/Kolkata timestamps. No real email was sent.
 
 | Assignment case | Result | Evidence from assertions |
 | --- | --- | --- |
-| 1. Recurring cycle | PASS locally | 7-day completion creates linked `P7:2026-10-16`; 15-day Saturday due rolls to Monday 2026-10-26 |
+| 1. Recurring cycle | PASS locally | 7-day completion creates linked `P7:2026-10-16`; 15-day and 30-day weekend due dates roll to the next Monday |
 | 2. Single-point completion | PASS locally | One ticket submission updates cycle status, proof, actor, time and one history event |
 | 3. Daily task | PASS locally | Structured report with pending count completes without Ticket ID |
 | 4. Same-day manager alert | PASS locally | No candidate at 17:14; four candidates at 17:15 |
@@ -15,6 +15,6 @@ Executed on 2026-10-13 in the local workspace with Node.js 22. Result: **11 pass
 | 7. Escalation timing | PASS locally | Friday 2026-10-09 plus weekend and 2026-10-12 holiday leads to Tuesday 2026-10-13 at 14:00 |
 | 8. Duplicate prevention | PASS locally | Repeat recurrence creates zero cycles; repeated completion and alert reservation return duplicate |
 
-Additional passing cases: invalid/empty proof and wrong identity rejected; late completion and independent daily cycles; uncertain delivery reservation suppresses automatic resend.
+Additional passing cases: invalid/empty proof and wrong identity rejected; late completion and independent daily cycles; mocked Apps Script email calls and log keys; uncertain delivery reservation suppresses automatic resend; overlapping state transitions are rejected by the document lock mock.
 
 **Integration evidence:** native Google Sheet creation, tab metadata and sample rows were read back. Three n8n workflow imports succeeded and each was exported back as `active:false`. Apps Script, n8n HTTP calls and email delivery were not executed live; those tests remain unverified.

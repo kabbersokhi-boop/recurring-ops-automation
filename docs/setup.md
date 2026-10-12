@@ -36,4 +36,4 @@ Use only an inbox you control. First run the manager and leadership actions in d
 
 ## 6. Test and reset
 
-Run `node --test tests/automated/engine.test.cjs` for the deterministic suite. For a live demonstration, use a separate disposable private workbook. The test clock exists in the pure engine; production Apps Script always uses actual time. The [demonstration script](../tests/demo-script.md) maps the eight assignment tests to inputs and expected evidence.
+Run both `node --test tests/automated/engine.test.cjs` and `node --test tests/automated/apps-script.test.cjs` for the deterministic engine and mocked Apps Script service. For a live demonstration, use a separate disposable private workbook. The test clock exists in the local harness; production Apps Script always uses actual time. The [demonstration script](../tests/demo-script.md) maps the eight assignment tests to inputs and expected evidence.

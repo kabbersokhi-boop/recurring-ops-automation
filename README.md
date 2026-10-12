@@ -12,7 +12,7 @@ A Google Sheets operations tracker for four example recurring tasks. Employees o
 | Apps Script / automation | [State engine](apps-script/TaskManager.gs), [Sheet adapter](apps-script/Code.gs), employee and manager sidebars |
 | Daily Task Completion Tracking | Required structured report: work completed, pending work and count, blockers, optional remarks |
 | Manager Alerts & Leadership Escalation | Configurable weekday schedules, independent acknowledgement, reserved deduplication keys, dry-run default |
-| Working Demonstration / Test Cases | [11 executed local tests](tests/test-results.md), covering all eight assignment scenarios and edge cases |
+| Working Demonstration / Test Cases | [14 executed local tests](tests/test-results.md), covering all eight assignment scenarios and edge cases |
 
 ## Flow
 
@@ -33,6 +33,7 @@ Requires Node.js 22 or newer. No credentials are needed.
 
 ```bash
 node --test tests/automated/engine.test.cjs
+node --test tests/automated/apps-script.test.cjs
 ```
 
 The tests use an injected clock and do not send email. See [test results](tests/test-results.md) and the [eight-case demonstration script](tests/demo-script.md).
