@@ -1,9 +1,7 @@
 # Genuine evidence recorded during build
 
-- Google Drive returned a native spreadsheet ID and private URL; the ID is withheld from this public repository.
-- Metadata readback showed six tabs: Task_Master, Employee_Queue, Task_History, Manager_Dashboard, Alert_Log and Settings, with Asia/Kolkata time zone reported as `Asia/Calcutta` by the API.
-- Bounded range readback of Employee_Queue A1:Q5 showed four Pending cycles dated 2026-10-13. Manager_Dashboard A1:N5 showed all four employees.
-- n8n 2.39.8 accepted three workflow imports. Export readback showed the three known IDs and `active:false`.
-- Node's test runner reported `tests 11`, `pass 11`, `fail 0` for the engine and `tests 3`, `pass 3`, `fail 0` for the mocked Apps Script adapter.
-
-These are API and command readbacks, not screenshots. No Google-rendered visual screenshot was available through the connected tools, so layout fit has only been checked from native metadata, column resize operations and bounded cell reads.
+- The private Google Sheet has six tabs: Task_Master, Employee_Queue, Task_History, Manager_Dashboard, Alert_Log and Settings. The workbook is restricted and has four dummy Pending cycles. [Employee queue screenshot](screenshots/employee-queue.png).
+- Bound Apps Script `recurrenceNow` completed in the editor. [Execution log screenshot](screenshots/apps-script-execution.png). The deployed web app POST returned `{"created":0}` on an idempotent recurrence call.
+- n8n 2.39.8 ran each imported workflow through a temporary manual trigger, then the schedule trigger was restored. Recurrence returned `{"created":0}`; manager and leadership returned `{"alerts":0}` because their SLA thresholds had not yet passed. The three schedules were published, n8n restarted, and `list:workflow --active=true` listed all three. The separate Google Sheets OAuth credential also read Task_Master successfully during a connection probe.
+- Node reported `tests 11`, `pass 11`, `fail 0` for the engine and `tests 4`, `pass 4`, `fail 0` for the mocked Apps Script adapter.
+- No live email was sent. Tests with injected dates simulate alerts and escalation; they do not establish live notification delivery.

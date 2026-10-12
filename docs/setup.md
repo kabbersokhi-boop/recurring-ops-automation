@@ -4,7 +4,7 @@
 
 The prepared private prototype, linked in the review package, contains all six tabs and four dummy cycles. Keep its sharing restricted. For a new Sheet, create a blank native Google Spreadsheet, open **Extensions → Apps Script**, paste the four files from `apps-script/` into a bound project, and run `setupPrototype()` once. **Do not run `setupPrototype()` on the prepared workbook** because it intentionally resets the tabs.
 
-In the prepared workbook, attach the Apps Script files without running setup. Save and reload the Sheet; the **Ops Tasks** menu should appear. Check that `Task_Master` and `Settings` contain only test data. Replace the four `.invalid` employee emails with controlled Google accounts. Update the corresponding Employee_Queue email values or reset the queue in a new test workbook. Set a verified test manager account in Settings. Leave `dryRun=true` and the leadership address as `.invalid` until email tests are authorized.
+The prepared workbook already has the bound Apps Script project attached and authorized. Save and reload the Sheet; the **Ops Tasks** menu should appear. Check that `Task_Master` and `Settings` contain only test data. Replace the four `.invalid` employee emails with controlled Google accounts. Update the corresponding Employee_Queue email values or reset the queue in a new test workbook. Set a verified test manager account in Settings. Leave `dryRun=true` and the leadership address as `.invalid` until email tests are authorized.
 
 ## 2. Verify identity
 
@@ -12,13 +12,13 @@ As each test employee, open **Ops Tasks → My tasks**. The sidebar must show on
 
 ## 3. Deploy Apps Script web app for n8n
 
-In Apps Script, set Script Property `N8N_SHARED_TOKEN` to a long random secret. Deploy the bound project as a web app **executing as the owner**. The web app accepts POST JSON `{ "action": "recurrence|manager|leadership", "token": "..." }`. Restrict web app access as tightly as your Google and n8n connection permits. The token is kept in Script Properties and the private n8n environment; never put it in the Sheet or repository.
+The prepared project already has private Script Property `N8N_SHARED_TOKEN` and a deployed web app. For a new installation, generate a long random secret, set that property, and deploy the bound project as a web app **executing as the owner**. The web app accepts POST JSON `{ "action": "recurrence|manager|leadership", "token": "..." }`. The current installation allows HTTP access to Anyone so n8n can call it server to server; the shared token is required for every POST. Keep the token in Script Properties and n8n private configuration, never in the Sheet or repository.
 
 Run `recurrenceNow()` manually and confirm four cycle rows remain four on a repeat run. Open the manager dashboard and confirm it refreshes. Verify that an unauthorized POST fails. Keep `dryRun=true` throughout testing.
 
 ## 4. Configure n8n
 
-Import the three JSON files from `n8n-workflows/`. They are inactive by default. Set `OPS_WEB_APP_URL` and `OPS_SHARED_TOKEN` in n8n's private runtime environment, using `.env.example` as a field guide. The workflows contain expressions only; no real values. Restart n8n if needed to load the variables. Test each HTTP node manually and inspect the Sheet. Activate schedules only after all three return expected JSON. A production deployment should monitor failed executions.
+The three JSON files in `n8n-workflows/` are importable templates and inactive by default. A fresh deployment can set `OPS_WEB_APP_URL` and `OPS_SHARED_TOKEN` in n8n's private runtime environment, using `.env.example` as a field guide. The live instance instead uses the deployed URL in its private workflow copies and an encrypted n8n **Custom Auth** credential with JSON `{"body":{"token":"<private token>"}}`; the public exports contain neither. Restart n8n after CLI import/publish. Test each HTTP node manually and inspect the Sheet before activating schedules. The current three schedules are active in dry-run mode. A production deployment should monitor failed executions.
 
 Inventory:
 

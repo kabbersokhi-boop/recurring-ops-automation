@@ -20,7 +20,7 @@ function harness(failSend=false){
     getRange(r,c,n,m){return {getValues(){return Array.from({length:n},(_,i)=>Array.from({length:m},(_,j)=>rows[r-1+i]?.[c-1+j]??''));},setValues(values){for(let i=0;i<n;i++){rows[r-1+i]??=[];for(let j=0;j<m;j++)rows[r-1+i][c-1+j]=values[i][j];}}};}
   }]));
   let locked=false;
-  const context=vm.createContext({OpsEngine:E,Date:FakeDate,SpreadsheetApp:{getActive:()=>({getSheetByName:n=>sheets[n]}),flush(){}},LockService:{getDocumentLock:()=>({tryLock(){if(locked)return false;locked=true;return true;},releaseLock(){locked=false;}})},MailApp:{sendEmail(msg){if(failSend)throw Error('Simulated transport uncertainty');sent.push(msg);}}});
+  const context=vm.createContext({OpsEngine:E,Date:FakeDate,Utilities:{formatDate(value){return new Date(value.getTime()+330*60000).toISOString().slice(0,10);}},SpreadsheetApp:{getActive:()=>({getSheetByName:n=>sheets[n]}),flush(){}},LockService:{getDocumentLock:()=>({tryLock(){if(locked)return false;locked=true;return true;},releaseLock(){locked=false;}})},MailApp:{sendEmail(msg){if(failSend)throw Error('Simulated transport uncertainty');sent.push(msg);}}});
   vm.runInContext(source,context);
   return {context,clock,sent,tables};
 }
@@ -33,4 +33,10 @@ test('Apps Script uncertain delivery stays reserved and is not resent',()=>{
 });
 test('Apps Script document lock rejects overlapping state transitions',()=>{
   const h=harness();assert.throws(()=>h.context.locked(()=>h.context.locked(()=>true)),/System busy/);assert.equal(h.context.locked(()=>42),42);
+});
+test('Apps Script normalizes date-formatted Sheet cells to Kolkata task days',()=>{
+  const h=harness();const date=new h.context.Date('2026-10-08T18:30:00.000Z');
+  h.tables.Task_Master[1][6]=date;h.tables.Employee_Queue[1][6]=date;
+  const state=h.context.readState();assert.equal(state.tasks[0].startDay,'2026-10-09');assert.equal(state.cycles[0].dueDay,'2026-10-09');
+  assert.equal(h.context.recurrenceNow(),0);
 });
