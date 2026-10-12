@@ -35,4 +35,4 @@ The local tests load the same pure `TaskManager.gs` engine that Apps Script uses
 | Alert_Log | Delivery reservation and status | State engine |
 | Settings | Time zone, holiday list, SLA and recipients | Administrator |
 
-Task_Master and Settings are protected in the native Sheet. The queue itself is editable by Sheet editors, so raw direct edits can bypass sidebar validation. Restrict access to trusted participants or move the state tabs to a separate owner-only workbook before production use.
+Task_Master and Settings have administrator-only protected ranges covering their current grids in the prepared native Sheet. Fresh workbooks need this one-time protection step during setup. The queue itself is editable by Sheet editors, so raw direct edits can bypass sidebar validation. Restrict access to trusted participants or move the state tabs to a separate owner-only workbook before production use.
