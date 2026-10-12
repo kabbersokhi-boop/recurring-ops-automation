@@ -1,0 +1,66 @@
+{
+  "id": "c7a48932-71a0-463a-8e51-b52d7f573ac7",
+  "name": "Recurring Ops | Manager overdue alerts",
+  "active": false,
+  "settings": {
+    "timezone": "Asia/Kolkata",
+    "executionOrder": "v1"
+  },
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/15 * * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "schedule-manager",
+      "name": "Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.OPS_WEB_APP_URL }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ action: \"manager\", token: $env.OPS_SHARED_TOKEN }) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "http-manager",
+      "name": "Call Apps Script state engine",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule": {
+      "main": [
+        [
+          {
+            "node": "Call Apps Script state engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "tags": []
+}

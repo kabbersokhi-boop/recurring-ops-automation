@@ -1,0 +1,5 @@
+Task ID,Task name,Employee,Employee email,Frequency,Start day,Due time,Proof type
+DAILY,Daily Operations Update,Employee A,employee.a@example.invalid,daily,2026-10-13,17:00,report
+PORTAL7,Portal Task A,Employee B,employee.b@example.invalid,7,2026-10-13,17:00,ticket
+PORTAL15,Portal Task B,Employee C,employee.c@example.invalid,15,2026-10-13,17:00,ticket
+PORTAL30,Portal Task C,Employee D,employee.d@example.invalid,30,2026-10-13,17:00,ticket
