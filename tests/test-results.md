@@ -1,8 +1,8 @@
 # Executed test results
 
-Commands: `node --test tests/automated/engine.test.cjs` and `node --test tests/automated/apps-script.test.cjs`
+Commands: `node tests/automated/engine.test.cjs`, `node tests/automated/apps-script.test.cjs`, and `node tests/automated/sidebar.test.cjs`
 
-Executed on 2026-10-13 in the local workspace with Node.js 22. Result: **15 passed, 0 failed** (11 engine tests and 4 mocked Apps Script service tests). The injected clock uses Asia/Kolkata timestamps. No real email was sent.
+Executed on 2026-10-13 in the local workspace with Node.js 22. Result: **18 passed, 0 failed** (11 engine tests, 4 mocked Apps Script service tests, and 3 mocked Sheet sidebar tests). The injected clock uses Asia/Kolkata timestamps. No real email was sent.
 
 | Assignment case | Result | Evidence from assertions |
 | --- | --- | --- |
@@ -17,4 +17,6 @@ Executed on 2026-10-13 in the local workspace with Node.js 22. Result: **15 pass
 
 Additional passing cases: invalid/empty proof and wrong identity rejected; late completion and independent daily cycles; mocked Apps Script email calls and log keys; uncertain delivery reservation suppresses automatic resend; overlapping state transitions are rejected by the document lock mock.
 
-**Live integration evidence:** the bound Apps Script executed `recurrenceNow` successfully and its deployed POST endpoint returned `{"created":0}` on repeat. The n8n recurrence workflow executed successfully against that endpoint and returned the same value. Manager and leadership workflows also executed successfully with `{"alerts":0}` at the current pre-deadline time. All three schedules were published and verified active after an n8n restart. The private Sheet queue displayed four Pending cycles with correct local due days. No email was sent. Authenticated end-user completion, manager acknowledgement, and actual delivery remain unverified.
+The three new sidebar tests verify that the Sheet employee view sends a ticket or structured daily report once to `submitCompletion`, and the manager view calls `managerAcknowledge`. The underlying state transitions are covered by the engine and adapter tests.
+
+**Live integration evidence:** the bound Apps Script executed `recurrenceNow` successfully and its deployed POST endpoint returned `{"created":0}` on repeat. The n8n recurrence workflow executed successfully against that endpoint and returned the same value. Manager and leadership workflows also executed successfully with `{"alerts":0}` at the current pre-deadline time. All three schedules were published and verified active after an n8n restart. The private Sheet queue displayed four Pending cycles with correct local due days. A fresh Sheet tab showed the **Ops Tasks** menu, and **My tasks** opened its authenticated sidebar. The manager dashboard showed all four employees. No email was sent. Authenticated end-user completion, manager acknowledgement, and actual delivery remain unverified.

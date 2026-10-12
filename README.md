@@ -1,6 +1,6 @@
 # Recurring Operations Automation
 
-A Google Sheets operations tracker for four example recurring tasks. Employees open **Employee_Queue** and use the **My tasks** sidebar to submit a ticket or daily report once. Managers see every open issue in **Manager_Dashboard**, acknowledge alerts separately, and receive escalation emails after the configured SLA. n8n supplies schedules; Apps Script owns state changes.
+A Google Sheets operations tracker for four example recurring tasks. Employees open **Employee_Queue** and use **Ops Tasks → My tasks** inside the Sheet to submit a ticket or daily report once. Managers see every open issue in **Manager_Dashboard**, acknowledge alerts separately, and receive escalation emails after the configured SLA. n8n supplies schedules; Apps Script owns state changes.
 
 **Private prototype Sheet:** a native workbook with dummy identities has been prepared. Its private link is supplied separately in the review package. A bound Apps Script web app is deployed and three n8n schedules are active in dry-run mode.
 
@@ -12,7 +12,7 @@ A Google Sheets operations tracker for four example recurring tasks. Employees o
 | Apps Script / automation | [State engine](apps-script/TaskManager.gs), [Sheet adapter](apps-script/Code.gs), employee and manager sidebars |
 | Daily Task Completion Tracking | Required structured report: work completed, pending work and count, blockers, optional remarks |
 | Manager Alerts & Leadership Escalation | Configurable weekday schedules, independent acknowledgement, reserved deduplication keys, dry-run default |
-| Working Demonstration / Test Cases | [15 executed local tests](tests/test-results.md), covering all eight assignment scenarios and edge cases |
+| Working Demonstration / Test Cases | [18 executed local tests](tests/test-results.md), covering all eight assignment scenarios and edge cases |
 
 ## Flow
 
@@ -34,6 +34,7 @@ Requires Node.js 22 or newer. No credentials are needed.
 ```bash
 node --test tests/automated/engine.test.cjs
 node --test tests/automated/apps-script.test.cjs
+node --test tests/automated/sidebar.test.cjs
 ```
 
 The tests use an injected clock and do not send email. See [test results](tests/test-results.md) and the [eight-case demonstration script](tests/demo-script.md).
@@ -42,7 +43,7 @@ The tests use an injected clock and do not send email. See [test results](tests/
 
 Follow [setup](docs/setup.md) for Apps Script attachment, authenticated employee identity, n8n environment variables, safe recipient configuration and activation. Review [architecture](docs/architecture.md), [SLA rules](docs/sla-logic.md), and [limitations](docs/limitations.md) first. Three importable n8n workflow JSON files are in [n8n-workflows](n8n-workflows/). Completion runs inside Apps Script, so there is no duplicate n8n completion workflow.
 
-**Current status:** the private Sheet, bound Apps Script web app, and three active n8n schedules are connected. Live n8n calls returned recurrence `created:0`, manager `alerts:0`, and leadership `alerts:0` at the current time. The Sheet still uses dummy `.invalid` identities and `dryRun=true`; authenticated employee and manager submissions and real email delivery remain unverified.
+**Current status:** the private Sheet is the human operating interface: its custom menu opens an employee sidebar and a manager review sidebar, both backed by the same Apps Script state service used by the bound web app and n8n. The web app is the automation endpoint. The Sheet, web app, and three active n8n schedules are connected. Live n8n calls returned recurrence `created:0`, manager `alerts:0`, and leadership `alerts:0` at the current time. The Sheet still uses dummy `.invalid` identities and `dryRun=true`; authenticated employee and manager submissions and real email delivery remain unverified.
 
 ## Safety
 

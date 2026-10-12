@@ -4,7 +4,7 @@
 
 The prepared private prototype, linked in the review package, contains all six tabs and four dummy cycles. Keep its sharing restricted. For a new Sheet, create a blank native Google Spreadsheet, open **Extensions → Apps Script**, paste the four files from `apps-script/` into a bound project, and run `setupPrototype()` once. **Do not run `setupPrototype()` on the prepared workbook** because it intentionally resets the tabs.
 
-The prepared workbook already has the bound Apps Script project attached and authorized. Save and reload the Sheet; the **Ops Tasks** menu should appear. Check that `Task_Master` and `Settings` contain only test data. Replace the four `.invalid` employee emails with controlled Google accounts. Update the corresponding Employee_Queue email values or reset the queue in a new test workbook. Set a verified test manager account in Settings. Leave `dryRun=true` and the leadership address as `.invalid` until email tests are authorized.
+The prepared workbook already has the bound Apps Script project attached and authorized. Open the Sheet in a fresh tab; the **Ops Tasks** menu should appear. From **Employee_Queue**, employees choose **Ops Tasks → My tasks** to submit once. From **Manager_Dashboard**, managers choose **Ops Tasks → Manager review** to acknowledge an alert without resolving the employee task. Check that `Task_Master` and `Settings` contain only test data. Replace the four `.invalid` employee emails with controlled Google accounts. Update the corresponding Employee_Queue email values or reset the queue in a new test workbook. Set a verified test manager account in Settings. Leave `dryRun=true` and the leadership address as `.invalid` until email tests are authorized.
 
 ## 2. Verify identity
 
