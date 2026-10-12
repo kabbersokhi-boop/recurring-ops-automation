@@ -103,7 +103,18 @@ var OpsEngine = (function () {
     return { state, duplicate: false };
   }
   function dashboard(state, now) {
-    return state.cycles.map(c => Object.assign({}, c, { overdueMinutes: c.status === 'Completed' ? 0 : Math.max(0, Math.floor((timeMs(now) - timeMs(c.dueAt)) / 60000)), escalationAt: dueAt(afterWorking(c.dueDay, config(state).holidays), config(state).escalationTime, config(state).timezone) }));
+    const cfg = config(state);
+    return state.cycles.map(c => {
+      const nextDay = afterWorking(c.dueDay, cfg.holidays);
+      const acknowledgementDueAt = dueAt(nextDay, cfg.acknowledgementTime, cfg.timezone);
+      const managerAlertExists = state.alerts.some(a => a.cycleId === c.id && a.level === 'manager');
+      return Object.assign({}, c, {
+        overdueMinutes: c.status === 'Completed' ? 0 : Math.max(0, Math.floor((timeMs(now) - timeMs(c.dueAt)) / 60000)),
+        acknowledgementDueAt,
+        acknowledgementLate: managerAlertExists && !c.acknowledgedAt && timeMs(now) >= timeMs(acknowledgementDueAt),
+        escalationAt: dueAt(nextDay, cfg.escalationTime, cfg.timezone)
+      });
+    });
   }
   function reconcile(input) {
     const state = clone(input);

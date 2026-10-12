@@ -2,7 +2,7 @@
 
 ## 1. Prepare a private Sheet
 
-The prepared private prototype, linked in the review package, contains all six tabs and four dummy cycles. Keep its sharing restricted. For a new Sheet, create a blank native Google Spreadsheet, open **Extensions → Apps Script**, paste the four files from `apps-script/` into a bound project, and run `setupPrototype()` once. **Do not run `setupPrototype()` on the prepared workbook** because it intentionally resets the tabs.
+The prepared private prototype, linked in the review package, contains all six tabs and four dummy cycles. Keep its sharing restricted. For a new Sheet, create a blank native Google Spreadsheet, open **Extensions → Apps Script**, add TaskManager.gs, Code.gs, Sidebar.html and ManagerSidebar.html from `apps-script/` to a bound project, using the supplied appsscript.json manifest, and run `setupPrototype()` once. **Do not run `setupPrototype()` on the prepared workbook** because it intentionally resets the tabs.
 
 The prepared workbook already has the bound Apps Script project attached and authorized. Open the Sheet in a fresh tab; the **Ops Tasks** menu should appear. From **Employee_Queue**, employees choose **Ops Tasks → My tasks** to submit once. From **Manager_Dashboard**, managers choose **Ops Tasks → Manager review** to acknowledge an alert without resolving the employee task. Check that `Task_Master` and `Settings` contain only test data. Replace the four `.invalid` employee emails with controlled Google accounts. Update the corresponding Employee_Queue email values or reset the queue in a new test workbook. Set a verified test manager account in Settings. Leave `dryRun=true` and the leadership address as `.invalid` until email tests are authorized.
 
@@ -38,4 +38,11 @@ Use only an inbox you control. First run the manager and leadership actions in d
 
 ## 6. Test and reset
 
-Run both `node --test tests/automated/engine.test.cjs` and `node --test tests/automated/apps-script.test.cjs` for the deterministic engine and mocked Apps Script service. For a live demonstration, use a separate disposable private workbook. The test clock exists in the local harness; production Apps Script always uses actual time. The [demonstration script](../tests/demo-script.md) maps the eight assignment tests to inputs and expected evidence.
+Run `node --test tests/automated/engine.test.cjs`, `node --test tests/automated/apps-script.test.cjs` and `node --test tests/automated/sidebar.test.cjs` for the deterministic engine, mocked Apps Script service and Sheet sidebar call paths. For a live demonstration, use a separate disposable private workbook. The test clock exists in the local harness; production Apps Script always uses actual time. The [demonstration script](../tests/demo-script.md) maps the eight assignment tests to inputs and expected evidence.
+
+
+## 7. Update the prepared bound project
+
+Use the verified private Sheet, then **Extensions → Apps Script**. The prepared live project stores TaskManager.gs and Code.gs together in one Code.gs file. Replace that file with their concatenated source and update the corresponding HTML file; do not add a second copy of the engine or adapter. Save, then use **Deploy → Manage deployments → Edit → New version → Deploy** for the existing web app so n8n keeps its endpoint. Saving source alone does not update a versioned web app.
+
+Run a dry-run recurrence call to refresh the dashboard and read back its headers and deadline values. Never run setupPrototype on the prepared Sheet. Verify `dryRun=true` and dummy-only recipient cells before any alert call. The current verified outcome is recorded in [deployment record](deployment-record.md).

@@ -27,6 +27,10 @@ function harness(failSend=false){
 test('Apps Script manager and leadership actions send one grouped email each and log stable keys',()=>{
   const h=harness();assert.equal(h.context.managerAlertsNow(),1);assert.equal(h.sent.length,1);assert.equal(h.context.managerAlertsNow(),0);assert.equal(h.sent.length,1);
   h.clock.now='2026-10-12T08:30:00Z';assert.equal(h.context.leadershipNow(),1);assert.equal(h.sent.length,2);assert.equal(h.context.leadershipNow(),0);assert.equal(h.tables.Alert_Log.length,3);
+  assert.equal(h.tables.Manager_Dashboard[0].length,15);
+  assert.equal(h.tables.Manager_Dashboard[0][8],'Acknowledgement due');
+  assert.equal(h.tables.Manager_Dashboard[1][8],'2026-10-12T10:00:00+05:30');
+  assert.equal(h.tables.Manager_Dashboard[1][7],'Late');
 });
 test('Apps Script uncertain delivery stays reserved and is not resent',()=>{
   const h=harness(true);assert.throws(()=>h.context.managerAlertsNow(),/Simulated transport uncertainty/);assert.equal(h.tables.Alert_Log[1][8],'UNKNOWN');assert.equal(h.context.managerAlertsNow(),0);

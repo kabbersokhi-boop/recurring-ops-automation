@@ -38,6 +38,14 @@ test('6 leadership escalation for unresolved acknowledged or unacknowledged task
  const out=E.alertCandidates(s,at('2026-10-13','14:00'),'leadership');assert.equal(out.length,4);assert.equal(out.find(x=>x.cycleId===a.cycleId).acknowledged,true);
 });
 test('7 holiday and weekend defer next-workday escalation',()=>{const s=generated();assert.equal(E.afterWorking('2026-10-09',s.settings.holidays),'2026-10-13');assert.equal(E.alertCandidates(s,at('2026-10-13','13:59'),'leadership').length,0);assert.equal(E.alertCandidates(s,at('2026-10-13','14:00'),'leadership').length,4);});
+test('manager acknowledgement target uses configured next working-day time',()=>{
+ let s=generated();s.settings.acknowledgementTime='10:30';const a=E.alertCandidates(s,at('2026-10-09','17:15'),'manager')[0];s=E.reserveAlert(s,a,at('2026-10-09','17:15')).state;
+ const before=E.dashboard(s,at('2026-10-13','10:29')).find(c=>c.id===a.cycleId);
+ assert.equal(before.acknowledgementDueAt,at('2026-10-13','10:30'));assert.equal(before.acknowledgementLate,false);
+ const atDeadline=E.dashboard(s,at('2026-10-13','10:30')).find(c=>c.id===a.cycleId);assert.equal(atDeadline.acknowledgementLate,true);
+ s=E.acknowledge(s,a.cycleId,'manager@example.invalid',at('2026-10-13','10:31')).state;
+ assert.equal(E.dashboard(s,at('2026-10-13','10:32')).find(c=>c.id===a.cycleId).acknowledgementLate,false);
+});
 test('8 duplicate cycles, completions and alerts are prevented',()=>{
  let s=generated();assert.equal(E.recurrence(s,at('2026-10-09')).created,0);
  let r=E.complete(s,'P7:2026-10-09',{ticketId:'OPS-123'},'b@example.invalid',at('2026-10-09','16:00'));s=r.state;

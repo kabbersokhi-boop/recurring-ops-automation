@@ -61,8 +61,10 @@ test('Sheet employee sidebar submits a daily report without a ticket', () => {
 
 test('Sheet manager sidebar acknowledges an alert through the shared manager service', () => {
   const id = 'PORTAL7:2026-10-13';
-  const h = sidebar('ManagerSidebar.html', 'managerIssues', [{ id, task: 'Portal Task A', employee: 'Employee B', dueAt: '2026-10-13T17:00:00+05:30', escalationAt: '2026-10-14T14:00:00+05:30', status: 'Pending', overdueMinutes: 30, ticketId: '', report: null, alerted: true, acknowledgedAt: '' }]);
+  const h = sidebar('ManagerSidebar.html', 'managerIssues', [{ id, task: 'Portal Task A', employee: 'Employee B', dueAt: '2026-10-13T17:00:00+05:30', acknowledgementDueAt: '2026-10-14T10:00:00+05:30', acknowledgementLate: true, escalationAt: '2026-10-14T14:00:00+05:30', status: 'Pending', overdueMinutes: 30, ticketId: '', report: null, alerted: true, acknowledgedAt: '' }]);
   assert.match(h.elements.get('issues').innerHTML, /Acknowledge alert/);
+  assert.match(h.elements.get('issues').innerHTML, /Acknowledge by 2026-10-14T10:00:00\+05:30/);
+  assert.match(h.elements.get('issues').innerHTML, /Acknowledgement: Late/);
   h.context.ack(id);
   assert.equal(h.calls.length, 1);
   assert.deepEqual(h.calls[0], { method: 'managerAcknowledge', id });

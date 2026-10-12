@@ -1,6 +1,6 @@
 # Eight-case demonstration script
 
-The fast demonstration is reproducible with `node --test tests/automated/engine.test.cjs` and `node --test tests/automated/apps-script.test.cjs`; each named subtest prints `ok` or `not ok`. The local engine accepts a supplied ISO timestamp, so no waiting across days is required. The live Sheet demonstration needs the Apps Script setup described in `docs/setup.md`.
+The fast demonstration is reproducible with `node --test tests/automated/engine.test.cjs`, `node --test tests/automated/apps-script.test.cjs` and `node --test tests/automated/sidebar.test.cjs`; each named subtest prints `ok` or `not ok`. The local engine accepts a supplied ISO timestamp, so no waiting across days is required. The live Sheet demonstration needs the Apps Script setup described in `docs/setup.md`.
 
 1. **Recurrence:** complete `P7:2026-10-09` with `OPS-123`; inspect the linked `P7:2026-10-16` cycle.
 2. **Single point:** inspect `P7` in the employee queue; submit one Ticket ID; inspect one completed cycle and one history event.
@@ -11,4 +11,6 @@ The fast demonstration is reproducible with `node --test tests/automated/engine.
 7. **Timing:** use Friday 2026-10-09, weekend and Monday holiday; show escalation occurs Tuesday 2026-10-13 at 14:00, not 13:59.
 8. **Duplicates:** rerun recurrence, completion and alert reservation; inspect zero new cycles and duplicate flags.
 
-The six extra tests cover invalid proofs, wrong identity, late completion, simultaneous tasks, daily independence, mocked email delivery and lock contention.
+The eleven additional tests cover invalid proofs, wrong identity, late completion, simultaneous tasks, daily independence, mocked email delivery, date normalization, acknowledgement deadline rendering, sidebar submission paths and mocked lock contention.
+
+The current live Sheet intentionally uses dummy identities and dry-run mode. Show its task master, four queue rows, dashboard acknowledgement deadline and Alert_Log, then explain which actions have only local evidence. A full live employee/manager/email demonstration requires a separate QA workbook, controlled test accounts and a verified inbox. Do not put a personal address in the prepared workbook or claim that zero-alert pre-deadline calls prove delivery.

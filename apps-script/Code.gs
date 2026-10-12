@@ -6,7 +6,7 @@ const TAB = {
   settings: ['Key','Value']
 };
 const NAMES = { tasks:'Task_Master', cycles:'Employee_Queue', history:'Task_History', alerts:'Alert_Log', settings:'Settings' };
-const DASH_HEADERS = ['Cycle ID','Task','Employee','Due at','Status','Overdue hours','Manager alert','Acknowledgement','Acknowledged at','Acknowledged by','Escalation at','Escalation level','Resolution','Completion proof'];
+const DASH_HEADERS = ['Cycle ID','Task','Employee','Due at','Status','Overdue hours','Manager alert','Acknowledgement','Acknowledgement due','Acknowledged at','Acknowledged by','Escalation at','Escalation level','Resolution','Completion proof'];
 function setupPrototype() {
   const ss = SpreadsheetApp.getActive();
   Object.keys(TAB).forEach(k => {
@@ -60,7 +60,7 @@ function writeState(s) {
     alerts:s.alerts.map(a=>[a.key,a.cycleId,a.level,a.recipient,a.employee,a.task,a.dueAt,a.at,a.state,a.messageId||'',''])
   };
   Object.keys(rows).forEach(k=>{const sh=SpreadsheetApp.getActive().getSheetByName(NAMES[k]);const old=Math.max(0,sh.getLastRow()-1);const count=Math.max(old,rows[k].length);if(count){const blank=Array(TAB[k].length).fill('');const padded=rows[k].concat(Array.from({length:count-rows[k].length},()=>blank.slice()));sh.getRange(2,1,count,TAB[k].length).setValues(padded);}});
-  const dash=SpreadsheetApp.getActive().getSheetByName('Manager_Dashboard');if(dash){const alertsByCycle=id=>s.alerts.filter(a=>a.cycleId===id);const visible=OpsEngine.dashboard(s,nowIso()).filter(c=>c.status==='Pending'||alertsByCycle(c.id).length);const view=visible.map(c=>{const alerts=alertsByCycle(c.id),manager=alerts.some(a=>a.level==='manager'),leader=alerts.some(a=>a.level==='leadership');return[c.id,c.task,c.employee,c.dueAt,c.status,Math.round(c.overdueMinutes/60*10)/10,manager?'Sent or reserved':'No alert',c.acknowledgedAt?'Acknowledged':'Pending',c.acknowledgedAt,c.acknowledgedBy,c.escalationAt,leader?'Leadership':manager?'Manager':'None',c.status==='Completed'?'Resolved':'Unresolved',c.ticketId||JSON.stringify(c.report||'')];});const count=Math.max(Math.max(0,dash.getLastRow()-1),view.length);if(count)dash.getRange(2,1,count,DASH_HEADERS.length).setValues(view.concat(Array.from({length:count-view.length},()=>Array(DASH_HEADERS.length).fill(''))));}
+  const dash=SpreadsheetApp.getActive().getSheetByName('Manager_Dashboard');if(dash){dash.getRange(1,1,1,DASH_HEADERS.length).setValues([DASH_HEADERS]);const alertsByCycle=id=>s.alerts.filter(a=>a.cycleId===id);const visible=OpsEngine.dashboard(s,nowIso()).filter(c=>c.status==='Pending'||alertsByCycle(c.id).length);const view=visible.map(c=>{const alerts=alertsByCycle(c.id),manager=alerts.some(a=>a.level==='manager'),leader=alerts.some(a=>a.level==='leadership');return[c.id,c.task,c.employee,c.dueAt,c.status,Math.round(c.overdueMinutes/60*10)/10,manager?'Sent or reserved':'No alert',c.acknowledgedAt?'Acknowledged':c.acknowledgementLate?'Late':'Pending',c.acknowledgementDueAt,c.acknowledgedAt,c.acknowledgedBy,c.escalationAt,leader?'Leadership':manager?'Manager':'None',c.status==='Completed'?'Resolved':'Unresolved',c.ticketId||JSON.stringify(c.report||'')];});const count=Math.max(Math.max(0,dash.getLastRow()-1),view.length);if(count)dash.getRange(2,1,count,DASH_HEADERS.length).setValues(view.concat(Array.from({length:count-view.length},()=>Array(DASH_HEADERS.length).fill(''))));}
   SpreadsheetApp.flush();
 }
 function locked(fn) { const l=LockService.getDocumentLock(); if(!l.tryLock(30000))throw Error('System busy; retry shortly'); try {return fn();} finally {l.releaseLock();} }
