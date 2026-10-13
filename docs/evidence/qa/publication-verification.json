@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-13",
+  "privateValueScan": {
+    "knownPrivateValuesCompared": 21,
+    "findings": 0,
+    "scope": "All tracked and untracked repository publication files, plus PNG metadata. Private comparison values never printed."
+  },
+  "visualReview": {
+    "publicPngs": 31,
+    "video": "../../demo/qa-screen-review.mp4",
+    "videoDurationSeconds": 310,
+    "videoSegmentsReviewed": 6,
+    "sampledFrames": "Beginning, middle and end of every segment; fixed crops/redactions applied to every frame.",
+    "scope": "Only dedicated task windows; private identities/URLs excluded. No reconstructed results."
+  },
+  "localRegression": {
+    "pass": 22,
+    "fail": 0
+  },
+  "integratedAssignmentCases": {
+    "pass": 8,
+    "fail": 0,
+    "blocked": 0
+  },
+  "backendDigestMatchesLiveVersion11": true,
+  "jsonFilesParsedBeforeThisReport": 63,
+  "brokenDocumentationLinks": 0,
+  "diffWhitespaceErrors": 0
+}

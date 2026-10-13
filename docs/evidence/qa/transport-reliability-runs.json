@@ -1,0 +1,179 @@
+{
+  "evidenceType": "Actual n8n execution results; the injected failure is expected",
+  "runs": [
+    {
+      "label": "reliability-dry-manager",
+      "evaluation": {
+        "ok": true,
+        "reserved": 4,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-16T11:45:00.000Z",
+        "executedAt": "2026-10-13T05:09:15.804Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ],
+      "workflowError": false
+    },
+    {
+      "label": "reliability-mode-mailpit",
+      "evaluation": {
+        "ok": true,
+        "reserved": 4,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-16T11:45:00.000Z",
+        "executedAt": "2026-10-13T05:10:06.605Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications",
+        "Claim once",
+        "Verify claim result",
+        "Mailpit claim accepted",
+        "Capture through existing Mailpit",
+        "Record transport outcome",
+        "Verify recorded outcome"
+      ],
+      "workflowError": false,
+      "Claim once": [
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:manager:DAILY:2026-10-16"
+        },
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:manager:PORTAL7:2026-10-16"
+        },
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:manager:PORTAL15:2026-10-16"
+        },
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:manager:PORTAL30:2026-10-16"
+        }
+      ],
+      "Record transport outcome": [
+        {
+          "ok": true,
+          "state": "SENT"
+        },
+        {
+          "ok": true,
+          "state": "SENT"
+        },
+        {
+          "ok": true,
+          "state": "SENT"
+        },
+        {
+          "ok": true,
+          "state": "SENT"
+        }
+      ]
+    },
+    {
+      "label": "reliability-mode-repeat",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-20T14:00:00+05:30",
+        "executedAt": "2026-10-13T05:11:23.233Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ],
+      "workflowError": false
+    },
+    {
+      "label": "reliability-smtp-failure",
+      "evaluation": {
+        "ok": true,
+        "reserved": 4,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-20T14:00:00+05:30",
+        "executedAt": "2026-10-13T05:11:19.925Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications",
+        "Claim once",
+        "Verify claim result",
+        "Mailpit claim accepted",
+        "Capture through existing Mailpit",
+        "Record transport outcome",
+        "Verify recorded outcome"
+      ],
+      "workflowError": true,
+      "Claim once": [
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:leadership:DAILY:2026-10-16"
+        },
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:leadership:PORTAL7:2026-10-16"
+        },
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:leadership:PORTAL15:2026-10-16"
+        },
+        {
+          "ok": true,
+          "claimed": true,
+          "key": "MAILPIT:leadership:PORTAL30:2026-10-16"
+        }
+      ],
+      "Record transport outcome": [
+        {
+          "ok": true,
+          "state": "UNKNOWN"
+        },
+        {
+          "ok": true,
+          "state": "UNKNOWN"
+        },
+        {
+          "ok": true,
+          "state": "UNKNOWN"
+        },
+        {
+          "ok": true,
+          "state": "UNKNOWN"
+        }
+      ],
+      "smtpConnectionRefusedReported": true,
+      "uncertainDeliveryReported": true
+    },
+    {
+      "label": "reliability-failure-repeat",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-20T14:00:00+05:30",
+        "executedAt": "2026-10-13T05:12:34.936Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ],
+      "workflowError": false
+    }
+  ]
+}

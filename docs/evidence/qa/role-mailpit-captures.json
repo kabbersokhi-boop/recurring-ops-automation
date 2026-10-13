@@ -1,0 +1,41 @@
+{
+  "scope": "Actual known QA cycle captures; Mailpit is not Gmail inbox delivery",
+  "messages": [
+    {
+      "ID": "c5gJmpkYnVbzQf5sakK6hK",
+      "To": [
+        {
+          "Name": "",
+          "Address": "manager@ops-demo.test"
+        }
+      ],
+      "Subject": "[OPS QA] Overdue task | PORTAL30:2026-10-15",
+      "Text": "TEST MODE \u2014 isolated QA environment\r\nEscalation level: manager\r\nEmployee: Employee D\r\nTask: Portal Task C\r\nCycle: PORTAL30:2026-10-15\r\nDue (business time): 2026-10-15T17:00:00+05:30\r\nEvaluation (business time): 2026-10-15T11:45:00.000Z\r\nReason: Employee task pending after deadline\r\nActual reservation time: 2026-10-13T11:00:50.793Z\r\n\r\nOpen the private QA Sheet \u2192 Ops Tasks \u2192 Manager review. Acknowledge the issue; employee completion remains independent.\r\n",
+      "actualCaptureTimestamp": "2026-10-13T11:01:06.657Z"
+    },
+    {
+      "ID": "2nhmKXo6AGqDvhQzpd4hbj",
+      "To": [
+        {
+          "Name": "",
+          "Address": "manager@ops-demo.test"
+        }
+      ],
+      "Subject": "[OPS QA] Overdue task | PORTAL15:2026-10-15",
+      "Text": "TEST MODE \u2014 isolated QA environment\r\nEscalation level: manager\r\nEmployee: Employee C\r\nTask: Portal Task B\r\nCycle: PORTAL15:2026-10-15\r\nDue (business time): 2026-10-15T17:00:00+05:30\r\nEvaluation (business time): 2026-10-15T11:45:00.000Z\r\nReason: Employee task pending after deadline\r\nActual reservation time: 2026-10-13T11:00:50.792Z\r\n\r\nOpen the private QA Sheet \u2192 Ops Tasks \u2192 Manager review. Acknowledge the issue; employee completion remains independent.\r\n",
+      "actualCaptureTimestamp": "2026-10-13T11:01:06.591Z"
+    },
+    {
+      "ID": "nADr5Z8Dxa2prewgjXCjmJ",
+      "To": [
+        {
+          "Name": "",
+          "Address": "leadership@ops-demo.test"
+        }
+      ],
+      "Subject": "[OPS QA] Leadership escalation | PORTAL30:2026-10-15",
+      "Text": "TEST MODE \u2014 isolated QA environment\r\nEscalation level: leadership\r\nEmployee: Employee D\r\nTask: Portal Task C\r\nCycle: PORTAL30:2026-10-15\r\nDue (business time): 2026-10-15T17:00:00+05:30\r\nEvaluation (business time): 2026-10-16T14:00:00+05:30\r\nReason: Employee task unresolved\r\nActual reservation time: 2026-10-13T11:30:53.324Z\r\n\r\nOpen the private QA Sheet \u2192 Ops Tasks \u2192 Manager review. Acknowledge the issue; employee completion remains independent.\r\n",
+      "actualCaptureTimestamp": "2026-10-13T11:31:03.871Z"
+    }
+  ]
+}

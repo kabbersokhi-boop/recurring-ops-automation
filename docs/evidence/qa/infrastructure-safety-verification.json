@@ -1,0 +1,17 @@
+{
+  "verifiedAtActualUtc": "2026-10-13",
+  "originalDryRunSchedules": {
+    "count": 3,
+    "allActive": true
+  },
+  "qaManualWorkflows": {
+    "count": 4,
+    "allSchedulesInactive": true
+  },
+  "qaSharing": {
+    "ownerAccounts": 1,
+    "approvedTestWriters": 2,
+    "publicOrDomainPermission": false
+  },
+  "optionalAdditionalEmployeeLogin": "Not verified; QA sharing granted only. No password inspected."
+}

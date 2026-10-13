@@ -4,6 +4,9 @@
 <button onclick="clock('due')">Task due</button><button onclick="clock('before')">5 minutes before manager alert</button><button onclick="clock('manager')">Manager threshold</button><button onclick="clock('acknowledgement')">Acknowledgement deadline</button><button onclick="clock('leadership')">Leadership threshold</button>
 <p><label>Custom business time (ISO with timezone) <input id="when" size="32" placeholder="2026-10-19T14:00:00+05:30"></label><button onclick="time()">Set business time</button></p>
 <h2>Notification transport</h2><button onclick="mode('DRY_RUN')">DRY_RUN</button><button onclick="mode('MAILPIT')">MAILPIT</button><button onclick="mode('GMAIL_TEST')">Approved Gmail test inbox</button>
+<h2>Dummy employee simulation</h2><p><strong>SIMULATED — QA administrator only.</strong> Real Google test accounts use the normal authenticated Sheet sidebar. B/C/D keep separate employee IDs and assignments; only those currently assigned a dummy address appear here. This control runs the same validation and recurrence engine; it does not authenticate as a dummy employee.</p>
+<p><label>Dummy cycle <select id="dummyCycle"></select></label><br><label>Ticket ID <input id="dummyTicket" placeholder="QA-EMP-B-001"></label><button onclick="simulate()">Simulate dummy completion</button></p>
+<p><button onclick="roles()">Configure four distinct QA roles</button>Preserves earlier records in a private backup. Reset QA afterward to start the new role demonstration.</p>
 <h2>Repeat demonstration</h2><label>Start date <input type="date" id="day" value="2026-10-13"></label><label>Holiday dates (JSON array) <input id="holidays" value="[]"></label><button onclick="resetQA()">Reset QA records</button>
 <p><button onclick="backup()">Preserve current QA records</button><button onclick="restore()">Restore preserved QA records</button></p>
 <p><button onclick="calendar()">Weekend and holiday timing scenario</button>Preserves current records, resets QA to Friday with a Monday holiday, then selects DRY_RUN.</p>
@@ -11,7 +14,9 @@
 <div id="result" role="status"></div><script>
 const fail=e=>document.getElementById('result').textContent=e.message;
 function done(r){document.getElementById('result').textContent=JSON.stringify(r,null,2);load();}
-function load(){google.script.run.withSuccessHandler(r=>document.getElementById('status').textContent=JSON.stringify(r,null,2)).withFailureHandler(fail).qaAdminState();}
+function load(){google.script.run.withSuccessHandler(r=>{const selected=document.getElementById('dummyCycle').value;document.getElementById('status').textContent=JSON.stringify({businessNow:r.businessNow,actualNow:r.actualNow,mode:r.mode,counts:r.counts},null,2);const select=document.getElementById('dummyCycle');select.replaceChildren();r.dummyCycles.forEach(c=>{const option=document.createElement('option');option.value=c.id;option.textContent=c.employeeId+' · '+c.id+' · '+c.status;select.appendChild(option);});if(Array.from(select.options).some(o=>o.value===selected))select.value=selected;}).withFailureHandler(fail).qaAdminState();}
+function simulate(){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminSimulateCompletion(document.getElementById('dummyCycle').value,{ticketId:document.getElementById('dummyTicket').value});}
+function roles(){if(!confirm('Preserve earlier records and configure Employee A as authenticated and B/C/D as distinct dummy employees? Reset QA afterward.'))return;google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminConfigureRoles();}
 function clock(p){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminClock(p);}
 function mode(m){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminMode(m);}
 function time(){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminTime(document.getElementById('when').value);}

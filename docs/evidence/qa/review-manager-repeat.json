@@ -1,0 +1,15 @@
+{
+  "scenario": "Post-review actual manager workflow replay",
+  "result": {
+    "ok": true,
+    "reserved": 0,
+    "businessNow": "2026-10-16T14:00:00+05:30",
+    "mode": "MAILPIT"
+  },
+  "executedNodes": [
+    "Run QA scenario",
+    "Evaluate business state",
+    "Pending notifications"
+  ],
+  "smtpExecuted": false
+}

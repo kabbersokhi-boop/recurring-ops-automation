@@ -1,6 +1,111 @@
 {
-  "evidenceType": "Actual n8n execution database, filtered to three isolated QA workflows",
+  "evidenceType": "Actual execution database restricted to normal QA workflows and isolated expected-failure probe",
   "executions": [
+    {
+      "id": 140487,
+      "workflowId": "ops-qa-manager",
+      "status": "success",
+      "startedAt": "2026-10-13 12:03:21.021",
+      "stoppedAt": "2026-10-13 12:03:31.130"
+    },
+    {
+      "id": 140184,
+      "workflowId": "ops-qa-recurrence",
+      "status": "success",
+      "startedAt": "2026-10-13 11:45:52.991",
+      "stoppedAt": "2026-10-13 11:46:03.772"
+    },
+    {
+      "id": 140027,
+      "workflowId": "ops-qa-recurrence",
+      "status": "success",
+      "startedAt": "2026-10-13 11:36:57.728",
+      "stoppedAt": "2026-10-13 11:37:07.637"
+    },
+    {
+      "id": 139991,
+      "workflowId": "ops-qa-leadership",
+      "status": "success",
+      "startedAt": "2026-10-13 11:34:53.888",
+      "stoppedAt": "2026-10-13 11:35:02.923"
+    },
+    {
+      "id": 139921,
+      "workflowId": "ops-qa-leadership",
+      "status": "success",
+      "startedAt": "2026-10-13 11:30:47.840",
+      "stoppedAt": "2026-10-13 11:31:14.322"
+    },
+    {
+      "id": 139726,
+      "workflowId": "ops-qa-leadership",
+      "status": "success",
+      "startedAt": "2026-10-13 11:19:31.246",
+      "stoppedAt": "2026-10-13 11:19:40.008"
+    },
+    {
+      "id": 139569,
+      "workflowId": "ops-qa-manager",
+      "status": "success",
+      "startedAt": "2026-10-13 11:10:35.195",
+      "stoppedAt": "2026-10-13 11:10:45.655"
+    },
+    {
+      "id": 139398,
+      "workflowId": "ops-qa-manager",
+      "status": "success",
+      "startedAt": "2026-10-13 11:00:46.860",
+      "stoppedAt": "2026-10-13 11:01:17.715"
+    },
+    {
+      "id": 139359,
+      "workflowId": "ops-qa-manager",
+      "status": "success",
+      "startedAt": "2026-10-13 10:58:36.186",
+      "stoppedAt": "2026-10-13 10:58:43.001"
+    },
+    {
+      "id": 139291,
+      "workflowId": "ops-qa-recurrence",
+      "status": "success",
+      "startedAt": "2026-10-13 10:54:45.666",
+      "stoppedAt": "2026-10-13 10:54:54.810"
+    },
+    {
+      "id": 137869,
+      "workflowId": "ops-qa-failure-probe",
+      "status": "success",
+      "startedAt": "2026-10-13 05:12:29.882",
+      "stoppedAt": "2026-10-13 05:12:36.090"
+    },
+    {
+      "id": 137849,
+      "workflowId": "ops-qa-manager",
+      "status": "success",
+      "startedAt": "2026-10-13 05:11:16.408",
+      "stoppedAt": "2026-10-13 05:11:24.499"
+    },
+    {
+      "id": 137845,
+      "workflowId": "ops-qa-failure-probe",
+      "status": "error",
+      "startedAt": "2026-10-13 05:11:14.664",
+      "stoppedAt": "2026-10-13 05:11:51.337"
+    },
+    {
+      "id": 137826,
+      "workflowId": "ops-qa-manager",
+      "status": "success",
+      "startedAt": "2026-10-13 05:10:01.720",
+      "stoppedAt": "2026-10-13 05:10:38.312"
+    },
+    {
+      "id": 137808,
+      "workflowId": "ops-qa-manager",
+      "status": "success",
+      "startedAt": "2026-10-13 05:09:09.686",
+      "stoppedAt": "2026-10-13 05:09:17.160"
+    },
     {
       "id": 137299,
       "workflowId": "ops-qa-manager",

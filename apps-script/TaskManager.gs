@@ -43,6 +43,7 @@ var OpsEngine = (function () {
     if (!c) throw Error('Cycle not found');
     if (!actor || actor.toLowerCase() !== c.employeeEmail.toLowerCase()) throw Error('Authenticated employee does not own this task');
     if (c.status === 'Completed') return { state, duplicate: true };
+    if (localDay(now, cfg.timezone) < c.dueDay) throw Error('This cycle becomes actionable on ' + c.dueDay);
     if (c.proofType === 'ticket') {
       const ticket = String(proof.ticketId || '').trim();
       if (!/^[A-Za-z0-9][A-Za-z0-9._-]{2,79}$/.test(ticket)) throw Error('Enter a valid Ticket ID (3–80 letters, numbers, dots, underscores or hyphens)');

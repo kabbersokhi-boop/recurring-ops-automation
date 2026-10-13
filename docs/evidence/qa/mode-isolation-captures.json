@@ -1,0 +1,59 @@
+{
+  "evidenceType": "Actual recipient/cycle-filtered Mailpit captures after DRY_RUN mode",
+  "managerCaptures": 4,
+  "businessCycleDay": "2026-10-16",
+  "messages": [
+    {
+      "captureId": "XPFg9T8sxQGyMB3qLzsQqc",
+      "actualCapturedAt": "2026-10-13T05:10:21.689Z",
+      "to": [
+        {
+          "Name": "",
+          "Address": "manager@ops-demo.test"
+        }
+      ],
+      "subject": "[OPS QA] Overdue task | PORTAL30:2026-10-16",
+      "text": "TEST MODE \u2014 isolated QA environment\r\nEscalation level: manager\r\nEmployee: Employee D\r\nTask: Portal Task C\r\nCycle: PORTAL30:2026-10-16\r\nDue (business time): 2026-10-16T17:00:00+05:30\r\nEvaluation (business time): 2026-10-16T11:45:00.000Z\r\nReason: Employee task pending after deadline\r\nActual reservation time: 2026-10-13T05:10:05.004Z\r\n\r\nOpen the private QA Sheet \u2192 Ops Tasks \u2192 Manager review. Acknowledge the issue; employee completion remains independent.\r\n",
+      "mimeDate": "2026-10-13T05:10:21Z"
+    },
+    {
+      "captureId": "ZuLMYkjkXSBsePqgxKfMkL",
+      "actualCapturedAt": "2026-10-13T05:10:21.635Z",
+      "to": [
+        {
+          "Name": "",
+          "Address": "manager@ops-demo.test"
+        }
+      ],
+      "subject": "[OPS QA] Overdue task | PORTAL15:2026-10-16",
+      "text": "TEST MODE \u2014 isolated QA environment\r\nEscalation level: manager\r\nEmployee: Employee C\r\nTask: Portal Task B\r\nCycle: PORTAL15:2026-10-16\r\nDue (business time): 2026-10-16T17:00:00+05:30\r\nEvaluation (business time): 2026-10-16T11:45:00.000Z\r\nReason: Employee task pending after deadline\r\nActual reservation time: 2026-10-13T05:10:05.004Z\r\n\r\nOpen the private QA Sheet \u2192 Ops Tasks \u2192 Manager review. Acknowledge the issue; employee completion remains independent.\r\n",
+      "mimeDate": "2026-10-13T05:10:21Z"
+    },
+    {
+      "captureId": "92j5Jyx3KYeMDMz23TE3uJ",
+      "actualCapturedAt": "2026-10-13T05:10:21.578Z",
+      "to": [
+        {
+          "Name": "",
+          "Address": "manager@ops-demo.test"
+        }
+      ],
+      "subject": "[OPS QA] Overdue task | PORTAL7:2026-10-16",
+      "text": "TEST MODE \u2014 isolated QA environment\r\nEscalation level: manager\r\nEmployee: Employee B\r\nTask: Portal Task A\r\nCycle: PORTAL7:2026-10-16\r\nDue (business time): 2026-10-16T17:00:00+05:30\r\nEvaluation (business time): 2026-10-16T11:45:00.000Z\r\nReason: Employee task pending after deadline\r\nActual reservation time: 2026-10-13T05:10:05.004Z\r\n\r\nOpen the private QA Sheet \u2192 Ops Tasks \u2192 Manager review. Acknowledge the issue; employee completion remains independent.\r\n",
+      "mimeDate": "2026-10-13T05:10:21Z"
+    },
+    {
+      "captureId": "WNA7LzaLQcFfj76DSKztDw",
+      "actualCapturedAt": "2026-10-13T05:10:21.509Z",
+      "to": [
+        {
+          "Name": "",
+          "Address": "manager@ops-demo.test"
+        }
+      ],
+      "subject": "[OPS QA] Overdue task | DAILY:2026-10-16",
+      "text": "TEST MODE \u2014 isolated QA environment\r\nEscalation level: manager\r\nEmployee: Employee A\r\nTask: Daily Operations Update\r\nCycle: DAILY:2026-10-16\r\nDue (business time): 2026-10-16T17:00:00+05:30\r\nEvaluation (business time): 2026-10-16T11:45:00.000Z\r\nReason: Employee task pending after deadline\r\nActual reservation time: 2026-10-13T05:10:05.003Z\r\n\r\nOpen the private QA Sheet \u2192 Ops Tasks \u2192 Manager review. Acknowledge the issue; employee completion remains independent.\r\n",
+      "mimeDate": "2026-10-13T05:10:21Z"
+    }
+  ]
+}

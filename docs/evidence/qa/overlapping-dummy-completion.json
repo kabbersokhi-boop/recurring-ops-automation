@@ -1,0 +1,31 @@
+{
+  "scenario": "Actual double-click of QA-only dummy Employee D completion",
+  "cycleId": "PORTAL30:2026-10-15",
+  "actionMode": "SIMULATED",
+  "actor": "SIMULATED:EMP-D",
+  "actualAppsScriptExecutions": [
+    {
+      "function": "qaAdminSimulateCompletion",
+      "startTimeAsiaKolkata": "2026-10-13 17:06:08",
+      "durationSeconds": 7.79,
+      "status": "Completed"
+    },
+    {
+      "function": "qaAdminSimulateCompletion",
+      "startTimeAsiaKolkata": "2026-10-13 17:06:08",
+      "durationSeconds": 5.72,
+      "status": "Completed"
+    }
+  ],
+  "afterCounts": {
+    "cycles": 7,
+    "completed": 4,
+    "history": 5,
+    "alerts": 3
+  },
+  "completionEventsForCycle": 1,
+  "nextCyclesCreatedForTask": 1,
+  "nextCycle": "PORTAL30:2026-11-16",
+  "secondResponseDuplicate": true,
+  "scope": "Concurrent simulation calls run the shared completion engine and lock. This is not two authenticated employee submissions."
+}

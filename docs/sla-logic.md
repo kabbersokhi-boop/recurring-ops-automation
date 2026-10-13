@@ -42,3 +42,8 @@ claims. Uncertain sends require manual reconciliation.
 
 Schedules catch up after downtime, but cannot guarantee same-day delivery during
 an outage. See the [actual timing and retry evidence](../tests/test-results.md).
+
+Future cycles are tracked as Pending but cannot be completed before their due
+day. The employee sidebar labels them Upcoming and disables submission until
+that day. This prevents early resubmission from linking a recurring cycle to
+itself. Completion earlier on the due day remains allowed.

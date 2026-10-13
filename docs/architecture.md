@@ -4,7 +4,7 @@
 flowchart TB
   E[Employee Sheet sidebar] -->|Google ID token| B[Private Apps Script backend]
   M[Manager Sheet sidebar] -->|Google ID token| B
-  A[Owner-only QA clock and reset panel] --> B
+  A[Owner-only QA clock, reset and labelled dummy simulation] --> B
   N[n8n recurrence / manager / leadership] -->|QA automation token| B
   B <--> S[(Private QA Google Sheet)]
   B -->|MAILPIT outbox reservation| N
@@ -23,7 +23,9 @@ Consumer Google accounts are authenticated using `ScriptApp.getIdentityToken()`
 in the bound client. The backend validates the Google token through tokeninfo,
 its audience, issuer, verified email and expiry against real time. Client-supplied
 actor names are never trusted. Blank identity is rejected. Manager identity is
-configured separately from notification recipients. The original deployment
+configured separately from notification recipients. The Sheet menu obtains the
+Google-signed identity once and keeps it only in that sidebar memory, avoiding
+multi-login callback account switching. Every backend request verifies the token. The original deployment
 continues separately with dummy identities and dry-run schedules.
 
 ## State and concurrency
@@ -51,7 +53,7 @@ promise of exactly-once delivery after every possible crash.
 | Demo_Control | Visible TEST MODE, clock, interface instructions | Backend |
 | Employee_Queue | Cycle state, proof, completion and next cycle | Backend |
 | Task_History | Completion and acknowledgement audit events | Backend |
-| Manager_Dashboard | Consolidated pending/overdue, review and resolution | Backend |
+| Manager_Dashboard | All employee IDs/cycles, completed/pending/overdue, proof, review and resolution | Backend |
 | Alert_Log | Reservations, delivery state and actual timestamps | Backend |
 | Settings | Holidays, SLA and QA configuration | Administrator |
 
@@ -64,3 +66,8 @@ validated using either the private automation token or a role-scoped Google toke
 See [QA setup](qa-setup.md), [SLA](sla-logic.md), [acceptance results](../tests/test-results.md)
 and [limitations](limitations.md). Local tests exercise the shared engine and
 original adapter; they do not substitute for live identity or delivery evidence.
+
+Dummy B/C/D simulation is QA-only and owner-guarded. It uses the shared completion
+engine and lock, then records `SIMULATED:EMP-X`, action mode, administrator initiator
+and actual execution time. Real assigned accounts cannot use this simulation path.
+The normal employee RPC accepts only Google-verified ownership.

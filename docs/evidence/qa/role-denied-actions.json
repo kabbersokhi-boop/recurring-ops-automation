@@ -1,0 +1,23 @@
+[
+  {
+    "scenario": "automation cannot simulate",
+    "response": {
+      "ok": false,
+      "error": "Unknown automation action"
+    }
+  },
+  {
+    "scenario": "unauthenticated cannot complete",
+    "response": {
+      "ok": false,
+      "error": "Google authorization required; no identity token available"
+    }
+  },
+  {
+    "scenario": "automation cannot change clock",
+    "response": {
+      "ok": false,
+      "error": "Unknown automation action"
+    }
+  }
+]

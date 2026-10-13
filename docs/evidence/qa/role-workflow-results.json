@@ -1,0 +1,155 @@
+[
+  {
+    "scenario": "role-recurrence-start",
+    "result": {
+      "ok": true,
+      "created": 0,
+      "businessNow": "2026-10-15T16:00:00+05:30",
+      "executedAt": "2026-10-13T10:54:53.690Z"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Verify recurrence result"
+    ],
+    "smtpExecuted": false
+  },
+  {
+    "scenario": "role-manager-before",
+    "result": {
+      "ok": true,
+      "reserved": 0,
+      "businessNow": "2026-10-15T11:40:00.000Z",
+      "executedAt": "2026-10-13T10:58:41.915Z",
+      "mode": "MAILPIT"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Pending notifications"
+    ],
+    "smtpExecuted": false
+  },
+  {
+    "scenario": "role-manager-at",
+    "result": {
+      "ok": true,
+      "reserved": 2,
+      "businessNow": "2026-10-15T11:45:00.000Z",
+      "executedAt": "2026-10-13T11:00:53.239Z",
+      "mode": "MAILPIT"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Pending notifications",
+      "Claim once",
+      "Verify claim result",
+      "Mailpit claim accepted",
+      "Capture through existing Mailpit",
+      "Record transport outcome",
+      "Verify recorded outcome"
+    ],
+    "smtpExecuted": true
+  },
+  {
+    "scenario": "role-manager-repeat",
+    "result": {
+      "ok": true,
+      "reserved": 0,
+      "businessNow": "2026-10-15T11:45:00.000Z",
+      "executedAt": "2026-10-13T11:10:44.544Z",
+      "mode": "MAILPIT"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Pending notifications"
+    ],
+    "smtpExecuted": false
+  },
+  {
+    "scenario": "role-leadership-before",
+    "result": {
+      "ok": true,
+      "reserved": 0,
+      "businessNow": "2026-10-16T10:00:00+05:30",
+      "executedAt": "2026-10-13T11:19:38.642Z",
+      "mode": "MAILPIT"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Pending notifications"
+    ],
+    "smtpExecuted": false
+  },
+  {
+    "scenario": "role-leadership-at",
+    "result": {
+      "ok": true,
+      "reserved": 1,
+      "businessNow": "2026-10-16T14:00:00+05:30",
+      "executedAt": "2026-10-13T11:30:55.899Z",
+      "mode": "MAILPIT"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Pending notifications",
+      "Claim once",
+      "Verify claim result",
+      "Mailpit claim accepted",
+      "Capture through existing Mailpit",
+      "Record transport outcome",
+      "Verify recorded outcome"
+    ],
+    "smtpExecuted": true
+  },
+  {
+    "scenario": "role-leadership-repeat",
+    "result": {
+      "ok": true,
+      "reserved": 0,
+      "businessNow": "2026-10-16T14:00:00+05:30",
+      "executedAt": "2026-10-13T11:35:01.719Z",
+      "mode": "MAILPIT"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Pending notifications"
+    ],
+    "smtpExecuted": false
+  },
+  {
+    "scenario": "role-recurrence-nextday",
+    "result": {
+      "ok": true,
+      "created": 1,
+      "businessNow": "2026-10-16T14:00:00+05:30",
+      "executedAt": "2026-10-13T11:37:06.529Z"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Verify recurrence result"
+    ],
+    "smtpExecuted": false
+  },
+  {
+    "scenario": "role-recurrence-repeat",
+    "result": {
+      "ok": true,
+      "created": 0,
+      "businessNow": "2026-10-16T14:00:00+05:30",
+      "executedAt": "2026-10-13T11:46:02.669Z"
+    },
+    "executedNodes": [
+      "Run QA scenario",
+      "Evaluate business state",
+      "Verify recurrence result"
+    ],
+    "smtpExecuted": false
+  }
+]

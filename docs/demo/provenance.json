@@ -1,0 +1,38 @@
+{
+  "type": "Edited genuine window-only screen review",
+  "segments": [
+    {
+      "source": "01-admin.mp4",
+      "title": "Private QA controls",
+      "durationSeconds": 50
+    },
+    {
+      "source": "02-manager.mp4",
+      "title": "Separate manager: later resolution",
+      "durationSeconds": 50
+    },
+    {
+      "source": "03-daily-live.mp4",
+      "title": "Live Employee A daily completion",
+      "durationSeconds": 60
+    },
+    {
+      "source": "04-mailpit.mp4",
+      "title": "Actual Mailpit leadership capture",
+      "durationSeconds": 50
+    },
+    {
+      "source": "05-gmail.mp4",
+      "title": "Receiving Gmail Inbox evidence",
+      "durationSeconds": 50
+    },
+    {
+      "source": "06-executions.mp4",
+      "title": "Actual Apps Script execution records",
+      "durationSeconds": 50
+    }
+  ],
+  "totalSeconds": 310,
+  "firstTimeActionsShown": "Additional authenticated daily report submission. Other segments inspect genuine previously executed outcomes.",
+  "notClaimed": "Uninterrupted recording of all eight first-time actions. Two authenticated employees overlapping."
+}

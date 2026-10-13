@@ -1,23 +1,28 @@
 # Publication privacy review — 2026-10-13
 
-Before publication, repository text was scanned for the exact private Sheet,
-project/deployment IDs, QA and original automation secrets, credential IDs,
-client audience and controlled Google account addresses. Credential patterns,
-unapproved email domains and private endpoint patterns were also checked.
-No private matches remain. The original `.env.example` contains an explicit
-`REPLACE_WITH_DEPLOYMENT_ID` placeholder, which was reviewed as a placeholder.
-Reserved `.invalid`, `.example` test addresses and Mailpit `.test` labels are intentional.
+Executed scan of all repository files (including untracked publication material)
+against 21 privately loaded values: original/QA endpoints, project/deployment and
+Sheet IDs, automation tokens, credential identifiers, OAuth audience and four
+controlled account addresses. Additional patterns cover Google API/OAuth keys,
+Google ID tokens, GitHub tokens, private keys, real Sheet links and non-placeholder
+Apps Script URLs. No findings. Private values themselves are never printed.
 
-All 17 public PNGs were visually reviewed: seven historical original images and
-ten new QA images. Browser URLs, private account columns, credentials and unrelated
-resources are excluded by genuine crops. PNG metadata was checked for private
-values; no reconstructed business result or fabricated video was used.
+All 31 PNGs had metadata checked and public images were visually reviewed using contact sheets
+and individual inspections of newly redacted images. Browser tabs/URLs, private
+account identities and unrelated resources are excluded by actual crops and opaque
+redactions. Existing dummy `.invalid` and Mailpit `.test` addresses are intentional.
+The screen review records only dedicated task-owned windows; every segment is
+cropped/redacted before publication and reviewed at beginning/middle/end.
 
-Public QA workflow exports contain endpoint and credential placeholders; private
-imports and execution logs remain outside the repository. Public readbacks replace
-actual account addresses while retaining genuine cycle IDs, counts, proof and
-business/actual timestamps. Commit author uses the repository account's GitHub
-noreply address. The DOCX, private connection files and browser profiles are excluded.
+Public workflow exports contain endpoint/credential placeholders. Real imports,
+connection files, execution payloads and Google identities stay outside Git.
+Public readbacks replace real actors with QA role placeholders and retain genuine
+cycle IDs, proof, counts and business/actual timestamps. Git author uses the public
+GitHub noreply identity. The assignment DOCX, private files and browser profiles
+are excluded. No UI result, email receipt or video action was fabricated.
 
-This is an executed publication review, not proof of complete acceptance. See
-[remaining checks](../tests/test-results.md).
+[Actual acceptance scope](../tests/test-results.md) distinguishes real authenticated
+roles, labelled dummy simulation, SMTP capture and independently verified Gmail Inbox.
+
+[Publication verification](evidence/qa/publication-verification.json) records the
+executed scan, visual checks, 5:10 video duration and acceptance scope.

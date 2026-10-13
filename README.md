@@ -10,14 +10,47 @@ tracks manager acknowledgement independently of employee resolution.
 A separate private QA Sheet and owner-only Apps Script backend are deployed.
 Live employee completion, daily reports, recurrence, Mailpit manager/leadership
 notifications, calendar rules and retry prevention have genuine evidence.
-**Six assignment cases PASS; two are BLOCKED:** receiving Gmail inbox verification
-and authenticated second-account manager acknowledgement. The original dummy
+**All eight assignment cases passed against the integrated QA system.** The
+separate manager acknowledged Employee C, which remained Pending until its
+later, explicitly simulated completion. Both limited Gmail test messages were
+independently observed in the receiving account's Inbox. The original dummy
 prototype and its active dry-run schedules remain separate.
 
 Start with the [actual acceptance report](tests/test-results.md),
 [genuine screenshots and record evidence](docs/evidence.md), and
 [5–10 minute presenter walkthrough](tests/demo-script.md).
+[Watch the genuine 5:10 screen review](docs/demo/qa-screen-review.mp4).
 Private resource links and controlled Google account addresses are provided separately.
+
+## QA employee and manager roles
+
+| ID | Assignment | Demonstration identity |
+| --- | --- | --- |
+| EMP-A | Daily Operations Update | Project owner's main Google account; authenticated employee sidebar |
+| EMP-B | Portal Task A, every 7 days | Distinct dummy employee; administrator-only QA simulation |
+| EMP-C | Portal Task B, every 15 days | Distinct dummy employee; administrator-only QA simulation |
+| EMP-D | Portal Task C, every 30 days | Distinct dummy employee; administrator-only QA simulation |
+
+The **main Gmail account is the automation sender**, project owner and authenticated
+Employee A. The **separate testing Gmail account is the authenticated test manager
+and the recipient of the limited real Gmail delivery test**. Actual addresses stay
+in private configuration; public setup uses `QA_ADMIN_EMAIL` and `QA_MANAGER_EMAIL`.
+Manager authentication is independent of Mailpit's logical notification recipients.
+Repeated manager and leadership tests use Mailpit, not the Gmail inbox.
+
+The private administrator panel's **Simulate dummy completion** control validates
+the Ticket ID and invokes the existing completion/recurrence engine. Records say
+`SIMULATED:EMP-B`, `SIMULATED:EMP-C` or `SIMULATED:EMP-D`, with a `SIMULATED`
+action mode, the authenticated administrator who initiated it, business time and
+actual execution time. These are not authenticated logins by dummy employees.
+Employee A and the manager cannot be simulated through this control. The normal
+employee workflow still checks a Google-signed identity against task ownership.
+The manager dashboard includes all employees and their completed, pending and
+overdue cycles, proofs, acknowledgement, completion source, next cycles and history.
+
+Earlier evidence temporarily mapped portal tasks to the owner's account to verify
+authenticated ticket submission. That evidence is retained as an earlier test run;
+the final role scenario uses the four distinct assignments above.
 
 | Deliverable | Review material |
 | --- | --- |
@@ -48,10 +81,10 @@ Follow [QA installation](docs/qa-setup.md), [deployment record](docs/deployment-
 and [verified limits](docs/limitations.md). Original prototype setup remains in
 [setup](docs/setup.md). Do not reset an existing original workbook.
 
-The existing local regression suite still passes **19/19**:
+The original 19 regressions and three QA role checks pass: **22/22**:
 
 ```bash
-node --test tests/automated/engine.test.cjs tests/automated/apps-script.test.cjs tests/automated/sidebar.test.cjs
+node --test tests/automated/*.test.cjs
 ```
 
 These tests do not replace integrated acceptance evidence. SMTP capture and

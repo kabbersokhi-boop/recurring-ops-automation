@@ -3,23 +3,32 @@
 The private QA workbook has genuine employee sidebar completion, linked
 recurrence, structured daily proof, Mailpit manager and leadership capture,
 normal retry deduplication and overlapping n8n execution evidence.
-This does **not** establish every end-to-end acceptance case.
+All eight assignment cases have integrated QA evidence, including a separate
+manager's authenticated acknowledgement and receiving Gmail Inbox inspection.
+This is a controlled demonstration, not a production rollout.
 
-## Outstanding acceptance
+## Scope and unverified checks
 
-- Authenticated second-account manager acknowledgement and later resolution.
-- Independent inspection of the receiving controlled Gmail inbox.
-- Overlapping first-time employee submissions and injected transport failures.
-- A complete screen recording with both authenticated roles, if safe capture
-  and second-account authorization are available.
+- Employee A and manager identities are verified. B/C/D actions are secure
+  administrator-initiated SIMULATED actions through the same engine, explicitly
+  labelled with dummy actor and actual administrator initiator. Earlier portal
+  UI testing temporarily assigned tasks to the owner.
+- Two distinct authenticated employees submitting at the same instant remain
+  unverified. Two real overlapping dummy-simulation executions and overlapping
+  n8n runs are verified. The optional additional employee account reached a
+  sign-in challenge; no password was requested or inspected.
+- Actual refused SMTP is verified. A crash after SMTP success before its receipt
+  remains untested; uncertain outcomes require reconciliation.
+- QA manual workflows have inactive schedules. Original active dry-run schedules
+  were verified previously and remain separate. No multi-day real-time scheduler
+  waiting is claimed.
 
-The acceptance report distinguishes these gaps from local logic tests and actual
-SMTP capture. Sending API success is not independently verified inbox delivery.
-Mailpit is a private SMTP sink; logical `.test` recipients are not real mailboxes.
+SMTP capture and actual receiving Gmail Inbox evidence are reported separately.
+Only the two approved external messages were sent; repeated tests use Mailpit.
 
 ## Operational limits
 
-- Google ID-token validation was exercised with the authenticated employee.
+- Google ID-token validation was exercised with the authenticated employee and separate manager.
   The shared Sheet client is editable by trusted Sheet writers; a malicious
   client editor could harvest short-lived tokens. The private backend still
   restricts roles and keeps admin actions/secrets outside that shared project.

@@ -1,0 +1,19 @@
+{
+  "evidenceType": "Actual pre/post scenario readbacks",
+  "actualRestoredReadbackAt": "2026-10-13T05:17:43.136Z",
+  "recordEquality": {
+    "cycles": true,
+    "history": true,
+    "alerts": true,
+    "dashboard": true,
+    "businessNow": true
+  },
+  "restoredCounts": {
+    "cycles": 5,
+    "completed": 2,
+    "history": 2,
+    "alerts": 6
+  },
+  "restoredMode": "MAILPIT",
+  "gmailAcceptanceKeysRetained": 2
+}

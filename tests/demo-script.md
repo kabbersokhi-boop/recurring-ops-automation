@@ -1,73 +1,75 @@
 # Reproducible 5–10 minute demonstration
 
-This is the exact live recording walkthrough, not a claim that every step has
-already been recorded. Genuine executed evidence is in [results](test-results.md).
-Manager acknowledgement and receiving Gmail inbox steps require the approved
-second account's authenticated session. Do not narrate those as passed until run.
+[Watch the 5 minute 10 second screen review](../docs/demo/qa-screen-review.mp4).
+[Recording provenance](../docs/demo/provenance.json).
 
-## Prepare before recording
+All eight cases have genuine integrated evidence. Use this presenter script for a
+fresh run. The screen review video is an edited tour of actual QA UI and recorded
+outcomes; it is not presented as uninterrupted footage of every earlier action.
 
-Use only the private QA Sheet, owner-only administrator panel, three QA n8n
-workflows and recipient-filtered Mailpit views. Open the employee and manager
-accounts in separate dedicated browser sessions. Authorize only the task client.
-Keep original prototype/schedules separate. Leave QA schedules inactive during
-time simulation. Have the protected dashboard, history and alert log ready.
+## Prepare
 
-Preserve current QA records, export current evidence, then reset QA with start
-2026-10-13 and holidays `[]`. Confirm four Pending cycles, zero history/alerts,
-TEST MODE and MAILPIT. Reset never deletes captured messages; identify this run
-by actual capture time/cycle and compare counts from its pre-run baseline.
+Open only dedicated QA windows: owner Sheet, separate manager Sheet, owner-only
+admin panel, scoped n8n workflows, recipient-filtered Mailpit and QA-only receiving
+Gmail search. Authorize the bound client with each real account. Preserve current
+QA records before reset. Keep original prototype and active dry-run schedules separate.
+
+Configure A as real owner, B/C/D as distinct dummy assignments and the separate
+manager identity. Reset only QA to a fresh business start date; holidays `[]`;
+MAILPIT. Confirm four Pending cycles, zero history/alerts and TEST MODE. Use a
+fresh start date or baseline capture timestamps: reset retains Mailpit messages.
 
 ## Presenter script
 
-| Time | Visible action | Short narration and evidence to show |
+| Time | Action | Narration / expected result |
 | --- | --- | --- |
-| 0:00–0:45 | Open QA Sheet, Task_Master, Demo_Control and Employee_Queue | “Four dummy employees, daily/7/15/30-day recurrence. Business time is simulated; executions and mail captures are real. Protected state updates use the sidebars.” |
-| 0:45–2:00 | Employee: Ops Tasks → My tasks; enter `QA-PORTAL7-001`, Submit completion | “One update closes this cycle, records authenticated identity/time and history, and creates next due Oct 20.” Show Completed row, one history event and linked next cycle. |
-| 2:00–3:00 | Submit daily report in same sidebar without ticket | Describe meaningful completed work, pending work/count and blockers. Show daily Completed and second history event. |
-| 3:00–4:00 | Admin: five minutes before manager alert; run QA manager workflow; then Manager threshold and run again | First run reserves 0; threshold run reserves 2. Show actual n8n execution status and actual Mailpit manager messages with cycle, due date, reason and capture time. |
-| 4:00–5:00 | Switch to authenticated manager session, open Manager review and acknowledge PORTAL15 | Show verified manager identity and timestamp in history/dashboard. Employee task remains Pending. Employee later completes it from My tasks; show independent resolution and correct next cycle. **This step remains unverified until receiving-account authorization is available.** |
-| 5:00–6:00 | Owner: Leadership threshold; execute QA leadership workflow for separate unresolved PORTAL30 | Show actual leadership capture, unresolved reason and correct cycle. Acknowledgement is not employee completion. |
-| 6:00–7:00 | Repeat recurrence, manager and leadership workflows; repeat a recorded completion | Compare actual counts: no extra cycles/events or matching-mode messages. Show Duplicate prevented and zero new reservations. |
-| 7:00–8:00 | Select approved Gmail mode and manager threshold; run manager workflow | Show controlled recipient allowlist and SENT/API acceptance. Then inspect the actual receiving Gmail message using a subject/cycle-specific search. **An API response is not inbox arrival; this step remains blocked until inbox access.** |
-| 8:00–9:00 | Show calendar evidence and final acceptance table | Friday + Monday holiday → Tuesday 10:00 review/14:00 escalation; no alerts before threshold; genuine overlapping workflow records. State remaining verified limitations. |
+| 0:00–0:45 | Show Task_Master, Employee_Queue and Demo_Control | Four IDs; daily/7/15/30-day assignments. Business time is simulated; execution/capture time is real. Protected cells use sidebar updates. |
+| 0:45–1:45 | Owner as Employee A: Ops Tasks → My tasks; submit meaningful daily report, no ticket | Work completed, pending work/count and blockers; one completion/history event with verified Google actor. Repeat recorded submission: duplicate prevented. |
+| 1:45–2:45 | Owner-only admin: select dummy B, enter valid ticket, Simulate | Explicit SIMULATED actor and administrator initiator. Same engine creates correct next 7-day cycle; repeat adds nothing. Show earlier authenticated portal sidebar evidence separately: it temporarily assigned a portal task to the owner, not a dummy Google login. |
+| 2:45–3:45 | Before manager threshold: execute QA manager workflow; then threshold and execute again | Before: 0. At threshold: 2 reservations and real C/D SMTP captures. Show recipient, task/cycle, due date, reason and actual capture time. |
+| 3:45–4:45 | Separate authenticated manager: Ops Tasks → Manager review; acknowledge C | Show actual manager identity/time and one acknowledgement history event. C remains Pending. Owner then explicitly simulates C completion; manager sees proof, next cycle and preserved acknowledgement. |
+| 4:45–5:45 | Owner sets acknowledgement deadline, runs leadership (0); sets leadership threshold and runs again | Only unresolved D gets one actual Mailpit leadership message. Resolved C is excluded. Show cycle and unresolved-work reason. |
+| 5:45–6:45 | Repeat workflows; repeat completion; inspect counts and scoped capture list | No extra alert keys/messages, completion events or next cycles. Show real n8n execution records and the actual overlapping dummy-D execution/count evidence. |
+| 6:45–7:30 | Show receiving test Gmail Inbox using exact QA subject/cycle search | The two approved messages arrived. This is actual receiving evidence; Mailpit and sender API acceptance are separate. Reuse the existing messages—do not resend Gmail on each rehearsal. |
+| 7:30–8:30 | Show calendar evidence and eight-case acceptance report | Friday + Monday holiday → Tuesday review/escalation, no early alerts, unique daily cycles. State simulation and exactly-once limits plainly. |
 
-The shorter version shows calendar evidence as prepared screenshots/record
-readbacks rather than rerunning its additional executions during the recording.
-Never use a personal/company/employer inbox as an unapproved test recipient.
+For an additional authenticated portal action in a fresh rehearsal, privately map
+only B's current assignment to an approved real employee, reset QA, complete it
+through My tasks, then restore B's dummy configuration and reset before the final
+four-role scenario. Real mapped tasks are excluded from the simulation selector.
+This optional preparation must not rewrite prior history or pretend dummy identities
+are Google logins. No extra employee account is required for the core demonstration.
 
 ## Evidence checklist
 
-- Before: four dummy definitions, initial queue, TEST MODE and notification mode.
-- Portal: Ticket ID entry, actual completion receipt, history actor/time, next cycle.
-- Daily: completed work/pending count/blocker fields, one completion event.
-- Manager: threshold run, Mailpit capture with actual time, alert log SENT receipt.
-- Acknowledgement: actual second-account sidebar, actor/time, task still Pending,
-  later employee resolution. Keep BLOCKED if no authenticated session.
-- Leadership: separate unresolved cycle, actual run/capture and escalation reason.
-- Duplicates: before/after record counts, repeated workflow execution IDs, unchanged
-  filtered capture counts and duplicate completion receipt.
-- Gmail: actual receiving message, recipient, subject, body and arrival time;
-  redact private identities in public evidence. Keep BLOCKED if inbox not inspected.
+- Initial four definitions, assignments, TEST MODE, clock and notification mode.
+- Employee daily form, receipt, actual actor/time and one history event.
+- Ticket proof, linked recurrence and SIMULATED vs authenticated source label.
+- Manager threshold execution and actual Mailpit manager capture timestamps.
+- Separate manager acknowledgement; task still Pending; later independent resolution.
+- Leadership D capture; C excluded; correct level, cycle, due date and reason.
+- Replays and overlapping calls: actual before/after record and message counts.
+- Receiving Gmail subject, Inbox label, body and arrival time; redact identities.
 
-## Safe reset and calendar scenario
+## Safe reset and restore
 
-The owner-only panel's **Reset QA records** regenerates the four tasks through
-the real engine and clears only QA cycles/history/alerts. It selects MAILPIT.
-The original workbook, unrelated workflows and captured emails are preserved.
-For calendar tests, **Weekend and holiday timing scenario** first preserves
-current records, then resets to Friday Oct 16 with Monday Oct 19 holiday and
-selects DRY_RUN. Set Saturday/Monday/Tues 13:59/Tues 14:00 using custom business
-time, execute the actual QA workflows and inspect dashboard targets/counts.
-**Restore preserved QA records** returns to the main scenario; confirm exact
-history/proof/alert keys and real timestamps, including any accepted Gmail sends.
-Never restore an older snapshot that omits a send and then blindly rerun Gmail.
+**Preserve current QA records** saves a bounded private snapshot. **Reset QA records**
+clears only the pinned QA cycles/history/alerts, updates start date/holidays,
+regenerates four cycles and selects MAILPIT. It preserves task identities, original
+workbook, other workflows and captured mail. Never run setupPrototype on the original.
 
-## Recording and sanitization
+**Weekend and holiday timing scenario** preserves current records, selects Friday
+Oct 16 and Monday Oct 19 holiday, and uses DRY_RUN. Run actual workflows at Saturday,
+Monday, Tuesday 13:59/14:00 and inspect results. **Restore preserved QA records**
+returns exact history, proof, alerts and original actual timestamps. Never restore
+an older snapshot that omits a Gmail send then blindly rerun external delivery.
 
-A complete video has not been created. Use a window-only screen recorder focused
-on the dedicated QA sessions, with unrelated windows excluded. Capture actual
-interactions in the order above. Private URLs/account identities must be cropped
-or visibly redacted in any public video/screenshots; do not reconstruct or invent
-UI results. Existing public QA screenshots are genuine crops; their provenance
-and evidence limits are listed in [evidence](../docs/evidence.md).
+## Recording provenance
+
+The public screen review uses window-only captures from dedicated task windows.
+It shows genuine current QA controls, manager resolution, an additional live
+Employee A daily action, Mailpit, receiving Gmail and Apps Script execution records.
+Cuts and explanatory captions are explicit. Private URLs and account identities
+are cropped or visibly redacted; UI results are not recreated. Earlier first-time
+portal/acknowledgement/notification actions are supported by the linked genuine
+screenshots and state readbacks, rather than claimed as actions recorded in this video.

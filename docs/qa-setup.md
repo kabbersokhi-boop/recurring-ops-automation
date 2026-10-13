@@ -58,14 +58,15 @@ validation through tokeninfo, audience, issuer, verified email and actual expiry
 Simulated business time never controls token expiry.
 
 Protect all QA state/configuration tabs for the administrator. Share the Sheet
-only with the approved test manager as needed to run the bound sidebar.
+only with approved controlled test participants as needed to run the bound sidebar.
 Archive obsolete bound owner-executed deployments, clear their properties,
 rotate the QA token and update the QA n8n credential together. Verify the old
 endpoint no longer executes.
 
 ## Existing n8n and Mailpit
 
-Import only the three files under `n8n-workflows/qa/`. The exports are inactive
+Import the three normal recurrence / manager / leadership files under
+`n8n-workflows/qa/`. The separate failure probe is optional and manual only. The exports are inactive
 and contain URL/credential placeholders. Configure the private backend URL in
 the QA workflows and a dedicated Custom Auth credential:
 
@@ -129,3 +130,36 @@ harvest short-lived employee/manager identity tokens. Keep these participants
 trusted; the private backend restricts such tokens to their assigned roles and
 keeps administrator actions, external recipients and automation secrets outside
 the shared project. This is not a hardened public multi-tenant application.
+
+## Optional real failure probe
+
+The sanitized `qa-smtp-failure-probe.json` is an independent inactive copy of
+leadership orchestration. Give it a separate QA SMTP credential using the existing
+private Mailpit service and a port verified to refuse connections. Keep its URL
+and automation credential identical to QA; never modify normal SMTP credentials.
+Preserve the main QA records, start the Friday/holiday scenario, reserve manager
+alerts in DRY_RUN, select MAILPIT, then run normal manager orchestration. Four real
+captures prove mode isolation. Advance to leadership threshold and execute the
+failure probe: expect a visible execution error and UNKNOWN rows without sent
+timestamps. Repeat: no new reservations or SMTP call. Save evidence and verify
+capture counts before restoring the main scenario. This resettable diagnostic
+is not permission to clear uncertain production sends and retry blindly.
+
+## Role-labelled repeatable scenario
+
+Configure `QA_ADMIN_EMAIL` as Employee A (daily) and `QA_MANAGER_EMAIL` as the
+separate manager. Use **Configure four roles** once when adopting older QA records;
+it preserves a private backup and maps B/C/D to distinct dummy assignments. Then
+reset only QA to a fresh start date. Reset preserves task identities.
+
+Use the normal Sheet My tasks sidebar for real accounts. Only the owner panel
+can simulate B/C/D. Select the exact dummy cycle and enter its valid Ticket ID;
+inspect SIMULATED actor, administrator initiator, proof and next cycle in history
+and dashboard. Employee A and any task mapped to a real account are excluded
+from simulation. Never present dummy simulation as Google authentication.
+
+If Google multi-login selects a different callback account, the client retains
+the Sheet menu's verified identity token only in sidebar memory. Reopen the
+sidebar after expiry. Do not put identity tokens in URLs, logs or Sheet cells.
+The final QA scenario uses one real employee, one real manager and three distinct
+dummy employees. A second real employee is an optional ownership check.

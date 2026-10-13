@@ -1,0 +1,16 @@
+{
+  "actualCheckedAt": "2026-10-13T11:56:23.756Z",
+  "counts": {
+    "cycles": 8,
+    "completed": 5,
+    "history": 6,
+    "alerts": 3
+  },
+  "recordsUnchangedAfterReviewReplay": {
+    "cycles": true,
+    "history": true,
+    "alerts": true,
+    "dashboard": true,
+    "businessNow": true
+  }
+}

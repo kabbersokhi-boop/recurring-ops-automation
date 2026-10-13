@@ -3,9 +3,30 @@
 function doPost(e){return qaDoPost_(e);}
 function doGet(){qaAdmin_();return HtmlService.createHtmlOutputFromFile('Admin').setTitle('Recurring Ops QA — administrator');}
 function qaRecurrence_(){return locked(()=>{const r=OpsEngine.recurrence(readState(),nowIso());qaPersist_(r.state);return r.created;});}
-function qaAdminState(){qaAdmin_();const s=readState();return {businessNow:nowIso(),actualNow:new Date().toISOString(),mode:qaMode_(s),counts:qaEvidence_().counts};}
+function qaAdminState(){qaAdmin_();return locked(()=>{const s=readState(),dummy=e=>e.dummy&&s.tasks.some(t=>t.id===e.taskId&&t.email===e.email);return {businessNow:nowIso(),actualNow:new Date().toISOString(),mode:qaMode_(s),counts:qaEvidence_().counts,dummyCycles:s.cycles.filter(c=>QA_EMPLOYEES_.some(e=>dummy(e)&&e.taskId===c.taskId&&c.employeeEmail===e.email)).map(c=>({id:c.id,employeeId:c.employeeId,employee:c.employee,status:c.status,dueDay:c.dueDay,completedBy:c.completedBy,completionMode:c.completionMode})),roles:QA_EMPLOYEES_.map(e=>({employeeId:e.id,employee:e.name,taskId:e.taskId,actionMode:dummy(e)?'SIMULATED by QA administrator':'AUTHENTICATED employee'}))};});}
+function qaAdminConfigureRoles(){
+  const actor=qaAdmin_();qaAdminBackup();return locked(()=>{
+    const s=readState();if(s.tasks.length!==4||QA_EMPLOYEES_.some(e=>!s.tasks.some(t=>t.id===e.taskId&&t.employee===e.name)))throw Error('Expected four-task QA scenario required');
+    const sh=qaSpreadsheet_().getSheetByName(NAMES.tasks);
+    s.tasks.forEach((t,i)=>{const e=QA_EMPLOYEES_.find(e=>e.taskId===t.id);sh.getRange(i+2,5).setValue(e.dummy?e.email:actor);sh.getRange(i+2,11).setValue(e.id);});
+    // Earlier authenticated evidence is preserved in the private backup. Clear
+    // records separately using Reset QA before demonstrating the new roles.
+    qaUpdateDemoStatus_();return {configured:QA_EMPLOYEES_.map(e=>e.id),previousRecordsPreserved:true,resetRequired:true};
+  });
+}
+function qaAdminSimulateCompletion(cycleId,proof){
+  const administrator=qaAdmin_();return locked(()=>{
+    const s=readState(),c=s.cycles.find(x=>x.id===cycleId),e=c&&QA_EMPLOYEES_.find(e=>e.dummy&&e.taskId===c.taskId);
+    if(!c||!e||c.employeeId!==e.id||c.employee!==e.name||c.employeeEmail!==e.email||!s.tasks.some(t=>t.id===c.taskId&&t.email===e.email))throw Error('Only configured dummy employees B, C and D can be simulated');
+    if(c.status==='Completed'&&c.completionMode!=='SIMULATED')throw Error('This cycle belongs to an earlier authenticated test; reset QA before simulation');
+    const r=OpsEngine.complete(s,cycleId,proof,e.email,nowIso());
+    if(!r.duplicate){const completed=r.state.cycles.find(x=>x.id===cycleId),h=r.state.history[r.state.history.length-1],actualAt=new Date().toISOString();completed.completedBy='SIMULATED:'+e.id;completed.completionMode='SIMULATED';completed.simulatedBy=administrator;completed.completedActualAt=actualAt;Object.assign(h,{actor:'SIMULATED:'+e.id,employeeId:e.id,actionMode:'SIMULATED',simulatedBy:administrator,actualAt});qaPersist_(r.state);}
+    return {simulated:true,employeeId:e.id,cycleId,duplicate:r.duplicate,nextCycle:r.nextCycle||c.nextCycle||'',businessNow:nowIso(),actualAt:new Date().toISOString()};
+  });
+}
 function qaAdminClock(point){
-  qaAdmin_();const s=readState(),c=s.cycles.find(x=>x.taskId==='PORTAL15'&&x.status==='Pending');if(!c)throw Error('A pending PORTAL15 scenario is required');
+  qaAdmin_();const s=readState(),pending=s.cycles.filter(x=>['PORTAL15','PORTAL30'].includes(x.taskId)&&x.status==='Pending').sort((a,b)=>Date.parse(a.dueAt)-Date.parse(b.dueAt));
+  const c=pending.find(x=>s.alerts.some(a=>a.cycleId===x.id&&a.level==='manager'&&a.mode!=='DRY_RUN'&&a.state==='SENT'))||pending[0];if(!c)throw Error('A pending PORTAL15 or PORTAL30 scenario is required');
   const d=OpsEngine.dashboard(s,nowIso()).find(x=>x.id===c.id),delay=OpsEngine.config(s).managerDelayMinutes;
   const times={due:c.dueAt,before:new Date(Date.parse(c.dueAt)+(delay-5)*60000).toISOString(),manager:new Date(Date.parse(c.dueAt)+delay*60000).toISOString(),acknowledgement:d.acknowledgementDueAt,leadership:d.escalationAt};
   if(!times[point])throw Error('Unknown clock point');return qaSetClock_(times[point]);
@@ -37,7 +58,7 @@ function qaRestoreSnapshot_(encoded,saveRecovery){
     s.tasks.forEach(t=>{if(t.dueTime)t.dueTime=cellTime(t.dueTime);});
     ['dueTime','acknowledgementTime','escalationTime'].forEach(k=>{if(s.settings[k])s.settings[k]=cellTime(s.settings[k]);});
     snapshot.settingRows=snapshot.settingRows.map(r=>[r[0],['dueTime','acknowledgementTime','escalationTime'].includes(r[0])?cellTime(r[1]):r[1]]);
-    for(const k of ['tasks','cycles','history','alerts','settings']){const sh=ss.getSheetByName(NAMES[k]),length=k==='settings'?snapshot.settingRows.length:s[k].length;const cols=k==='history'?8:k==='alerts'?17:TAB[k].length;if(!sh||sh.getMaxRows()<length+1||sh.getMaxColumns()<cols)throw Error('QA target grid incompatible with snapshot');}
+    for(const k of ['tasks','cycles','history','alerts','settings']){const sh=ss.getSheetByName(NAMES[k]),length=k==='settings'?snapshot.settingRows.length:s[k].length;const cols=k==='history'?11:k==='alerts'?17:k==='cycles'?21:k==='tasks'?11:TAB[k].length;if(!sh||sh.getMaxRows()<length+1||sh.getMaxColumns()<cols)throw Error('QA target grid incompatible with snapshot');}
     // Retain the state before restoration in a separate owner-only recovery slot.
     // The original snapshot remains available if a multi-tab write fails.
     if(saveRecovery)qaProps_().setProperty('QA_RESTORE_RECOVERY',qaEncodeSnapshot_(qaSnapshot_()));

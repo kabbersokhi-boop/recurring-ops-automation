@@ -1,0 +1,14 @@
+{
+  "backendVersion": 11,
+  "deployedDigestMatchesGeneratedSource": true,
+  "sourceDigest": "e74f092ff0628d652edc200d7eccfdf05ddfe88991ac20014a9b25f4149fa883",
+  "actualCheckedAt": "2026-10-13T11:46:35.913Z",
+  "counts": {
+    "cycles": 8,
+    "completed": 4,
+    "history": 5,
+    "alerts": 3
+  },
+  "businessNow": "2026-10-16T14:00:00+05:30",
+  "mode": "MAILPIT"
+}

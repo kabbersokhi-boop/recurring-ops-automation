@@ -1,0 +1,22 @@
+{
+  "backendVersion": 8,
+  "sourceDigest": "d8f091419acfc3dd7c69ffc5bb8fdc53be771d1f7579ad9b5e393d02850114bf",
+  "deployedDigestMatchesGeneratedSource": true,
+  "actualCheckedAt": "2026-10-13T05:37:38.919Z",
+  "recordsEqualMainScenario": {
+    "cycles": true,
+    "history": true,
+    "alerts": true,
+    "dashboard": true,
+    "businessNow": true
+  },
+  "mode": "MAILPIT",
+  "counts": {
+    "cycles": 5,
+    "completed": 2,
+    "history": 2,
+    "alerts": 6
+  },
+  "acknowledgementDueAt": "2026-10-14T10:00:00+05:30",
+  "escalationAt": "2026-10-14T14:00:00+05:30"
+}

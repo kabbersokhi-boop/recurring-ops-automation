@@ -1,0 +1,22 @@
+{
+  "evidenceType": "Actual authenticated employee sidebar attempt against deployed version 8",
+  "businessNow": "2026-10-13T11:45:00.000Z",
+  "actualReadbackAt": "2026-10-13T05:27:26.621Z",
+  "cycleId": "PORTAL7:2026-10-20",
+  "submittedProof": "QA-FUTURE-REJECT-001",
+  "actualUIError": "This cycle becomes actionable on 2026-10-20",
+  "countsBefore": {
+    "cycles": 5,
+    "completed": 2,
+    "history": 2,
+    "alerts": 6
+  },
+  "countsAfter": {
+    "cycles": 5,
+    "completed": 2,
+    "history": 2,
+    "alerts": 6
+  },
+  "protectedRecordsUnchanged": true,
+  "selfLinkAbsent": true
+}

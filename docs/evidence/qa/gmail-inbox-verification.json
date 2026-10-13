@@ -1,0 +1,19 @@
+{
+  "observedAtActualUtc": "2026-10-13T10:20:38.127377+00:00",
+  "verification": "Live receiving Gmail account, dedicated Firefox window, QA-only search",
+  "matchingInboxMessages": 2,
+  "subjects": [
+    "[OPS QA] Overdue task | PORTAL15:2026-10-13",
+    "[OPS QA] Overdue task | PORTAL30:2026-10-13"
+  ],
+  "displayedReceivedTime": "10:09 AM",
+  "portal15BodyVerified": true,
+  "portal30BodyEvidence": "User-provided receiving Inbox screenshot; corresponding live Inbox search result independently confirmed",
+  "scope": "Receiving Gmail Inbox independently inspected in a dedicated Firefox window; two matching QA messages.",
+  "evidence": [
+    "../../screenshots/qa/gmail-inbox-portal15.png",
+    "../../screenshots/qa/gmail-inbox-portal30.png"
+  ],
+  "receivingAccount": "QA_MANAGER_EMAIL (verified privately)",
+  "managerAcknowledgementEvidence": "role-manager-ack-confirmed.json (subsequent separate verification)"
+}
