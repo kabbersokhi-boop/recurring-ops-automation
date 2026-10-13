@@ -1,5 +1,10 @@
 # Setup and activation
 
+These instructions describe the original bound prototype. For the deployed
+integrated QA demonstration, use [QA setup](qa-setup.md), which separates the
+shared client from the private backend and uses verified Google ID tokens.
+Preserve prepared workbooks; never run initialization on the original Sheet.
+
 ## 1. Prepare a private Sheet
 
 The prepared private prototype, linked in the review package, contains all six tabs and four dummy cycles. Keep its sharing restricted. For a new Sheet, create a blank native Google Spreadsheet, open **Extensions → Apps Script**, add TaskManager.gs, Code.gs, Sidebar.html and ManagerSidebar.html from `apps-script/` to a bound project, using the supplied appsscript.json manifest, and run `setupPrototype()` once. **Do not run `setupPrototype()` on the prepared workbook** because it intentionally resets the tabs.

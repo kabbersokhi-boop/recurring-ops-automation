@@ -69,7 +69,7 @@ var OpsEngine = (function () {
   function acknowledge(input, cycle, actor, now) {
     const state = clone(input), c = state.cycles.find(x => x.id === cycle);
     if (!c) throw Error('Cycle not found');
-    if (!actor || actor.toLowerCase() !== String(config(state).managerEmail || '').toLowerCase()) throw Error('Authenticated manager required');
+    if (!actor || actor.toLowerCase() !== String(config(state).managerIdentity || config(state).managerEmail || '').toLowerCase()) throw Error('Authenticated manager required');
     if (c.acknowledgedAt) return { state, duplicate: true };
     if (!state.alerts.some(a => a.cycleId === cycle && a.level === 'manager')) throw Error('Manager alert required before acknowledgement');
     c.acknowledgedAt = now; c.acknowledgedBy = actor;

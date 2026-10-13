@@ -1,31 +1,50 @@
 # Deployment record — 2026-10-13
 
-The full assignment was read before this continuation. The preserved acknowledgement-deadline change was retained; all three local test files passed, with **19 passed and 0 failed**. Existing adapter and sidebar assertions were extended to verify dashboard headers, deadline values and the Late label.
+## Preserved original
 
-## Source and deployment
+The original private six-tab dummy prototype remains on its earlier version 4
+bound web app. Its three n8n dry-run schedules remain active. QA work did not run
+`setupPrototype()` or reset the original workbook. Earlier original screenshots
+are historical connectivity evidence, not the new QA acceptance proof.
 
-The verified private Sheet was opened in a dedicated Chrome window. **Extensions → Apps Script** opened its bound project successfully. The prepared project combines TaskManager.gs and Code.gs in one Code.gs file; their concatenated repository source was saved there. ManagerSidebar.html was also updated and saved. No setup/reset function was run.
+## Private QA deployment
 
-The existing web app was updated through **Manage deployments → Edit → New version → Deploy**. Google confirmed **version 4 at 03:43 Asia/Kolkata**. The existing endpoint and private token were retained. [Sanitized confirmation](screenshots/deployment-version-4.png) excludes the deployment ID and URL.
-
-## Fresh checks
-
-| Check | Actual result |
+| Component | Actual status |
 | --- | --- |
-| Direct deployed recurrence POST | `{"created":0}` |
-| Repeat recurrence POST | `{"created":0}` |
-| Direct deployed manager POST | `{"alerts":0}` before the deadline |
-| Direct deployed leadership POST | `{"alerts":0}` before the escalation threshold |
-| n8n active workflow inventory | All three Recurring Ops schedules listed as active |
-| Manager_Dashboard | Four pending task cycles; column I shows `2026-10-14T10:00:00+05:30` acknowledgement deadline |
-| Escalation deadline | `2026-10-14T14:00:00+05:30` for the same four cycles |
+| QA Google Sheet | Separate private seven-tab workbook, four dummy tasks; approved manager sharing only; whole-sheet owner-only protections |
+| Shared bound script | Minimal Sheet client, existing sidebars, verified Google ID-token RPC; current-Sheet scope, UI, identity and backend fetch only |
+| Owner-only standalone backend | Shared engine and selected adapter compiled; private Sheet pin, original exclusion, role checks, locking, transport and admin controls |
+| Automation / user-RPC deployment | Execute as owner; Google-layer Anyone access; every POST requires QA automation token or verified role-scoped Google identity |
+| Administrator deployment | Execute as owner, Only myself; all admin entry points check active administrator identity |
+| Latest backend | Version 7, created 2026-10-13 at 10:20 Asia/Kolkata; gzip restore and Sheet time-cell normalization fixes |
+| QA n8n | Three existing-installation workflows imported with independent IDs/credentials; schedules inactive, actual manual execution records saved |
+| Mailpit | Existing service reused on private Docker network; actual SMTP capture, no external relay configured |
+| Gmail transport | MailApp accepted two allowlisted test sends; receiving inbox remains independently unverified |
+| Old shared privileged endpoint | Retired; actual HTTP 404; old shared properties cleared and QA token rotated |
 
-[Dashboard readback](screenshots/manager-dashboard-acknowledgement.png) excludes the private Sheet URL. Only the new deadline column and a neighbouring shifted header were fitted to content. Task_Master and Settings were not changed. The temporary clipboard helper was stopped after deployment.
+Both backend deployments are updated to version 7. The deployed automation
+endpoint's source digest is checked against the generated repository source.
+The backend manifest explicitly declares Sheets, verified identity, external
+fetch and mail scopes; the shared Sheet client does not have mail or broad
+unrelated Sheet access.
 
-Earlier n8n workflow executions succeeded against the endpoint; this continuation checked their active status and directly checked the updated endpoint. It did not rerun manual n8n workflow executions.
+The Sheet was opened in a dedicated browser window. The user's original browser
+window and unrelated Google resources were not inspected. OAuth authorization
+was performed only for the task's projects. Private endpoints and connection
+configuration are stored separately, never in public exports.
 
-## Acceptance limits
+## Genuine post-deployment behavior
 
-The user chose to keep dummy `.invalid` identities and `dryRun=true`. No real email was sent. Zero-alert calls before the deadline verify connectivity, not overdue alert creation or delivery. Live employee completion, live manager acknowledgement, completion-driven next-cycle/history persistence, actual manager/leadership delivery and live concurrent submissions remain unverified. The project is not fully verified end to end.
+- Actual employee ticket and daily sidebar submissions persisted proof, identity,
+  business/actual timestamps and exactly one event each.
+- Actual n8n manager/leadership SMTP sends yielded 2+2 Mailpit captures; normal
+  retries reserved zero and added no captures.
+- Real calendar clock + workflows skipped weekend/holiday and observed threshold
+  boundaries. Overlapping manager runs reserved 4/0; recurrence created 1/0.
+- The first live restore failed before modifying preserved state because gzip
+  input lacked content type. Version 6 restored cycles/history/alerts exactly; a subsequent visible dashboard check found time-cell coercion, fixed in version 7,
+  including original real timestamps. Private compressed backup is retained.
+- All 19 existing local regressions passed after source changes.
 
-The original browser window was not inspected. Private connection files and the original assignment are excluded from the public repository. See the [requirement audit](requirements-checklist.md) for the status of every requirement and demonstration.
+Read [acceptance results](../tests/test-results.md) for exact counts and remaining
+authenticated manager / receiving-inbox checks. No full end-to-end success is claimed.

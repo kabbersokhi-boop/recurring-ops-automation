@@ -2,37 +2,65 @@
 
 ```mermaid
 flowchart TB
-  subgraph Sheet[Private Google Sheet]
-    TM[Task_Master] --> Q[Employee_Queue]
-    Q --> H[Task_History]
-    Q --> D[Manager_Dashboard]
-    Q --> AL[Alert_Log]
-    ST[Settings] --> Q
-  end
-  ES[Employee sidebar] -->|verified account required| AS[Apps Script + document lock]
-  MS[Manager sidebar] -->|verified manager required| AS
-  N[n8n recurrence / alert / escalation schedules] -->|shared-token web app POST| AS
-  AS --> Sheet
-  AS -->|grouped email, dry-run by default| MAIL[MailApp]
+  E[Employee Sheet sidebar] -->|Google ID token| B[Private Apps Script backend]
+  M[Manager Sheet sidebar] -->|Google ID token| B
+  A[Owner-only QA clock and reset panel] --> B
+  N[n8n recurrence / manager / leadership] -->|QA automation token| B
+  B <--> S[(Private QA Google Sheet)]
+  B -->|MAILPIT outbox reservation| N
+  N -->|locked claim then SMTP| P[Existing private Mailpit]
+  N -->|delivery receipt| B
+  B -->|allowlisted GMAIL_TEST only| G[Controlled Gmail inbox]
 ```
 
-The Apps Script document lock serializes state transitions. Cycle IDs combine task ID and due date. Every completion is recorded once in the queue and history; a repeated submission returns `duplicate: true`. Alert keys combine level and cycle ID. The alert is reserved in `Alert_Log` before email delivery. A delivery failure is marked `UNKNOWN` and requires manual reconciliation; it is not blindly resent. MailApp does not expose a provider message ID, so that column stays blank.
+Google Sheets remains the primary employee and manager interface. The shared
+bound project contains only the sidebar client and a nonsecret backend URL.
+The existing engine and selected Sheet adapter functions run in an owner-only
+standalone project. This separation prevents Sheet editors from acquiring the
+backend's automation secret, clock controls or recipient configuration.
 
-The Google Sheet is the primary human operating interface. Employees open **Employee_Queue → Ops Tasks → My tasks** and submit proof in its bound sidebar; managers open **Manager_Dashboard → Ops Tasks → Manager review** and acknowledge alerts there. Both sidebars call the same `submitCompletion` and `managerAcknowledge` services used by the state engine. The Apps Script web app is an optional server endpoint for n8n scheduling and does not replace the Sheet interface. Programmatic web app writes call `writeState` directly; the design does not depend on `onEdit` triggers.
+Consumer Google accounts are authenticated using `ScriptApp.getIdentityToken()`
+in the bound client. The backend validates the Google token through tokeninfo,
+its audience, issuer, verified email and expiry against real time. Client-supplied
+actor names are never trusted. Blank identity is rejected. Manager identity is
+configured separately from notification recipients. The original deployment
+continues separately with dummy identities and dry-run schedules.
 
-The full Sheet is the system of record. n8n only schedules three calls to the same state manager. The employee and manager sidebars run with Google account identity; they reject an empty identity or an actor outside the assigned role. A bound script must run in a Google Workspace configuration that exposes authenticated email to `Session.getActiveUser()`. The current Sheet uses dummy `.invalid` users, so live identity testing requires controlled accounts.
+## State and concurrency
 
-The local tests load the same pure `TaskManager.gs` engine that Apps Script uses. They do not simulate Sheet API permissions, MailApp delivery, or n8n execution.
+The private backend uses a script lock to serialize state changes. Cycle IDs
+combine task ID and due date. Completion records proof, authenticated actor,
+business timestamp, actual execution timestamp and one history event, then
+creates the linked periodic cycle. Repeated completion returns `duplicate:true`.
+Daily recurrence generates one cycle per working day independently of older
+unresolved daily work.
 
-## Tab ownership
+Notification keys contain transport, level and cycle ID. A dry-run record cannot
+suppress a later Mailpit or Gmail test. Apps Script alone evaluates SLA rules;
+n8n schedules and transports messages without reimplementing those rules.
+Mailpit uses `QUEUED → SENDING → SENT` with a locked claim before SMTP. Uncertain
+outcomes remain `UNKNOWN` or `SENDING` for reconciliation rather than blind retry.
+SMTP and Sheets cannot commit atomically; this is retry deduplication, not a
+promise of exactly-once delivery after every possible crash.
 
-| Tab | Purpose | Typical editor |
+## QA tabs
+
+| Tab | Purpose | Writer |
 | --- | --- | --- |
-| Task_Master | Definitions and recurrence | Administrator |
-| Employee_Queue | Single employee operating view and cycle state | Sidebar / state engine |
-| Task_History | Audit trail | State engine |
-| Manager_Dashboard | Open and alerted issues, overdue age, escalation and resolution | State engine |
-| Alert_Log | Delivery reservation and status | State engine |
-| Settings | Time zone, holiday list, SLA and recipients | Administrator |
+| Task_Master | Four definitions, identities and recurrence | Administrator |
+| Demo_Control | Visible TEST MODE, clock, interface instructions | Backend |
+| Employee_Queue | Cycle state, proof, completion and next cycle | Backend |
+| Task_History | Completion and acknowledgement audit events | Backend |
+| Manager_Dashboard | Consolidated pending/overdue, review and resolution | Backend |
+| Alert_Log | Reservations, delivery state and actual timestamps | Backend |
+| Settings | Holidays, SLA and QA configuration | Administrator |
 
-Task_Master and Settings have administrator-only protected ranges covering their current grids in the prepared native Sheet. Fresh workbooks need this one-time protection step during setup. The queue itself is editable by Sheet editors, so raw direct edits can bypass sidebar validation. Restrict access to trusted participants or move the state tabs to a separate owner-only workbook before production use.
+All seven QA tabs have whole-sheet owner-only protections. Employees and the
+manager use sidebars to update state; the owner can still edit protected cells.
+The administrator panel is a separate owner-only web deployment. The automation
+endpoint allows public access at Google's deployment layer, but every POST is
+validated using either the private automation token or a role-scoped Google token.
+
+See [QA setup](qa-setup.md), [SLA](sla-logic.md), [acceptance results](../tests/test-results.md)
+and [limitations](limitations.md). Local tests exercise the shared engine and
+original adapter; they do not substitute for live identity or delivery evidence.

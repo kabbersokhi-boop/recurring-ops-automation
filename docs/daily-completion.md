@@ -8,4 +8,4 @@ The script obtains the signed-in Google identity, checks that it owns the cycle,
 
 This is an employee attestation supported by a structured report. The prototype does not read WhatsApp, confirm group-message delivery, validate a portal ticket against its source system, or prove the underlying action occurred. The manager can inspect the report and sample the source group or portal during review. Automatic external proof verification would require a separately authorized integration.
 
-The daily form submission and state transition passed local tests with dummy identities. A real employee submission remains unverified in the live Sheet because the prototype intentionally keeps `.invalid` identities.
+The private QA Sheet was tested through the live employee sidebar with a verified Google identity. The structured report completed its daily cycle without a ticket, recorded one history event and both business and actual timestamps. Repeating the recorded submission created no second event. See [acceptance evidence](../tests/test-results.md). The original prototype remains dummy-only.

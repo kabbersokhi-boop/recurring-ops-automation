@@ -1,0 +1,22 @@
+<!doctype html><html><head><base target="_top"><style>body{font:16px Arial;max-width:780px;margin:35px auto;color:#263238}button{padding:10px;margin:5px;cursor:pointer}pre{white-space:pre-wrap;background:#f3f6f8;padding:18px}.banner{background:#fff2cc;padding:15px}</style></head><body>
+<h1>Recurring Ops QA controls</h1><p class="banner"><strong>PRIVATE QA — TEST MODE</strong><br>Business time is simulated. Execution, SMTP capture and Gmail arrival times are real.</p>
+<pre id="status">Loading…</pre><h2>Business clock</h2>
+<button onclick="clock('due')">Task due</button><button onclick="clock('before')">5 minutes before manager alert</button><button onclick="clock('manager')">Manager threshold</button><button onclick="clock('acknowledgement')">Acknowledgement deadline</button><button onclick="clock('leadership')">Leadership threshold</button>
+<p><label>Custom business time (ISO with timezone) <input id="when" size="32" placeholder="2026-10-19T14:00:00+05:30"></label><button onclick="time()">Set business time</button></p>
+<h2>Notification transport</h2><button onclick="mode('DRY_RUN')">DRY_RUN</button><button onclick="mode('MAILPIT')">MAILPIT</button><button onclick="mode('GMAIL_TEST')">Approved Gmail test inbox</button>
+<h2>Repeat demonstration</h2><label>Start date <input type="date" id="day" value="2026-10-13"></label><label>Holiday dates (JSON array) <input id="holidays" value="[]"></label><button onclick="resetQA()">Reset QA records</button>
+<p><button onclick="backup()">Preserve current QA records</button><button onclick="restore()">Restore preserved QA records</button></p>
+<p><button onclick="calendar()">Weekend and holiday timing scenario</button>Preserves current records, resets QA to Friday with a Monday holiday, then selects DRY_RUN.</p>
+<p>Reset clears this QA workbook’s cycles, history and alerts. Captured mail is retained; the original prototype is separate.</p>
+<div id="result" role="status"></div><script>
+const fail=e=>document.getElementById('result').textContent=e.message;
+function done(r){document.getElementById('result').textContent=JSON.stringify(r,null,2);load();}
+function load(){google.script.run.withSuccessHandler(r=>document.getElementById('status').textContent=JSON.stringify(r,null,2)).withFailureHandler(fail).qaAdminState();}
+function clock(p){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminClock(p);}
+function mode(m){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminMode(m);}
+function time(){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminTime(document.getElementById('when').value);}
+function backup(){google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminBackup();}
+function calendar(){if(!confirm('Preserve current QA records and start the Friday / Monday-holiday scenario in DRY_RUN?'))return;google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminCalendarScenario();}
+function restore(){if(!confirm('Restore the private QA snapshot? Captured emails and the original workbook are preserved.'))return;google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminRestore();}
+function resetQA(){if(!confirm('Clear QA cycles, history and alert records? Original workbook and captured mail are preserved.'))return;let holidays;try{holidays=JSON.parse(document.getElementById('holidays').value);if(!Array.isArray(holidays))throw Error('Holiday array required');}catch(e){fail(e);return;}google.script.run.withSuccessHandler(done).withFailureHandler(fail).qaAdminReset(document.getElementById('day').value,holidays);}
+load();</script></body></html>

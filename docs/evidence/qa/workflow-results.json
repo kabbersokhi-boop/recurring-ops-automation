@@ -1,0 +1,330 @@
+{
+  "evidenceType": "Selected actual n8n CLI execution results",
+  "sanitization": "Connection details and credential metadata excluded; actual outcomes and timestamps retained.",
+  "runs": [
+    {
+      "runLabel": "private-before-threshold",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-13T11:40:00.000Z",
+        "executedAt": "2026-10-13T03:32:23.164Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "mailpit-manager",
+      "evaluation": {
+        "ok": true,
+        "reserved": 2,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-13T11:45:00.000Z",
+        "executedAt": "2026-10-13T03:38:14.902Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications",
+        "Claim once",
+        "Verify claim result",
+        "Mailpit claim accepted",
+        "Capture through existing Mailpit",
+        "Record transport outcome",
+        "Verify recorded outcome"
+      ]
+    },
+    {
+      "runLabel": "leadership-before-threshold",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-14T10:00:00+05:30",
+        "executedAt": "2026-10-13T03:41:58.442Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "mailpit-leadership",
+      "evaluation": {
+        "ok": true,
+        "reserved": 2,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-14T14:00:00+05:30",
+        "executedAt": "2026-10-13T03:43:38.102Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications",
+        "Claim once",
+        "Verify claim result",
+        "Mailpit claim accepted",
+        "Capture through existing Mailpit",
+        "Record transport outcome",
+        "Verify recorded outcome"
+      ]
+    },
+    {
+      "runLabel": "calendar-before",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-16T11:40:00.000Z",
+        "executedAt": "2026-10-13T04:28:30.890Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-concurrent-manager-a",
+      "evaluation": {
+        "ok": true,
+        "reserved": 4,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-16T11:45:00.000Z",
+        "executedAt": "2026-10-13T04:29:00.349Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-concurrent-manager-b",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-16T11:45:00.000Z",
+        "executedAt": "2026-10-13T04:29:03.708Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-saturday-leader",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-17T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:30:01.610Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-saturday-recurrence",
+      "evaluation": {
+        "ok": true,
+        "created": 0,
+        "businessNow": "2026-10-17T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:30:10.813Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Verify recurrence result"
+      ]
+    },
+    {
+      "runLabel": "calendar-holiday-leader",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-19T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:30:34.461Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-holiday-recurrence",
+      "evaluation": {
+        "ok": true,
+        "created": 0,
+        "businessNow": "2026-10-19T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:30:42.845Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Verify recurrence result"
+      ]
+    },
+    {
+      "runLabel": "calendar-leadership-before",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-20T13:59:00+05:30",
+        "executedAt": "2026-10-13T04:31:19.259Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-leadership-at",
+      "evaluation": {
+        "ok": true,
+        "reserved": 4,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-20T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:32:33.454Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-leadership-repeat",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "DRY_RUN",
+        "businessNow": "2026-10-20T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:32:43.122Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "calendar-concurrent-recurrence-a",
+      "evaluation": {
+        "ok": true,
+        "created": 0,
+        "businessNow": "2026-10-20T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:32:39.906Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Verify recurrence result"
+      ]
+    },
+    {
+      "runLabel": "calendar-concurrent-recurrence-b",
+      "evaluation": {
+        "ok": true,
+        "created": 1,
+        "businessNow": "2026-10-20T14:00:00+05:30",
+        "executedAt": "2026-10-13T04:32:36.606Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Verify recurrence result"
+      ]
+    },
+    {
+      "runLabel": "gmail-manager",
+      "evaluation": {
+        "ok": true,
+        "reserved": 2,
+        "mode": "GMAIL_TEST",
+        "businessNow": "2026-10-13T11:45:00.000Z",
+        "executedAt": "2026-10-13T04:38:55.995Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications",
+        "Claim once",
+        "Verify claim result",
+        "Mailpit claim accepted"
+      ]
+    },
+    {
+      "runLabel": "gmail-manager-repeat",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "GMAIL_TEST",
+        "businessNow": "2026-10-13T11:45:00.000Z",
+        "executedAt": "2026-10-13T04:39:53.217Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "mailpit-manager-repeat",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-13T11:45:00.000Z",
+        "executedAt": "2026-10-13T03:39:13.666Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "mailpit-leadership-repeat",
+      "evaluation": {
+        "ok": true,
+        "reserved": 0,
+        "mode": "MAILPIT",
+        "businessNow": "2026-10-14T14:00:00+05:30",
+        "executedAt": "2026-10-13T03:44:20.933Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state",
+        "Pending notifications"
+      ]
+    },
+    {
+      "runLabel": "recurrence-repeat",
+      "evaluation": {
+        "ok": true,
+        "created": 0,
+        "businessNow": "2026-10-13T16:00:00+05:30",
+        "executedAt": "2026-10-12T23:15:13.107Z"
+      },
+      "executedNodes": [
+        "Run QA scenario",
+        "Evaluate business state"
+      ]
+    }
+  ]
+}

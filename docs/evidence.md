@@ -1,12 +1,32 @@
-# Genuine evidence recorded during build
+# Genuine integrated evidence
 
-- The private Google Sheet has six tabs: Task_Master, Employee_Queue, Task_History, Manager_Dashboard, Alert_Log and Settings. The workbook is restricted and has four dummy Pending cycles. [Employee queue screenshot](screenshots/employee-queue.png), [Sheet operating menu](screenshots/sheet-ops-menu.png), [manager dashboard](screenshots/manager-dashboard.png), and [employee sidebar](screenshots/sheet-employee-sidebar.png).
-- Bound Apps Script `recurrenceNow` completed in the editor. [Execution log screenshot](screenshots/apps-script-execution.png). The deployed web app POST returned `{"created":0}` on an idempotent recurrence call.
-- n8n 2.39.8 ran each imported workflow through a temporary manual trigger, then the schedule trigger was restored. Recurrence returned `{"created":0}`; manager and leadership returned `{"alerts":0}` because their SLA thresholds had not yet passed. The three schedules were published, n8n restarted, and `list:workflow --active=true` listed all three. The separate Google Sheets OAuth credential also read Task_Master successfully during a connection probe.
-- Node reported 12/12 engine tests, 4/4 mocked Apps Script adapter tests, and 3/3 mocked Sheet sidebar tests passing.
-- No live email was sent. Tests with injected dates simulate alerts and escalation; they do not establish live notification delivery. The live Sheet sidebar loaded with the signed-in owner but displayed no tasks because all assignments use dummy `.invalid` addresses; no real account was stored in the prepared Sheet.
+The QA evidence below comes from actual Sheet interactions, deployed Apps Script
+POST/readbacks, real n8n executions and recipient-filtered Mailpit capture.
+Business time is simulated; actual execution/capture timestamps are retained.
+Private actor addresses are replaced in public JSON. Screenshots are genuine
+crops excluding account columns, private browser URLs and unrelated UI; no
+business result has been reconstructed.
 
-- On 2026-10-13, the full assignment DOCX was read and [audited requirement by requirement](requirements-checklist.md). The latest source was saved in the bound project and deployed to the existing web app as version 4. [Sanitized deployment confirmation](screenshots/deployment-version-4.png) contains no URL or deployment ID.
-- Fresh direct version 4 endpoint calls returned recurrence `created:0` twice, manager `alerts:0` and leadership `alerts:0` before the task deadline. The three Recurring Ops n8n schedules remained active. These checks do not prove live alert creation or email delivery.
-- [Sanitized dashboard readback](screenshots/manager-dashboard-acknowledgement.png) shows the new acknowledgement deadline for all four tasks. The screenshot excludes browser chrome and the private Sheet URL. Only the new deadline column and a neighbouring shifted header were fitted to content; task data and recipient settings were preserved.
-- The task clipboard helper was stopped after deployment. The user's original browser window was not inspected; this continuation used a dedicated window opened from the verified Sheet link.
+| Evidence | What it establishes |
+| --- | --- |
+| [Ticket state](evidence/qa/ticket-completed.json) and [next-cycle sidebar](screenshots/qa/next-seven-day-cycle.png) | Actual portal completion, one history event and next 7-day cycle |
+| [Daily form](screenshots/qa/structured-daily-report.png), [completed records](evidence/qa/resumed-state.json) | Meaningful report without ticket, authenticated completion and timestamps |
+| [Portal replay](evidence/qa/replay-portal.json), [daily replay](evidence/qa/replay-daily.json), [receipt screenshot](screenshots/qa/duplicate-completion-prevented.png) | Actual repeated submissions produced no duplicate history/completion |
+| [Authorization checks](evidence/qa/authorization-negative-checks.json) | Actual invalid-token / unauthenticated completion calls rejected; all protected records unchanged |
+| [Employee manager-role rejection](screenshots/qa/employee-manager-rejected.png) | Employee could not open authenticated Manager review |
+| [Manager capture](screenshots/qa/manager-mailpit-capture.png) and [leadership capture](screenshots/qa/leadership-mailpit-capture.png) | Actual SMTP messages with correct recipient, task/cycle, due date and reason |
+| [Mailpit API readback](evidence/qa/mailpit-captures.json) | Two captures per level, real capture timestamps, subject/body; not Gmail delivery |
+| [Actual workflow results](evidence/qa/workflow-results.json) and [n8n execution records](evidence/qa/n8n-executions.json) | Real threshold/retry/calendar/concurrent workflow runs |
+| [Calendar dashboard readback](evidence/qa/calendar-manager-concurrent.json), [final counts](evidence/qa/calendar-final.json), [visible panel](screenshots/qa/calendar-live-counts.png) | Friday + Monday holiday timing, 5 unique cycles and 8 dry-run alert keys |
+| [Final dashboard](screenshots/qa/consolidated-dashboard.png), [preserved state](evidence/qa/final-preserved-state.json), [deployment/restore verification](evidence/qa/deployment-verification.json) | Version 7 source matches deployed digest; full state restoration and valid SLA targets |
+| [Gmail sender state](evidence/qa/gmail-api-accepted.json) | MailApp accepted two sends; receiving inbox still unverified |
+
+The [eight-case acceptance report](../tests/test-results.md) contains executed
+steps and exact scope for each PASS/BLOCKED. Local regression remains 19/19,
+separate from integrated acceptance. The [recording walkthrough](../tests/demo-script.md)
+is reproducible; no complete video is claimed.
+
+Existing screenshots directly under `screenshots/` are historical evidence from
+the original dummy-only prototype. New integrated evidence is under
+`screenshots/qa/` and `evidence/qa/`. Do not treat older zero-alert connectivity
+checks as actual notification delivery.

@@ -1,0 +1,27 @@
+{
+  "evidenceType": "Actual deployed QA endpoint authorization checks",
+  "actualExecutedAt": "2026-10-13T04:57:57.188Z",
+  "results": {
+    "invalidAutomationToken": {
+      "ok": false,
+      "error": "Unauthorized"
+    },
+    "unauthenticatedCompletion": {
+      "ok": false,
+      "error": "Google authorization required; no identity token available"
+    }
+  },
+  "countsBefore": {
+    "cycles": 5,
+    "completed": 2,
+    "history": 2,
+    "alerts": 6
+  },
+  "countsAfter": {
+    "cycles": 5,
+    "completed": 2,
+    "history": 2,
+    "alerts": 6
+  },
+  "allProtectedRecordsUnchanged": true
+}

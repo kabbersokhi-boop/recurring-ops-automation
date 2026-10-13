@@ -1,13 +1,48 @@
-# Current deployment status and limitations
+# Verified limits and outstanding checks
 
-- The private Google Sheet, bound Apps Script web app, and three n8n workflows are deployed. The workflows are active, with the Sheet still set to `dryRun=true` and all employee and notification addresses set to the non-deliverable `.invalid` domain.
-- The 19 automated tests execute the engine and mocked Apps Script adapter locally with an injected clock. Live Apps Script recurrence and all three n8n HTTP paths were executed successfully. The Sheet menu, employee sidebar, and manager dashboard were opened live. Employee submission, manager acknowledgement, and real email delivery were not tested live because no separate controlled test identities or verified test inbox were configured. The sidebar call paths were tested with dummy-only mocks.
-- No real email was sent. MailApp's API does not provide a provider message ID; Alert_Log leaves that field blank. `UNKNOWN` status requires operator reconciliation.
-- A bound script running as an editor can write the shared queue, and a trusted Sheet editor could also alter queue cells directly. For production, separate employee forms from an owner-only state workbook or enforce a more restrictive Workspace deployment.
-- Apps Script writes multiple tabs under one document lock, but Sheets does not provide a multi-tab database transaction. The engine repairs missing completion/acknowledgement history on the next write; operators should inspect inconsistent state after a Sheet API failure.
-- The live n8n instance stores a project-specific Custom Auth credential encrypted. The public workflow exports retain environment-variable expressions, so a fresh installation must configure those private values or use a Custom Auth body credential as described in setup.
-- The web app allows unauthenticated HTTP access at the Google deployment layer because n8n calls it server to server. Each POST must include the 256-bit shared token in the request body. Keep the token private and rotate it if exposed. Employee and manager UI calls are separate Apps Script functions and require a Google-provided signed-in email; blank identity fails closed.
+The private QA workbook has genuine employee sidebar completion, linked
+recurrence, structured daily proof, Mailpit manager and leadership capture,
+normal retry deduplication and overlapping n8n execution evidence.
+This does **not** establish every end-to-end acceptance case.
 
-- The latest source is deployed as web app version 4. The acknowledgement deadline field was read back from the live dashboard, while the authenticated manager sidebar action remains unverified. The [deployment record](deployment-record.md) distinguishes fresh checks from earlier n8n evidence.
-- Daily reports are employee attestations. The system validates the submitted report and identity, not the occurrence of an external WhatsApp action or the authenticity of an external portal ticket.
-- The user explicitly retained dummy identities and dry-run mode on 2026-10-13. Completing the remaining live acceptance demonstrations requires separate controlled test accounts and a verified test inbox.
+## Outstanding acceptance
+
+- Authenticated second-account manager acknowledgement and later resolution.
+- Independent inspection of the receiving controlled Gmail inbox.
+- Overlapping first-time employee submissions and injected transport failures.
+- A complete screen recording with both authenticated roles, if safe capture
+  and second-account authorization are available.
+
+The acceptance report distinguishes these gaps from local logic tests and actual
+SMTP capture. Sending API success is not independently verified inbox delivery.
+Mailpit is a private SMTP sink; logical `.test` recipients are not real mailboxes.
+
+## Operational limits
+
+- Google ID-token validation was exercised with the authenticated employee.
+  The shared Sheet client is editable by trusted Sheet writers; a malicious
+  client editor could harvest short-lived tokens. The private backend still
+  restricts roles and keeps admin actions/secrets outside that shared project.
+- A notification already claimed for sending can be in flight when an employee
+  completes or a manager acknowledges. The claim checks current state, but an
+  in-flight SMTP message cannot be retracted.
+- SMTP and Sheet updates are not an atomic transaction. `SENDING` / `UNKNOWN`
+  require reconciliation. Do not clear their keys and blindly resend.
+- QA backup/restore uses a bounded compressed private property and multiple
+  tab writes. Validation and a recovery snapshot reduce risk; Sheets does not
+  provide a cross-tab transaction.
+- Business time is deliberately simulated in QA. Actual execution and mail
+  capture timestamps remain real. This does not show that a scheduler waited
+  through several real days.
+- Ticket IDs and daily reports are employee attestations. External portals,
+  WhatsApp messages and the underlying operational work are not independently
+  validated.
+- Same-day delivery depends on service availability. Scheduling retries catch
+  up after downtime; they cannot deliver during an outage.
+- The original prototype's deployment and active dry-run schedules remain
+  separate. QA manual workflows are inactive as schedules to avoid uncontrolled
+  sends while changing business time.
+
+No assignment was submitted and no employer or company mailbox was contacted.
+Private resource links, controlled Google account addresses and infrastructure
+credentials are supplied privately, never in repository configuration or evidence.
