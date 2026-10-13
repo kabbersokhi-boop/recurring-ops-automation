@@ -55,7 +55,13 @@ the presentation workbook only; its state readback still matches the earlier
 verified task/cycle/history/alert tables exactly.
 [Cell scan](evidence/presentation/cell-privacy-review.json).
 
-The presentation and QA workbooks remain restricted to approved accounts. No
-Anyone/domain permission was added. Google can reveal file-owner identity in its
-own metadata; this is disclosed in the access guide. Public source and recordings
-use role aliases, and neither private workbook link is published.
+At presentation finalization, both workbooks were restricted to approved accounts;
+no Anyone/domain permission was added by that work. During the later final README
+handoff, the presentation's existing **Anyone with the link — Viewer** permission
+was verified, along with anonymous page access. The user explicitly requested
+publication of that presentation URL in README. Private QA still has only
+individual account permissions, and its URL remains excluded. No Drive sharing
+settings were changed during the README handoff.
+
+Google can reveal the presentation file owner's identity in its own metadata;
+this is disclosed in the access guide. Public source and recordings use role aliases.

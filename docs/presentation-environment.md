@@ -45,9 +45,12 @@ The presentation workbook is an **administrative/reviewer demonstration**, not a
 production-secure employee-by-employee portal. It consolidates all four fictional
 employees for review. Hidden tabs and protected ranges do not prevent an editor
 from reading workbook data. Viewers cannot perform authenticated sidebar writes.
-The owner provides controlled viewer access privately; public link sharing has
-not been authorized or enabled. Google may reveal the file owner's identity in
-its own metadata even though cells and public recordings use role aliases.
+For the final README handoff, the existing permission was checked and is now
+**Anyone with the link — Viewer**. The presentation page also opened without
+Google authentication. No Drive sharing settings were changed during this task.
+Private QA has only individual account permissions and remains restricted.
+Google may reveal the presentation file owner's identity in its own metadata
+even though cells and public recordings use role aliases.
 
 All twelve tabs, including hidden data tables, were scanned across their complete
 current grids. The unused inherited `qaWebAppUrl` value in Settings B13 was

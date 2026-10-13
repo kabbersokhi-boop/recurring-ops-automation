@@ -2,207 +2,201 @@
 
 **AI Operations Manager Assignment — Allo Innoware**
 
-Employees record recurring work once in Google Sheets. Completion evidence,
-history and the next cycle update automatically; missed deadlines go to a
-manager, then to leadership when follow-up remains unresolved.
+- **[Open Working Google Sheet](https://docs.google.com/spreadsheets/d/1GGHWD76huphPMWxuvm51wcVzk9tYnTwoC4g8oo_Yecc/edit)**
+- **[Watch 8:31 End-to-End Demonstration](docs/demo/assignment-walkthrough.mp4)**
+- **[View Eight Acceptance Test Results](tests/test-results.md)**
+- **[Explore Source Code and Setup](#source-code-and-setup)**
 
-**[Watch the 8:31 primary walkthrough](docs/demo/assignment-walkthrough.mp4)** ·
-[Working Sheet access](docs/presentation-environment.md#access-and-deployment) ·
-[Eight-case acceptance report](tests/test-results.md) ·
-[Source and setup](docs/qa-setup.md)
+Employees record recurring work once in Google Sheets. The system saves completion
+proof and history, creates the next cycle, alerts managers about missed deadlines,
+and escalates unresolved work to leadership.
 
-| Environment | Purpose | Verified scope |
-| --- | --- | --- |
-| **Presentation Sheet** | What the system looks like and how people use it | Independent backend; genuine authenticated daily completion, history, next daily cycle and replay prevention |
-| **Private QA** | Where end-to-end acceptance tests were proven | Eight integrated cases, separate authenticated manager, Mailpit captures and two verified Gmail Inbox messages |
+**Verified: 8/8 integrated QA acceptance cases passed · 22/22 local regression tests passed.**
 
-The walkthrough shows the polished product first, then genuine retained QA
-evidence. QA links and private configuration are not published. Presentation
-viewer access is controlled by the owner; unrestricted sharing is not enabled.
+## The business problem
 
-The video is 1080p with timed captions and no audio.
-[Transcript and chapter timings](docs/demo/assignment-walkthrough.md) ·
-[Recording provenance](docs/demo/assignment-walkthrough-provenance.json).
-
-![Operations Overview: four distinct recurring assignments and live counts](docs/screenshots/presentation/operations-overview.png)
-
-## The problem
-
-Manual reminders and multiple trackers make recurring work hard to follow.
-Managers need to know what was completed, what is overdue and who has reviewed
-an issue without chasing each employee separately.
+Recurring work is easy to miss when assignments, completion evidence and reminders
+live in separate trackers. Managers need one place to see what is due, what is
+overdue, and whether an issue has been reviewed or actually resolved.
 
 ## The solution
 
-Employees open **Ops Tasks → My tasks**, submit a Ticket ID or structured daily
-report, and receive a recorded completion. Managers use **Manager review** to
-acknowledge issues and inspect later resolution. Acknowledgement does not complete
-the employee's task. Notifications and leadership escalation follow one shared
-set of business rules.
-
-## How it works
+Google Sheets is the everyday operating interface. Employees submit proof through
+a sidebar; managers review overdue work in one dashboard. The automation maintains
+the records without requiring a second spreadsheet update.
 
 ```mermaid
-flowchart LR
-  E[Employee submits proof in Sheet] --> B[Apps Script validates identity and completion]
-  B --> H[History and recurring work]
-  N[n8n evaluates deadlines] --> B
-  B --> M[Manager notification and acknowledgement]
-  M --> L[Leadership escalation if unresolved]
+flowchart TD
+  T[Recurring task in Google Sheets] --> A[Employee submits proof]
+  A --> B[Validate identity and complete task]
+  B --> C[Record history and create next recurring cycle]
+  T --> D[Check pending work against deadlines]
+  D --> E[Notify manager when overdue]
+  E --> F[Manager acknowledges the issue]
+  E --> G[Escalate unresolved follow-up to leadership]
 ```
 
-## What you'll see
+Acknowledging an issue records the manager's review. The employee's task remains
+Pending until completion proof is submitted separately.
 
-| Presentation view | Use |
+![Operations Overview with four recurring assignments, due dates and live status counts](docs/screenshots/presentation/operations-overview.png)
+
+## Inspect the product, then inspect the proof
+
+| Environment | What to inspect | Verified scope |
+| --- | --- | --- |
+| **Public Presentation Sheet** | Operations Overview, Employee Work, Manager Review, Activity History and Notification Evidence | Genuine authenticated daily completion; one history event; next daily cycle and duplicate prevention |
+| **Private QA Sheet** | Sanitized video, acceptance report and linked evidence | All eight integrated scenarios, authenticated manager acknowledgement, actual n8n runs, Mailpit manager/leadership messages and limited verified Gmail delivery |
+
+The presentation Sheet is publicly accessible as **Viewer**: reviewers can inspect
+the workbook, but cannot submit tasks through its authenticated sidebars. Its
+alert schedules are intentionally inactive. No presentation notification or
+manager-acknowledgement pass is claimed; those tests were performed in private QA.
+Its empty Notification Evidence view means no alerts were triggered there.
+
+The **8:31 video shows both environments**: the polished product first, then
+genuine QA proof. Historical actions are labelled, and QA records are not copied
+into presentation history. The video is 1080p with timed captions and no audio.
+Private QA's actual Sheet URL and configuration are never published.
+
+[Transcript and chapter timings](docs/demo/assignment-walkthrough.md) ·
+[Recording provenance](docs/demo/assignment-walkthrough-provenance.json) ·
+[Supplementary 5:10 technical review](docs/demo/qa-screen-review.mp4)
+
+## How employees and managers use it
+
+| Step | What happens |
 | --- | --- |
-| Operations Overview | Four assignments, frequencies, due dates and live counts |
-| Employee Work + completion sidebar | One place to enter proof and inspect recurring cycles |
-| Manager Review | Consolidated work status, acknowledgement and independent resolution |
-| Activity History | Real events, business time, actual execution time and action source |
-| Notification Evidence | Alerts recorded in this workbook; currently empty because its alert workflows have not been run |
+| **Find assigned work** | Employees open **Ops Tasks → My tasks** to see their tasks, due dates and required proof. |
+| **Complete once** | Submit a Ticket ID, or a daily report covering completed work, pending work/count and blockers. |
+| **Track the result** | The backend verifies the signed-in user, marks the cycle Completed, and records proof, identity and timestamp in history. |
+| **Continue recurring work** | Periodic completion creates a linked next cycle. Daily work is generated independently each working day. |
+| **Review an overdue issue** | Managers receive an alert and use **Ops Tasks → Manager review → Acknowledge**. Review and employee resolution remain separate. |
+| **Escalate unresolved work** | At the leadership threshold, unresolved follow-up produces an escalation with the employee, task, cycle and reason. |
 
-[Presentation history](docs/screenshots/presentation/activity-history.png) ·
-[Manager view](docs/screenshots/presentation/manager-review.png) ·
-[Duplicate prevention](docs/screenshots/presentation/completion-replay.png)
+The sidebars are the authorized update path; system-maintained cells are protected.
+[Presentation checks](docs/evidence/presentation/verification.json) document its
+actual completion, recurrence, replay and authorization results.
 
-An empty presentation notification log is expected. Verified notification
-captures are retained in the separate private QA environment, not copied into
-the presentation workbook.
+## Four demonstration assignments
 
-## Demo in 60 seconds
-
-1. Start the [primary walkthrough](docs/demo/assignment-walkthrough.mp4): product first, acceptance proof second.
-2. Inspect the [eight-case report](tests/test-results.md) and its linked real records.
-3. Use the [presentation access guide](docs/presentation-environment.md) for controlled workbook review.
-
-The earlier [5:10 technical screen review](docs/demo/qa-screen-review.mp4) remains
-supplementary material. Recorded outcomes are explicitly distinguished from newly
-performed actions; the main walkthrough is not an uninterrupted recording of
-eight first-time tests.
-
-## Four recurring task scenarios
-
-| Employee | Assignment | Frequency | Completion proof |
+| Employee | Task | Frequency | Completion proof |
 | --- | --- | --- | --- |
 | A / EMP-A | Daily Operations Update | Each working day | Completed work, pending work/count and blockers |
-| B / EMP-B | Portal Task A | 7 days | Ticket ID |
-| C / EMP-C | Portal Task B | 15 days | Ticket ID |
-| D / EMP-D | Portal Task C | 30 days | Ticket ID |
+| B / EMP-B | Portal Task A | Every 7 days | Ticket ID |
+| C / EMP-C | Portal Task B | Every 15 days | Ticket ID |
+| D / EMP-D | Portal Task C | Every 30 days | Ticket ID |
 
-Employee A uses the owner's authenticated Google account. B/C/D have distinct
-dummy identities; their QA completions are administrator-only simulations,
-explicitly recorded as `SIMULATED`. Earlier authenticated portal testing temporarily
-assigned a portal task to the owner and is retained as a separate historical run.
+Employee A uses the owner's authenticated Google account; the test manager uses
+a separate authenticated account. B/C/D remain distinct dummy employees. Their
+QA completions were administrator simulations through the real engine, explicitly
+labelled **SIMULATED**, not separate authenticated employee logins. Earlier
+authenticated Ticket ID testing temporarily assigned a portal task to the owner;
+the video identifies that historical run separately.
 
-## Automation and SLA
+## SLA policy and duplicate prevention
 
-The **proposed demonstration policy** uses India time: task deadline 17:00,
-same-day manager alert 17:15, manager acknowledgement target next working day
-10:00, leadership threshold next working day 14:00. These times were chosen for
-the prototype, not supplied by the employer.
+These times are **proposed demonstration policy**, not employer-supplied
+requirements. All business times use India time.
 
-Daily cycles are generated independently on working days. Periodic recurrence is
-completion date + 7/15/30 calendar days, rolled forward over weekends and configured
-holidays. Deterministic IDs, locks and notification claims prevent ordinary retry
-duplicates. [Exact rules and exceptions](docs/sla-logic.md).
+| Milestone | Policy |
+| --- | --- |
+| Task deadline | 17:00 on its due day |
+| Manager alert | Same day at 17:15 |
+| Manager acknowledgement target | Next working day at 10:00 |
+| Leadership escalation threshold | Next working day at 14:00 |
 
-## Technology
+Daily cycles skip weekends and configured holidays. Periodic recurrence is
+completion date + 7/15/30 calendar days, rolled forward to a working day. Stable
+cycle/alert IDs, locks and notification claims prevent ordinary retries from
+creating duplicate records or sends. [Timing rules and exceptions](docs/sla-logic.md).
 
-- **Google Sheets:** employee/manager interface and protected records.
-- **Apps Script:** verified identity, validation, state transitions, recurrence and SLA.
-- **n8n:** controlled workflow execution and notification orchestration.
-- **Mailpit:** actual SMTP test captures inside private infrastructure.
-- **Gmail:** two limited external test messages independently verified in the recipient's Inbox.
+## How the tools work together
 
-The main Gmail account is the automation sender, project owner and authenticated
-Employee A. A separate testing Gmail account is the authenticated manager and
-limited Gmail-test recipient. Actual addresses are kept in private configuration.
-Repeated notification testing uses Mailpit's `.test` recipients.
+| Tool | Responsibility |
+| --- | --- |
+| **Google Sheets** | Employee and manager interface, task records and review views |
+| **Google Apps Script** | Identity checks, completion validation, history, recurrence and SLA decisions |
+| **n8n** | Scheduled checks and notification orchestration using the shared business rules |
+| **Mailpit** | Safe capture of actual test SMTP messages for repeated manager/leadership testing |
+| **Gmail** | Limited external delivery verification: two messages observed in the recipient's Inbox |
 
-## Testing and results
+The main Gmail account is the automation sender, project owner and Employee A.
+The separate test-manager Gmail is the manager identity and approved recipient.
+Their addresses stay in private configuration. **Mailpit capture proves SMTP test
+receipt; Gmail Inbox observation proves external delivery. They are separate evidence.**
 
-**Eight integrated acceptance cases PASS. Local regression: 22/22 PASS.**
-These are distinct kinds of evidence. The new presentation deployment has its
-own narrower [executed checks](docs/evidence/presentation/verification.json).
+## Acceptance results
 
-| Case | Integrated QA result | Evidence |
+**8/8 integrated QA cases passed. 22/22 local regression tests passed.**
+Local checks support the implementation; they do not substitute for integrated
+evidence. The presentation deployment has its own narrower checks above.
+
+| Assignment case | QA result | Genuine evidence |
 | --- | --- | --- |
-| 1. Recurring cycle | PASS | [Authenticated ticket and next cycle](docs/evidence/qa/ticket-completed.json) |
-| 2. Single-point completion | PASS | [Sidebar result and repeat](docs/evidence/qa/replay-portal.json) |
-| 3. Daily report without Ticket ID | PASS | [Authenticated daily report](docs/evidence/qa/role-employee-a-confirmed.json) |
-| 4. Same-day manager alert | PASS | [Mailpit captures](docs/evidence/qa/role-mailpit-captures.json), [Gmail Inbox](docs/evidence/qa/gmail-inbox-verification.json) |
-| 5. Manager acknowledgement | PASS | [Separate signed-in manager; employee still Pending](docs/evidence/qa/role-manager-ack-confirmed.json) |
+| 1. Recurring task generation | PASS | [Completion and correct next cycle](docs/evidence/qa/ticket-completed.json), [distinct-role final records](docs/evidence/qa/role-final-state.json) |
+| 2. Single-point Ticket ID completion | PASS | [Employee sidebar result](docs/screenshots/qa/next-seven-day-cycle.png), [repeat submission](docs/evidence/qa/replay-portal.json) |
+| 3. Daily report without Ticket ID | PASS | [Authenticated Employee A report](docs/evidence/qa/role-employee-a-confirmed.json) |
+| 4. Same-day manager notification | PASS | [Actual workflow runs](docs/evidence/qa/role-workflow-results.json), [Mailpit captures](docs/evidence/qa/role-mailpit-captures.json), [Gmail Inbox verification](docs/evidence/qa/gmail-inbox-verification.json) |
+| 5. Manager acknowledgement | PASS | [Separate authenticated manager; task remains Pending](docs/evidence/qa/role-manager-ack-confirmed.json) |
 | 6. Leadership escalation | PASS | [Unresolved D escalated; resolved C excluded](docs/evidence/qa/role-leadership-alerted.json) |
-| 7. SLA timing | PASS | [Actual threshold workflow results](docs/evidence/qa/role-workflow-results.json), [holiday scenario](docs/evidence/qa/workflow-results.json) |
-| 8. No duplicates | PASS | [Repeated workflows](docs/evidence/qa/role-workflow-results.json), [overlapping calls](docs/evidence/qa/overlapping-dummy-completion.json) |
+| 7. SLA and calendar timing | PASS | [Threshold checks](docs/evidence/qa/role-workflow-results.json), [weekend/holiday workflow results](docs/evidence/qa/workflow-results.json) |
+| 8. Duplicate prevention | PASS | [Repeated workflows](docs/evidence/qa/role-workflow-results.json), [overlapping simulation calls](docs/evidence/qa/overlapping-dummy-completion.json) |
 
-See [steps, preconditions, counts and limitations](tests/test-results.md) and
-[sanitized supporting evidence](docs/evidence.md). Current QA records remain
-8 cycles / 5 Completed / 6 history events / 3 alerts. Real capture and execution
-times remain distinct from the simulated business clock.
+[Full acceptance report: steps, counts and scope](tests/test-results.md) ·
+[Supporting evidence index](docs/evidence.md)
 
-## Architecture
+## How a Company Would Deploy This
 
-The shared Sheet client holds no automation token and cannot directly mutate
-protected state. A separate owner-only backend validates Google-signed identity
-tokens and task ownership. n8n uses a private automation token. Apps Script
-reserves notifications centrally; n8n claims each message, sends through Mailpit
-SMTP and reports transport outcomes. Gmail-test delivery is restricted to an
-approved private recipient. [Architecture](docs/architecture.md).
+1. Create its own Google Sheet and Apps Script deployment.
+2. Configure real employee and manager identities and permissions.
+3. Import the provided n8n workflows and connect company-owned credentials.
+4. Set task frequencies, working days, SLA rules and notification recipients.
+5. Use company-owned email credentials for live delivery; retain dry-run mode for safe checks.
+6. Provide role-separated employee access and verify task ownership on every update.
 
-The presentation backend is independently pinned to its own workbook and rejects
-the original and private QA IDs. Its Sheet records use role aliases; verified
-account identities remain in private backend configuration/audit properties.
-External Gmail sending is disabled in this presentation deployment.
+This shared presentation workbook is an **administrative/reviewer demonstration**,
+not a production-secure employee portal. Hidden tabs and protected ranges do not
+isolate read access between workbook editors.
 
-## Deploy or reproduce
+### Source code and setup
 
-Follow [QA setup](docs/qa-setup.md), [presentation setup](docs/presentation-environment.md),
-[deployment record](docs/deployment-record.md) and [original setup](docs/setup.md).
-Source and sanitized workflow exports are provided; private OAuth authorizations,
-tokens, deployments and credentials are not included.
+[Apps Script source](apps-script/) · [n8n workflow exports](n8n-workflows/) ·
+[QA setup](docs/qa-setup.md) · [Presentation setup and access](docs/presentation-environment.md) ·
+[Original setup](docs/setup.md) · [Deployment record](docs/deployment-record.md) ·
+[Architecture](docs/architecture.md)
 
-Companies must use their own Google accounts, automation credentials and
-notification recipients, with access-separated employee interfaces. This shared
-presentation workbook is an **administrative/reviewer demo**, not a production-secure
-employee-by-employee portal. Hidden tabs and protected ranges do not isolate
-read access between workbook editors.
+The shared client contains no automation token. A separate private backend checks
+Google-signed identity tokens and task ownership, keeps SLA decisions central,
+and reserves notifications before n8n sends them and records the outcome.
+Presentation is isolated from QA and rejects external Gmail sending. Private
+OAuth authorizations, credentials and deployment endpoints are not included.
 
-```bash
-node --test tests/automated/*.test.cjs
-```
+## Limitations and privacy
 
-## Important limitations
+- Business time is simulated in the demonstrations; authentication, execution timestamps and captured messages are real. No multi-day real-time scheduler waiting is claimed.
+- B/C/D simulations are labelled; two distinct authenticated employees submitting simultaneously remain unverified.
+- SMTP acceptance and recording its receipt are separate operations. A crash between them is not exactly-once guaranteed; uncertain outcomes require reconciliation.
+- An already-sending notification cannot be retracted after acknowledgement or completion.
+- Ticket IDs and daily reports are employee attestations; external portal work is not independently validated.
+- Presentation notification and manager-acknowledgement testing was not repeated; its proof is retained in private QA.
+- Public media is sanitized. Private QA remains restricted. Google may reveal the presentation file owner's identity through its own metadata.
 
-- Business time is simulated in QA/presentation; authentication, executions and recorded message captures are real.
-- Dummy B/C/D simulations are not authenticated Google logins.
-- Mailpit capture is not Gmail Inbox delivery; API acceptance alone is not receipt evidence.
-- SMTP acceptance followed by a crash before receipt is not exactly-once guaranteed; uncertain delivery is recorded honestly.
-- Two distinct authenticated employees submitting concurrently remain unverified.
-- Presentation manager acknowledgement and notification delivery were not newly repeated; their proof comes from private QA.
+[Full verified limitations](docs/limitations.md) · [Privacy review](docs/privacy-review.md) ·
+[Presenter walkthrough and reset precautions](tests/demo-script.md)
 
-[Full verified limits](docs/limitations.md) · [Presenter walkthrough/reset precautions](tests/demo-script.md)
-
-## Repository guide
+## Repository structure
 
 | Location | Contents |
 | --- | --- |
-| [apps-script/](apps-script/) | Shared engine, isolated backend and Sheet clients |
-| [n8n-workflows/](n8n-workflows/) | Sanitized importable workflows |
-| [docs/](docs/) | Architecture, SLA, setup, deployment and privacy |
-| [tests/](tests/) | Local checks and genuine integrated acceptance report |
-| [docs/demo/](docs/demo/) | Primary walkthrough and supplementary technical video |
+| [apps-script/](apps-script/) | Shared engine, isolated backends and Sheet clients |
+| [n8n-workflows/](n8n-workflows/) | Sanitized workflow exports |
+| [docs/](docs/) | Architecture, setup, SLA, deployment and privacy |
+| [tests/](tests/) | Acceptance report, local regressions and presenter script |
+| [docs/demo/](docs/demo/) | Primary video, captions and supplementary review |
 | [docs/evidence/](docs/evidence/) | Sanitized actual records and recording provenance |
 
-## Privacy and access
-
-Public screenshots/video omit private identities, URLs, credentials and unrelated
-personal material. Private QA stays private. Google may still reveal a workbook
-owner's identity through its own file metadata; role aliases do not hide that.
-Viewer review and trusted authenticated testing require different access.
-[Privacy review](docs/privacy-review.md) · [Access plan](docs/presentation-environment.md#access-and-deployment)
-
-Nothing has been submitted to the employer and no employer mailbox has been
-contacted. The owner decides whether to submit this assignment.
+Nothing has been submitted to Allo Innoware and no employer mailbox has been
+contacted. The owner decides whether to submit the assignment.
 
 License: MIT.

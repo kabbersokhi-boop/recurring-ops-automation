@@ -69,8 +69,10 @@ It is not a production-secure per-employee portal: an editor may read shared
 workbook data despite protected/hidden tabs. Company deployment requires separate
 employee access, verified Google identities and company-owned credentials and
 recipients. Google may reveal the owner's identity through file metadata even
-though recorded screens and cells use aliases. Public viewer sharing remains
-subject to the owner's approval; a Viewer cannot submit sidebar actions.
+though recorded screens and cells use aliases. The presentation's existing public
+Viewer permission was verified during the final README handoff; a Viewer cannot
+submit sidebar actions. Private QA remains restricted. No sharing settings were
+changed during that handoff.
 
 The primary walkthrough uses captions and clearly labelled cuts across actual
 presentation actions and retained QA evidence. It does not rerun all eight cases
