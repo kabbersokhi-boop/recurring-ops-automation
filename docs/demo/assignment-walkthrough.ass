@@ -1,0 +1,112 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Title,DejaVu Sans,27,&H00FFFFFF,&H00FFFFFF,&H001C2E45,&H001C2E45,0,0,0,0,100,100,0,0,1,0,0,7,40,40,15,1
+Style: Caption,DejaVu Sans,30,&H00FFFFFF,&H00FFFFFF,&H001C2E45,&H001C2E45,0,0,0,0,100,100,0,0,1,0,0,2,44,44,23,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:20.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Operations Overview
+Dialogue: 1,0:00:00.00,0:00:06.67,Caption,,0,0,0,,Recurring work needs clear ownership, proof and timely follow-up. Google Sheets is the operating\Ninterface.
+Dialogue: 1,0:00:06.67,0:00:13.33,Caption,,0,0,0,,This is the polished presentation workbook: four fictional employees, with daily, 7-day, 15-day and\N30-day assignments.
+Dialogue: 1,0:00:13.33,0:00:20.00,Caption,,0,0,0,,Its counts and due dates read actual backend state. The separate private QA environment appears later.
+Dialogue: 0,0:00:20.00,0:00:45.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Authenticated employee workflow
+Dialogue: 1,0:00:20.00,0:00:28.33,Caption,,0,0,0,,Employees use Ops Tasks → My tasks. The sidebar shows assigned work, its due date and the required\Nproof.
+Dialogue: 1,0:00:28.33,0:00:36.67,Caption,,0,0,0,,Employee A is the project owner’s verified Google login. This daily task requires a report, not a Ticket\NID.
+Dialogue: 1,0:00:36.67,0:00:45.00,Caption,,0,0,0,,The report records meaningful completed work, pending work and count, and blockers. This is fictional\Ndemonstration work.
+Dialogue: 0,0:00:45.00,0:01:10.00,Title,,0,0,0,,PRODUCT / PRESENTATION — One meaningful daily report
+Dialogue: 1,0:00:45.00,0:00:53.33,Caption,,0,0,0,,The employee reports what was completed and what remains pending. Here, three fictional portal tasks\Nremain open.
+Dialogue: 1,0:00:53.33,0:01:01.67,Caption,,0,0,0,,Blockers and optional remarks are recorded with the same submission. No second spreadsheet update is\Nrequired.
+Dialogue: 1,0:01:01.67,0:01:10.00,Caption,,0,0,0,,Business time is simulated: 21 October at 16:00 India time. Authentication and execution time are real.
+Dialogue: 0,0:01:10.00,0:01:25.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Genuine first completion
+Dialogue: 1,0:01:10.00,0:01:17.50,Caption,,0,0,0,,Submit completion is clicked once. This is the genuine first presentation submission recorded for this\Nwalkthrough.
+Dialogue: 1,0:01:17.50,0:01:25.00,Caption,,0,0,0,,Typing pauses and the backend wait are shortened by cuts. The following view shows the actual resulting\Nrecords.
+Dialogue: 0,0:01:25.00,0:01:37.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Completion recorded automatically
+Dialogue: 1,0:01:25.00,0:01:31.00,Caption,,0,0,0,,Daily 21 October is Completed. Its proof is recorded and the action source is AUTHENTICATED.
+Dialogue: 1,0:01:31.00,0:01:37.00,Caption,,0,0,0,,The other three employees retain separate assignments. No dummy employee is silently authenticated as\NEmployee A.
+Dialogue: 0,0:01:37.00,0:01:52.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Activity History
+Dialogue: 1,0:01:37.00,0:01:42.00,Caption,,0,0,0,,Activity History contains exactly one completion event from that submission, with the verified employee\Nrole.
+Dialogue: 1,0:01:42.00,0:01:47.00,Caption,,0,0,0,,Business timestamp: 21 October. Actual execution: 13 October. The two clocks are deliberately distinct.
+Dialogue: 1,0:01:47.00,0:01:52.00,Caption,,0,0,0,,Private Google identities remain in the private backend audit; presentation cells use stable role\Naliases.
+Dialogue: 0,0:01:52.00,0:02:12.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Actual n8n daily recurrence
+Dialogue: 1,0:01:52.00,0:01:58.67,Caption,,0,0,0,,The administrator advanced only this presentation business clock to the next working day.
+Dialogue: 1,0:01:58.67,0:02:05.33,Caption,,0,0,0,,Real n8n execution #143898 created one new daily cycle. Its business and actual execution timestamps are\Nvisible.
+Dialogue: 1,0:02:05.33,0:02:12.00,Caption,,0,0,0,,A separate repeat, #143908, created zero. These executions are genuine retained results; no new run is\Ninvoked here.
+Dialogue: 0,0:02:12.00,0:02:22.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Next daily cycle
+Dialogue: 1,0:02:12.00,0:02:17.00,Caption,,0,0,0,,Daily 22 October now appears Pending alongside the completed 21 October cycle.
+Dialogue: 1,0:02:17.00,0:02:22.00,Caption,,0,0,0,,Daily work is generated independently each working day. Periodic tasks create linked next cycles on\Ncompletion.
+Dialogue: 0,0:02:22.00,0:02:50.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Repeat completion safely
+Dialogue: 1,0:02:22.00,0:02:31.33,Caption,,0,0,0,,The QA replay control repeats the already recorded 21 October submission; it does not complete the new\Ndaily task.
+Dialogue: 1,0:02:31.33,0:02:40.67,Caption,,0,0,0,,The actual sidebar response is “Duplicate prevented: existing completion retained”.
+Dialogue: 1,0:02:40.67,0:02:50.00,Caption,,0,0,0,,Verified counts stay at 5 cycles, 1 Completed, 1 history event and 0 alerts. No extra completion was\Ncreated.
+Dialogue: 0,0:02:50.00,0:03:02.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Manager Review
+Dialogue: 1,0:02:50.00,0:02:56.00,Caption,,0,0,0,,Manager Review consolidates all four employees, overdue work and independent resolution status.
+Dialogue: 1,0:02:56.00,0:03:02.00,Caption,,0,0,0,,No presentation alerts have been run. Manager acknowledgement is demonstrated next using preserved\Nprivate QA evidence.
+Dialogue: 0,0:03:02.00,0:03:13.00,Title,,0,0,0,,PRODUCT / PRESENTATION — Notification Evidence
+Dialogue: 1,0:03:02.00,0:03:07.50,Caption,,0,0,0,,This new workbook has no alerts yet. Its empty log is not evidence of failed delivery.
+Dialogue: 1,0:03:07.50,0:03:13.00,Caption,,0,0,0,,Verified manager and leadership captures belong to the separate private QA environment. They are not\Ncopied into this workbook.
+Dialogue: 0,0:03:13.00,0:03:35.00,Title,,0,0,0,,PROOF / PRIVATE QA — Separate accepted test environment
+Dialogue: 1,0:03:13.00,0:03:20.33,Caption,,0,0,0,,We now transition to PRIVATE QA — TEST MODE: the separate environment used for the eight acceptance\Nscenarios.
+Dialogue: 1,0:03:20.33,0:03:27.67,Caption,,0,0,0,,This corrected control page replaces the excluded earlier take. Private URLs and browser chrome are\Nremoved.
+Dialogue: 1,0:03:27.67,0:03:35.00,Caption,,0,0,0,,Business time is simulated; actual execution and capture times are real. Accepted records are preserved,\Nnot reset.
+Dialogue: 0,0:03:35.00,0:04:00.00,Title,,0,0,0,,PROOF / PRIVATE QA — Tickets, cycles and distinct employees
+Dialogue: 1,0:03:35.00,0:03:43.33,Caption,,0,0,0,,The retained queue shows 8 cycles: 5 Completed and 3 Pending. Each employee has a distinct ID and\Nassignment.
+Dialogue: 1,0:03:43.33,0:03:51.67,Caption,,0,0,0,,B, C and D have Ticket IDs and next cycles: 22 October, 30 October and 16 November respectively.
+Dialogue: 1,0:03:51.67,0:04:00.00,Caption,,0,0,0,,Their completions are explicitly SIMULATED by the authorized administrator through the real engine. They\Nare not dummy Google logins.
+Dialogue: 0,0:04:00.00,0:04:16.00,Title,,0,0,0,,PROOF / PRIVATE QA — Earlier authenticated Ticket ID completion
+Dialogue: 1,0:04:00.00,0:04:08.00,Caption,,0,0,0,,This read-only evidence reader shows an earlier verified portal run, temporarily assigned to the owner\Nfor authentication testing.
+Dialogue: 1,0:04:08.00,0:04:16.00,Caption,,0,0,0,,Ticket QA-PORTAL7-001 closed the 13 October cycle, recorded one event and created 20 October\Nautomatically. Final roles are unchanged.
+Dialogue: 0,0:04:16.00,0:04:43.00,Title,,0,0,0,,PROOF / PRIVATE QA — Real history and timestamps
+Dialogue: 1,0:04:16.00,0:04:25.00,Caption,,0,0,0,,Six retained history events include five completions and one manager acknowledgement. Private actor\Naddresses are masked.
+Dialogue: 1,0:04:25.00,0:04:34.00,Caption,,0,0,0,,Employee A’s daily reports are AUTHENTICATED. B/C/D completions are SIMULATED. The manager\Nacknowledgement is AUTHENTICATED.
+Dialogue: 1,0:04:34.00,0:04:43.00,Caption,,0,0,0,,Notice the real execution timestamps beside simulated business time. One event is recorded per\Nsuccessful state transition.
+Dialogue: 0,0:04:43.00,0:05:07.00,Title,,0,0,0,,PROOF / PRIVATE QA — Actual manager notification execution
+Dialogue: 1,0:04:43.00,0:04:51.00,Caption,,0,0,0,,This is actual n8n execution #139398, inspected from its execution history, not newly run for recording.
+Dialogue: 1,0:04:51.00,0:04:59.00,Caption,,0,0,0,,At the business threshold of 17:15, two notifications flowed through claim, SMTP capture and receipt\Nrecording.
+Dialogue: 1,0:04:59.00,0:05:07.00,Caption,,0,0,0,,Green nodes and two-item branches show the completed orchestration. Private endpoint details are\Nredacted.
+Dialogue: 0,0:05:07.00,0:05:19.00,Title,,0,0,0,,PROOF / PRIVATE QA — Actual zero-send manager retry
+Dialogue: 1,0:05:07.00,0:05:13.00,Caption,,0,0,0,,Retained retry #139569 reserved zero notifications. Its SMTP branch did not execute.
+Dialogue: 1,0:05:13.00,0:05:19.00,Caption,,0,0,0,,The original two manager messages remain; normal workflow retries do not create another send.
+Dialogue: 0,0:05:19.00,0:05:44.00,Title,,0,0,0,,PROOF / PRIVATE QA — Actual Mailpit manager message
+Dialogue: 1,0:05:19.00,0:05:27.33,Caption,,0,0,0,,This is the actual retained SMTP capture for Employee C, addressed to the safe manager test recipient.
+Dialogue: 1,0:05:27.33,0:05:35.67,Caption,,0,0,0,,The message includes task, cycle, due time and pending-task reason. Business date is 15 October; capture\Ndate is 13 October.
+Dialogue: 1,0:05:35.67,0:05:44.00,Caption,,0,0,0,,Mailpit capture proves receipt by the test SMTP service. It does not establish external Gmail Inbox\Ndelivery.
+Dialogue: 0,0:05:44.00,0:05:54.00,Title,,0,0,0,,PROOF / PRIVATE QA — Authenticated manager acknowledgement
+Dialogue: 1,0:05:44.00,0:05:49.00,Caption,,0,0,0,,Retained post-acknowledgement UI: the separate Google-authenticated manager reviewed Employee C.
+Dialogue: 1,0:05:49.00,0:05:54.00,Caption,,0,0,0,,The acknowledgement was recorded while the employee task remained Overdue / Pending. Private identity is\Nredacted.
+Dialogue: 0,0:05:54.00,0:06:09.00,Title,,0,0,0,,PROOF / PRIVATE QA — Later employee resolution is independent
+Dialogue: 1,0:05:54.00,0:06:01.50,Caption,,0,0,0,,This previously recorded manager inspection shows C after its later, explicitly SIMULATED completion.
+Dialogue: 1,0:06:01.50,0:06:09.00,Caption,,0,0,0,,The acknowledgement remains, while proof and the next cycle appear independently. This is not a new\Nacknowledgement action.
+Dialogue: 0,0:06:09.00,0:06:29.00,Title,,0,0,0,,PROOF / PRIVATE QA — Actual leadership execution
+Dialogue: 1,0:06:09.00,0:06:19.00,Caption,,0,0,0,,Actual retained leadership execution #139921 processed one message at the next-working-day 14:00\Nthreshold.
+Dialogue: 1,0:06:19.00,0:06:29.00,Caption,,0,0,0,,Employee D remained unresolved. Already acknowledged and completed Employee C was excluded. No new send\Nis triggered here.
+Dialogue: 0,0:06:29.00,0:06:54.00,Title,,0,0,0,,PROOF / PRIVATE QA — Actual leadership SMTP capture
+Dialogue: 1,0:06:29.00,0:06:37.33,Caption,,0,0,0,,The retained leadership message identifies Employee D, Portal Task C and its precise cycle.
+Dialogue: 1,0:06:37.33,0:06:45.67,Caption,,0,0,0,,Reason: employee task unresolved. Actual capture was 13 October at 11:31:03.871 UTC; simulated business\Ntime was 16 October at 14:00.
+Dialogue: 1,0:06:45.67,0:06:54.00,Caption,,0,0,0,,This is Mailpit SMTP evidence. The safe logical leadership recipient is not a company or external\Nleadership mailbox.
+Dialogue: 0,0:06:54.00,0:07:12.00,Title,,0,0,0,,PROOF / PRIVATE QA — Three audited alert records
+Dialogue: 1,0:06:54.00,0:07:03.00,Caption,,0,0,0,,Alert_Log retains two manager messages and one leadership escalation for the final role scenario.
+Dialogue: 1,0:07:03.00,0:07:12.00,Caption,,0,0,0,,Transport and SENT state are recorded separately from task completion. Across preserved QA scenarios,\NMailpit captured 8 manager and 3 leadership messages.
+Dialogue: 0,0:07:12.00,0:07:30.00,Title,,0,0,0,,PROOF / PRIVATE QA — SLA boundary and calendar evidence
+Dialogue: 1,0:07:12.00,0:07:18.00,Caption,,0,0,0,,This read-only report renders actual recorded outputs and execution IDs: manager 17:10 → 0; 17:15 → 2.
+Dialogue: 1,0:07:18.00,0:07:24.00,Caption,,0,0,0,,Manager review target is next working day 10:00; leadership 10:00 → 0, 14:00 → 1. These are proposed\Nprototype policy times.
+Dialogue: 1,0:07:24.00,0:07:30.00,Caption,,0,0,0,,Separate Friday/Monday-holiday testing rolled targets to Tuesday and skipped nonworking-day daily\Nrecurrence.
+Dialogue: 0,0:07:30.00,0:07:45.00,Title,,0,0,0,,PROOF / PRIVATE QA — Repeated automation creates no duplicates
+Dialogue: 1,0:07:30.00,0:07:37.50,Caption,,0,0,0,,Actual recorded manager and leadership retries reserved zero; daily recurrence created one cycle, then\Nzero on repeat.
+Dialogue: 1,0:07:37.50,0:07:45.00,Caption,,0,0,0,,Two overlapping administrator simulation calls for D created one completion and one next cycle. Two\Ndistinct employee logins overlapping remain unverified.
+Dialogue: 0,0:07:45.00,0:07:57.00,Title,,0,0,0,,PROOF / GMAIL — Previously verified receiving Inbox
+Dialogue: 1,0:07:45.00,0:07:51.00,Caption,,0,0,0,,This is previously recorded evidence from the separate receiving test Gmail account: the message carries\Nthe Inbox label.
+Dialogue: 1,0:07:51.00,0:07:57.00,Caption,,0,0,0,,It is external Inbox verification, separate from Mailpit. No additional Gmail message is sent for this\Nwalkthrough.
+Dialogue: 0,0:07:57.00,0:08:07.00,Title,,0,0,0,,PROOF / GMAIL — Second verified test message
+Dialogue: 1,0:07:57.00,0:08:02.00,Caption,,0,0,0,,The retained second Inbox screenshot shows the other approved manager notification, also received at\N10:09 AM.
+Dialogue: 1,0:08:02.00,0:08:07.00,Caption,,0,0,0,,Only two controlled Gmail messages were sent. The main account was the sender; the separate test manager\Nwas the recipient.
+Dialogue: 0,0:08:07.00,0:08:23.00,Title,,0,0,0,,REVIEW — Eight integrated cases and separate presentation checks
+Dialogue: 1,0:08:07.00,0:08:15.00,Caption,,0,0,0,,All eight integrated assignment cases passed against private QA. The 22 local checks are separate\Nsupporting regressions.
+Dialogue: 1,0:08:15.00,0:08:23.00,Caption,,0,0,0,,The presentation deployment has its own narrower verified completion, recurrence, replay and\Nauthorization checks. QA acceptance is not silently transferred to the copy.
+Dialogue: 0,0:08:23.00,0:08:31.00,Title,,0,0,0,,HANDOFF — Product, evidence and deployment boundaries
+Dialogue: 1,0:08:23.00,0:08:27.00,Caption,,0,0,0,,A company deploys with its own Google accounts, credentials, recipients and access-separated employee\Ninterfaces.
+Dialogue: 1,0:08:27.00,0:08:31.00,Caption,,0,0,0,,This shared workbook is an administrative/reviewer demo. Private QA stays private. The owner decides\Nwhether to submit.

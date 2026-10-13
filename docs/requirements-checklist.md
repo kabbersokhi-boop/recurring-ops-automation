@@ -61,3 +61,20 @@ for reconciliation. See [limits](limitations.md) and [deployment](deployment-rec
 
 No employer/leadership/company address was contacted. Public evidence replaces
 private account addresses and excludes private resource links, tokens and infrastructure.
+
+## Product-first finalization
+
+A separately deployed presentation workbook now shows the product before the
+private QA acceptance proof. Its [new live checks](evidence/presentation/verification.json)
+cover genuine authenticated daily completion, history, real next-day recurrence,
+replays and denied unauthenticated/employee-manager actions. The accepted QA
+records were compared before/after and match exactly for tasks, cycles, history
+and alerts; all seven QA tabs remain intact.
+
+The new [primary walkthrough](demo/assignment-walkthrough.mp4) shows both
+workbooks and labels business simulation, authenticated/dummy actions, retained
+executions, Mailpit capture and previous receiving Gmail Inbox verification.
+The earlier technical video remains supplementary. The presentation workbook is
+an administrative/reviewer demo; production employee read-access separation and
+company-owned accounts/credentials/recipients are explained in the
+[access and deployment plan](presentation-environment.md).

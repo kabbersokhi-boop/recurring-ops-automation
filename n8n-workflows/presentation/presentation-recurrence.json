@@ -1,0 +1,124 @@
+{
+  "id": "ops-presentation-recurrence",
+  "name": "Recurring Ops Presentation | recurrence",
+  "active": false,
+  "nodes": [
+    {
+      "id": "run-qa-scenario",
+      "name": "Run QA scenario",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "qa-schedule",
+      "name": "QA schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        420
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9-23 * * 1-5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "evaluate-business-state",
+      "name": "Evaluate business state",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.OPS_PRESENTATION_WEB_APP_URL }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpCustomAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"action\":\"recurrence\"}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "credentials": {
+        "httpCustomAuth": {
+          "id": "REPLACE_WITH_PRESENTATION_CREDENTIAL_ID",
+          "name": "Presentation private automation token"
+        }
+      },
+      "retryOnFail": false
+    },
+    {
+      "id": "verify-recurrence-result",
+      "name": "Verify recurrence result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "parameters": {
+        "jsCode": "if ($json.ok !== true) throw new Error($json.error||'QA recurrence rejected'); return $input.all();"
+      }
+    }
+  ],
+  "connections": {
+    "Run QA scenario": {
+      "main": [
+        [
+          {
+            "node": "Evaluate business state",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "QA schedule": {
+      "main": [
+        [
+          {
+            "node": "Evaluate business state",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluate business state": {
+      "main": [
+        [
+          {
+            "node": "Verify recurrence result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "timezone": "Asia/Kolkata",
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "tags": []
+}

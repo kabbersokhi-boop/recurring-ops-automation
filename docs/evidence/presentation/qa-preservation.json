@@ -1,0 +1,19 @@
+{
+  "comparison": "Before presentation finalization vs final publication readback",
+  "exactMatch": {
+    "tasks": true,
+    "cycles": true,
+    "history": true,
+    "alerts": true
+  },
+  "counts": {
+    "cycles": 8,
+    "completed": 5,
+    "history": 6,
+    "alerts": 3
+  },
+  "businessNow": "2026-10-16T14:00:00+05:30",
+  "sourceDigest": "e74f092ff0628d652edc200d7eccfdf05ddfe88991ac20014a9b25f4149fa883",
+  "tabCount": 7,
+  "finalReadbackExecutedAt": "2026-10-13T16:50:21.450Z"
+}

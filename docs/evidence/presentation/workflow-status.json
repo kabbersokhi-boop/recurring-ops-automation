@@ -1,0 +1,35 @@
+{
+  "workflows": [
+    {
+      "id": "ops-presentation-leadership",
+      "name": "Recurring Ops Presentation | leadership",
+      "active": 0
+    },
+    {
+      "id": "ops-presentation-manager",
+      "name": "Recurring Ops Presentation | manager",
+      "active": 0
+    },
+    {
+      "id": "ops-presentation-recurrence",
+      "name": "Recurring Ops Presentation | recurrence",
+      "active": 0
+    },
+    {
+      "id": "ops-qa-leadership",
+      "name": "Recurring Ops QA | leadership",
+      "active": 0
+    },
+    {
+      "id": "ops-qa-manager",
+      "name": "Recurring Ops QA | manager",
+      "active": 0
+    },
+    {
+      "id": "ops-qa-recurrence",
+      "name": "Recurring Ops QA | recurrence",
+      "active": 0
+    }
+  ],
+  "originalDryRunSchedulesRemainActive": true
+}

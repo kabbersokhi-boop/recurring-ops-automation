@@ -124,3 +124,17 @@ Final review readback: **8 cycles / 5 completed / 6 history events / 3 alerts**.
 The additional daily replay and actual n8n manager repeat changed none of them.
 [Replay comparison](../docs/evidence/qa/review-daily-replay.json),
 [actual manager repeat](../docs/evidence/qa/review-manager-repeat.json).
+
+## Presentation finalization checks — separate scope
+
+The eight acceptance results above were preserved. The independent presentation
+backend newly recorded one authenticated daily completion and one history event,
+then a real n8n run created `DAILY:2026-10-22`. Repeating that run created zero;
+repeating the recorded completion through the employee sidebar retained the
+same **5 cycles / 1 Completed / 1 history / 0 alerts**. Invalid Google identity
+and unauthenticated automation requests were rejected. Compiled source matched
+the deployed digest. All **22 local tests passed again** on 2026-10-13.
+
+These checks do not automatically confer the eight QA acceptance passes on the
+presentation copy. Its manager acknowledgement and notification delivery were
+not newly run. [Actual presentation records](../docs/evidence/presentation/verification.json).

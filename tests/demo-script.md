@@ -1,10 +1,51 @@
-# Reproducible 5–10 minute demonstration
+# Demonstration walkthrough and safe reproduction
+
+## Primary walkthrough — both workbooks, 8:31
+
+[Watch the primary 1080p walkthrough](../docs/demo/assignment-walkthrough.mp4).
+[Complete captions and proof matrix](../docs/demo/assignment-walkthrough.md) ·
+[Source provenance](../docs/demo/assignment-walkthrough-provenance.json).
+
+The presentation workbook shows how people use the product. Private QA retains
+the eight integrated acceptance scenarios. This edited video combines a genuine
+new presentation submission with explicitly labelled historical QA evidence.
+It has synchronized captions and no audio.
+
+| Time | Show | Presenter explanation |
+| --- | --- | --- |
+| 0:00–0:20 | Presentation Operations Overview | Four fictional employees, recurring assignments and dynamic counts. Sheets is the operating interface. |
+| 0:20–1:25 | Authenticated Employee A daily form and actual Submit | Meaningful completed work, pending work/count and blockers; no Ticket ID or second tracker. Business time is simulated; Google authentication is real. |
+| 1:25–1:52 | Resulting completion and Activity History | One genuine event, actual timestamp and authenticated role; other employees remain distinct. |
+| 1:52–2:22 | Actual presentation n8n result and next cycle | Run #143898 created one daily cycle; #143908 created zero on repeat. These retained execution results are inspected, not run again during this scene. |
+| 2:22–3:13 | Actual completion replay, Manager Review and Notification Evidence | Duplicate prevented; 5 cycles / 1 Completed / 1 history / 0 alerts. No presentation alerts have been generated; their proof comes from QA. |
+| 3:13–4:43 | Private QA controls, cycles, earlier portal proof and history | Corrected TEST MODE banner; 8 cycles / 5 Completed / 6 history / 3 alerts. A and manager actions are authenticated; B/C/D completions are labelled administrator simulations. |
+| 4:43–5:44 | Real n8n manager execution/retry and Mailpit message | Two actual SMTP captures at the threshold; repeat reserved zero. Captured mail includes employee, task, cycle, due date and reason. |
+| 5:44–6:09 | Retained manager acknowledgement and later resolution | Separate Google-authenticated manager acknowledged C while its task remained Pending. Later simulated completion is independent. This is earlier recorded evidence. |
+| 6:09–7:12 | Real leadership execution, Mailpit and Alert_Log | Unresolved D escalated; completed and acknowledged C excluded. Capture time is real; business time is simulated. |
+| 7:12–7:45 | Read-only timing/retry evidence | Actual recorded workflow outputs establish thresholds, holiday behavior and no duplicate sends/cycles. The evidence reader invokes no business actions. |
+| 7:45–8:07 | Previously verified receiving Gmail Inbox | Two approved historical messages carry the Inbox label. SMTP capture and external Inbox delivery are different evidence. No new email is sent. |
+| 8:07–8:31 | Eight-case matrix and return to presentation | Eight integrated QA cases passed. Presentation has separate narrower checks; company deployment requires its own identities, credentials and access-separated interfaces. |
+
+### Review without changing the accepted environments
+
+Play the saved video and inspect the linked evidence. Open the presentation
+workbook only with owner-granted access. Do not reset either existing workbook,
+resend Gmail messages or activate schedules for a viewing or rehearsal. The
+presentation remains an administrative/reviewer workbook; Viewer access cannot
+perform sidebar writes. Its current empty notification log is explained in the
+video rather than populated with copied QA records.
+
+The earlier technical screen review and fresh-run instructions below are
+supplementary. Use a separate disposable QA installation for any destructive
+reproduction; the accepted private QA records must remain available.
+
+## Supplementary technical walkthrough
 
 [Watch the 5 minute 10 second screen review](../docs/demo/qa-screen-review.mp4).
 [Recording provenance](../docs/demo/provenance.json).
 
 All eight cases have genuine integrated evidence. Use this presenter script for a
-fresh run. The screen review video is an edited tour of actual QA UI and recorded
+fresh run in a separate disposable QA environment. The screen review video is an edited tour of actual QA UI and recorded
 outcomes; it is not presented as uninterrupted footage of every earlier action.
 
 ## Prepare
@@ -12,7 +53,7 @@ outcomes; it is not presented as uninterrupted footage of every earlier action.
 Open only dedicated QA windows: owner Sheet, separate manager Sheet, owner-only
 admin panel, scoped n8n workflows, recipient-filtered Mailpit and QA-only receiving
 Gmail search. Authorize the bound client with each real account. Preserve current
-QA records before reset. Keep original prototype and active dry-run schedules separate.
+disposable QA records before reset. Keep the original prototype, accepted QA and active dry-run schedules separate.
 
 Configure A as real owner, B/C/D as distinct dummy assignments and the separate
 manager identity. Reset only QA to a fresh business start date; holidays `[]`;

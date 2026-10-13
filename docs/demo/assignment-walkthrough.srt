@@ -1,0 +1,335 @@
+1
+00:00:00,000 --> 00:00:06,667
+Recurring work needs clear ownership, proof and timely follow-up. Google Sheets is the operating
+interface.
+
+2
+00:00:06,667 --> 00:00:13,333
+This is the polished presentation workbook: four fictional employees, with daily, 7-day, 15-day and
+30-day assignments.
+
+3
+00:00:13,333 --> 00:00:20,000
+Its counts and due dates read actual backend state. The separate private QA environment appears later.
+
+4
+00:00:20,000 --> 00:00:28,333
+Employees use Ops Tasks → My tasks. The sidebar shows assigned work, its due date and the required
+proof.
+
+5
+00:00:28,333 --> 00:00:36,667
+Employee A is the project owner’s verified Google login. This daily task requires a report, not a Ticket
+ID.
+
+6
+00:00:36,667 --> 00:00:45,000
+The report records meaningful completed work, pending work and count, and blockers. This is fictional
+demonstration work.
+
+7
+00:00:45,000 --> 00:00:53,333
+The employee reports what was completed and what remains pending. Here, three fictional portal tasks
+remain open.
+
+8
+00:00:53,333 --> 00:01:01,667
+Blockers and optional remarks are recorded with the same submission. No second spreadsheet update is
+required.
+
+9
+00:01:01,667 --> 00:01:10,000
+Business time is simulated: 21 October at 16:00 India time. Authentication and execution time are real.
+
+10
+00:01:10,000 --> 00:01:17,500
+Submit completion is clicked once. This is the genuine first presentation submission recorded for this
+walkthrough.
+
+11
+00:01:17,500 --> 00:01:25,000
+Typing pauses and the backend wait are shortened by cuts. The following view shows the actual resulting
+records.
+
+12
+00:01:25,000 --> 00:01:31,000
+Daily 21 October is Completed. Its proof is recorded and the action source is AUTHENTICATED.
+
+13
+00:01:31,000 --> 00:01:37,000
+The other three employees retain separate assignments. No dummy employee is silently authenticated as
+Employee A.
+
+14
+00:01:37,000 --> 00:01:42,000
+Activity History contains exactly one completion event from that submission, with the verified employee
+role.
+
+15
+00:01:42,000 --> 00:01:47,000
+Business timestamp: 21 October. Actual execution: 13 October. The two clocks are deliberately distinct.
+
+16
+00:01:47,000 --> 00:01:52,000
+Private Google identities remain in the private backend audit; presentation cells use stable role
+aliases.
+
+17
+00:01:52,000 --> 00:01:58,667
+The administrator advanced only this presentation business clock to the next working day.
+
+18
+00:01:58,667 --> 00:02:05,333
+Real n8n execution #143898 created one new daily cycle. Its business and actual execution timestamps are
+visible.
+
+19
+00:02:05,333 --> 00:02:12,000
+A separate repeat, #143908, created zero. These executions are genuine retained results; no new run is
+invoked here.
+
+20
+00:02:12,000 --> 00:02:17,000
+Daily 22 October now appears Pending alongside the completed 21 October cycle.
+
+21
+00:02:17,000 --> 00:02:22,000
+Daily work is generated independently each working day. Periodic tasks create linked next cycles on
+completion.
+
+22
+00:02:22,000 --> 00:02:31,333
+The QA replay control repeats the already recorded 21 October submission; it does not complete the new
+daily task.
+
+23
+00:02:31,333 --> 00:02:40,667
+The actual sidebar response is “Duplicate prevented: existing completion retained”.
+
+24
+00:02:40,667 --> 00:02:50,000
+Verified counts stay at 5 cycles, 1 Completed, 1 history event and 0 alerts. No extra completion was
+created.
+
+25
+00:02:50,000 --> 00:02:56,000
+Manager Review consolidates all four employees, overdue work and independent resolution status.
+
+26
+00:02:56,000 --> 00:03:02,000
+No presentation alerts have been run. Manager acknowledgement is demonstrated next using preserved
+private QA evidence.
+
+27
+00:03:02,000 --> 00:03:07,500
+This new workbook has no alerts yet. Its empty log is not evidence of failed delivery.
+
+28
+00:03:07,500 --> 00:03:13,000
+Verified manager and leadership captures belong to the separate private QA environment. They are not
+copied into this workbook.
+
+29
+00:03:13,000 --> 00:03:20,333
+We now transition to PRIVATE QA — TEST MODE: the separate environment used for the eight acceptance
+scenarios.
+
+30
+00:03:20,333 --> 00:03:27,667
+This corrected control page replaces the excluded earlier take. Private URLs and browser chrome are
+removed.
+
+31
+00:03:27,667 --> 00:03:35,000
+Business time is simulated; actual execution and capture times are real. Accepted records are preserved,
+not reset.
+
+32
+00:03:35,000 --> 00:03:43,333
+The retained queue shows 8 cycles: 5 Completed and 3 Pending. Each employee has a distinct ID and
+assignment.
+
+33
+00:03:43,333 --> 00:03:51,667
+B, C and D have Ticket IDs and next cycles: 22 October, 30 October and 16 November respectively.
+
+34
+00:03:51,667 --> 00:04:00,000
+Their completions are explicitly SIMULATED by the authorized administrator through the real engine. They
+are not dummy Google logins.
+
+35
+00:04:00,000 --> 00:04:08,000
+This read-only evidence reader shows an earlier verified portal run, temporarily assigned to the owner
+for authentication testing.
+
+36
+00:04:08,000 --> 00:04:16,000
+Ticket QA-PORTAL7-001 closed the 13 October cycle, recorded one event and created 20 October
+automatically. Final roles are unchanged.
+
+37
+00:04:16,000 --> 00:04:25,000
+Six retained history events include five completions and one manager acknowledgement. Private actor
+addresses are masked.
+
+38
+00:04:25,000 --> 00:04:34,000
+Employee A’s daily reports are AUTHENTICATED. B/C/D completions are SIMULATED. The manager
+acknowledgement is AUTHENTICATED.
+
+39
+00:04:34,000 --> 00:04:43,000
+Notice the real execution timestamps beside simulated business time. One event is recorded per
+successful state transition.
+
+40
+00:04:43,000 --> 00:04:51,000
+This is actual n8n execution #139398, inspected from its execution history, not newly run for recording.
+
+41
+00:04:51,000 --> 00:04:59,000
+At the business threshold of 17:15, two notifications flowed through claim, SMTP capture and receipt
+recording.
+
+42
+00:04:59,000 --> 00:05:07,000
+Green nodes and two-item branches show the completed orchestration. Private endpoint details are
+redacted.
+
+43
+00:05:07,000 --> 00:05:13,000
+Retained retry #139569 reserved zero notifications. Its SMTP branch did not execute.
+
+44
+00:05:13,000 --> 00:05:19,000
+The original two manager messages remain; normal workflow retries do not create another send.
+
+45
+00:05:19,000 --> 00:05:27,333
+This is the actual retained SMTP capture for Employee C, addressed to the safe manager test recipient.
+
+46
+00:05:27,333 --> 00:05:35,667
+The message includes task, cycle, due time and pending-task reason. Business date is 15 October; capture
+date is 13 October.
+
+47
+00:05:35,667 --> 00:05:44,000
+Mailpit capture proves receipt by the test SMTP service. It does not establish external Gmail Inbox
+delivery.
+
+48
+00:05:44,000 --> 00:05:49,000
+Retained post-acknowledgement UI: the separate Google-authenticated manager reviewed Employee C.
+
+49
+00:05:49,000 --> 00:05:54,000
+The acknowledgement was recorded while the employee task remained Overdue / Pending. Private identity is
+redacted.
+
+50
+00:05:54,000 --> 00:06:01,500
+This previously recorded manager inspection shows C after its later, explicitly SIMULATED completion.
+
+51
+00:06:01,500 --> 00:06:09,000
+The acknowledgement remains, while proof and the next cycle appear independently. This is not a new
+acknowledgement action.
+
+52
+00:06:09,000 --> 00:06:19,000
+Actual retained leadership execution #139921 processed one message at the next-working-day 14:00
+threshold.
+
+53
+00:06:19,000 --> 00:06:29,000
+Employee D remained unresolved. Already acknowledged and completed Employee C was excluded. No new send
+is triggered here.
+
+54
+00:06:29,000 --> 00:06:37,333
+The retained leadership message identifies Employee D, Portal Task C and its precise cycle.
+
+55
+00:06:37,333 --> 00:06:45,667
+Reason: employee task unresolved. Actual capture was 13 October at 11:31:03.871 UTC; simulated business
+time was 16 October at 14:00.
+
+56
+00:06:45,667 --> 00:06:54,000
+This is Mailpit SMTP evidence. The safe logical leadership recipient is not a company or external
+leadership mailbox.
+
+57
+00:06:54,000 --> 00:07:03,000
+Alert_Log retains two manager messages and one leadership escalation for the final role scenario.
+
+58
+00:07:03,000 --> 00:07:12,000
+Transport and SENT state are recorded separately from task completion. Across preserved QA scenarios,
+Mailpit captured 8 manager and 3 leadership messages.
+
+59
+00:07:12,000 --> 00:07:18,000
+This read-only report renders actual recorded outputs and execution IDs: manager 17:10 → 0; 17:15 → 2.
+
+60
+00:07:18,000 --> 00:07:24,000
+Manager review target is next working day 10:00; leadership 10:00 → 0, 14:00 → 1. These are proposed
+prototype policy times.
+
+61
+00:07:24,000 --> 00:07:30,000
+Separate Friday/Monday-holiday testing rolled targets to Tuesday and skipped nonworking-day daily
+recurrence.
+
+62
+00:07:30,000 --> 00:07:37,500
+Actual recorded manager and leadership retries reserved zero; daily recurrence created one cycle, then
+zero on repeat.
+
+63
+00:07:37,500 --> 00:07:45,000
+Two overlapping administrator simulation calls for D created one completion and one next cycle. Two
+distinct employee logins overlapping remain unverified.
+
+64
+00:07:45,000 --> 00:07:51,000
+This is previously recorded evidence from the separate receiving test Gmail account: the message carries
+the Inbox label.
+
+65
+00:07:51,000 --> 00:07:57,000
+It is external Inbox verification, separate from Mailpit. No additional Gmail message is sent for this
+walkthrough.
+
+66
+00:07:57,000 --> 00:08:02,000
+The retained second Inbox screenshot shows the other approved manager notification, also received at
+10:09 AM.
+
+67
+00:08:02,000 --> 00:08:07,000
+Only two controlled Gmail messages were sent. The main account was the sender; the separate test manager
+was the recipient.
+
+68
+00:08:07,000 --> 00:08:15,000
+All eight integrated assignment cases passed against private QA. The 22 local checks are separate
+supporting regressions.
+
+69
+00:08:15,000 --> 00:08:23,000
+The presentation deployment has its own narrower verified completion, recurrence, replay and
+authorization checks. QA acceptance is not silently transferred to the copy.
+
+70
+00:08:23,000 --> 00:08:27,000
+A company deploys with its own Google accounts, credentials, recipients and access-separated employee
+interfaces.
+
+71
+00:08:27,000 --> 00:08:31,000
+This shared workbook is an administrative/reviewer demo. Private QA stays private. The owner decides
+whether to submit.

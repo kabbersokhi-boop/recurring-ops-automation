@@ -1,0 +1,49 @@
+{
+  "primaryVideo": {
+    "file": "../../demo/assignment-walkthrough.mp4",
+    "durationSeconds": 511,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "framesPerSecond": 10,
+    "bytes": 4843774,
+    "sha256": "66fe7d16504675eb01637c6dd922379fb467643d2ceefbae374e7aa132b58d1a",
+    "audio": "None; visible timed captions",
+    "fullStreamDecode": "PASS"
+  },
+  "visualReview": {
+    "scenes": 29,
+    "captionMidpoints": 71,
+    "sceneBoundaryFrames": 58,
+    "method": "Saved frame sequence across complete timeline; full-resolution critical scenes and caption text; no unrelated desktop capture",
+    "claimsComparedWithRetainedEvidence": true,
+    "correctedQaControlTakeUsed": true,
+    "privateRolesAndBrowserUrlsMasked": true
+  },
+  "repositoryPrivacyScan": {
+    "knownPrivateValues": 31,
+    "filesScanned": 169,
+    "pngs": 38,
+    "findings": [],
+    "patterns": "API/OAuth/GitHub tokens, ID tokens, private keys, private resource URLs; PNG metadata"
+  },
+  "presentationGridReview": "cell-privacy-review.json",
+  "qaPreservation": "qa-preservation.json",
+  "localRegression": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0
+  },
+  "integratedQaAcceptance": {
+    "total": 8,
+    "passed": 8,
+    "scope": "Existing independently executed private QA cases, preserved; not newly re-run for video"
+  },
+  "sharing": "Presentation and QA restricted; no public/domain permission enabled",
+  "employerContact": "None; nothing submitted",
+  "navigation": {
+    "localLinksChecked": 129,
+    "missingTargetsOrAnchors": 0
+  }
+}

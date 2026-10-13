@@ -1,0 +1,187 @@
+{
+  "environment": "Independent presentation deployment; private resource IDs omitted",
+  "sourceDigest": "ca649cef8008fd55c118ba939b5ba3316a812c6e5ca6cc8159045876c9d3dd66",
+  "checks": [
+    {
+      "id": "P1",
+      "scenario": "Authenticated Employee A structured daily report through actual Sheet sidebar",
+      "status": "PASS",
+      "before": {
+        "cycles": 4,
+        "completed": 0,
+        "history": 0,
+        "alerts": 0
+      },
+      "after": {
+        "cycles": 4,
+        "completed": 1,
+        "history": 1,
+        "alerts": 0
+      },
+      "actualCompletionAt": "2026-10-13T15:08:18.552Z",
+      "businessTime": "2026-10-21T16:00:00+05:30",
+      "proof": "Meaningful completed work, pending work, pending count 3, blockers and optional remarks; actor independently verified against private account configuration."
+    },
+    {
+      "id": "P2",
+      "scenario": "Real n8n next-working-day daily recurrence",
+      "status": "PASS",
+      "created": 1,
+      "nextCycleId": "DAILY:2026-10-22",
+      "execution": [
+        {
+          "node": "Evaluate business state",
+          "result": {
+            "ok": true,
+            "created": 1,
+            "businessNow": "2026-10-22T09:00:00+05:30",
+            "executedAt": "2026-10-13T15:20:39.205Z"
+          }
+        },
+        {
+          "node": "Verify recurrence result",
+          "result": {
+            "ok": true,
+            "created": 1,
+            "businessNow": "2026-10-22T09:00:00+05:30",
+            "executedAt": "2026-10-13T15:20:39.205Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "scenario": "Repeat same real n8n recurrence",
+      "status": "PASS",
+      "created": 0,
+      "execution": {
+        "ok": true,
+        "created": 0,
+        "businessNow": "2026-10-22T09:00:00+05:30",
+        "executedAt": "2026-10-13T15:21:19.414Z"
+      }
+    },
+    {
+      "id": "P6",
+      "scenario": "Actual employee sidebar repeat of recorded DAILY:2026-10-21 completion",
+      "status": "PASS",
+      "result": "Duplicate prevented: existing completion retained",
+      "countsBefore": {
+        "cycles": 5,
+        "completed": 1,
+        "history": 1,
+        "alerts": 0
+      },
+      "countsAfter": {
+        "cycles": 5,
+        "completed": 1,
+        "history": 1,
+        "alerts": 0
+      }
+    },
+    {
+      "id": "P4",
+      "scenario": "Private QA state preservation",
+      "status": "PASS",
+      "counts": {
+        "cycles": 8,
+        "completed": 5,
+        "history": 6,
+        "alerts": 3
+      }
+    },
+    {
+      "id": "P5",
+      "scenario": "Presentation manager acknowledgement and new notification delivery",
+      "status": "NOT RUN",
+      "reason": "Existing private QA acceptance proof is retained; presentation has no alerts and no extra messages were sent."
+    },
+    {
+      "id": "P7",
+      "scenario": "Unauthenticated mutation rejected by live presentation endpoint",
+      "status": "PASS",
+      "evidence": [
+        "invalid-google-identity.json",
+        "unauthenticated-automation.json"
+      ]
+    },
+    {
+      "id": "P8",
+      "scenario": "Compiled presentation source matches deployed digest",
+      "status": "PASS",
+      "sourceDigest": "ca649cef8008fd55c118ba939b5ba3316a812c6e5ca6cc8159045876c9d3dd66"
+    },
+    {
+      "id": "P9",
+      "scenario": "Presentation reviewer sharing inspection",
+      "status": "PASS",
+      "permissions": [
+        {
+          "type": "user",
+          "role": "owner"
+        },
+        {
+          "type": "user",
+          "role": "writer"
+        }
+      ],
+      "publicOrDomainPermission": false,
+      "limitation": "Public viewer sharing is not authorized; reviewer access must be granted by the owner."
+    },
+    {
+      "id": "P10",
+      "scenario": "Actual retained Mailpit messages re-opened without sending",
+      "status": "PASS",
+      "managerMessageId": "2nhmKXo6AGqDvhQzpd4hbj",
+      "leadershipMessageId": "nADr5Z8Dxa2prewgjXCjmJ",
+      "scope": "Existing private QA captures; not new presentation alerts"
+    },
+    {
+      "id": "P11",
+      "scenario": "Authenticated Employee A cannot open manager-action sidebar",
+      "status": "PASS",
+      "actualResult": "Authenticated manager required",
+      "countsAfter": {
+        "cycles": 5,
+        "completed": 1,
+        "history": 1,
+        "alerts": 0
+      },
+      "evidence": "../../screenshots/presentation/employee-manager-denied.png"
+    },
+    {
+      "id": "P12",
+      "scenario": "Unused presentation Settings endpoint removal and complete cell privacy scan",
+      "status": "PASS",
+      "scope": "All current grid cells on 12 tabs; formulas included. Private account/resource URLs and credential patterns absent.",
+      "statePreservedExactly": [
+        "tasks",
+        "cycles",
+        "history",
+        "alerts"
+      ],
+      "countsAfter": {
+        "cycles": 5,
+        "completed": 1,
+        "history": 1,
+        "alerts": 0
+      },
+      "evidence": "cell-privacy-review.json"
+    }
+  ],
+  "limitations": [
+    "These presentation checks do not replace or inherit the eight integrated QA acceptance cases.",
+    "Real execution timestamps differ from simulated business time.",
+    "Presentation schedules are inactive and external Gmail transport is disabled.",
+    "Shared presentation workbook is an administrator/reviewer demo, not a secure employee-separated portal."
+  ],
+  "qaTabsPreserved": [
+    "Task_Master",
+    "Demo_Control",
+    "Employee_Queue",
+    "Task_History",
+    "Manager_Dashboard",
+    "Alert_Log",
+    "Settings"
+  ]
+}

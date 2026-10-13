@@ -71,3 +71,30 @@ Dummy B/C/D simulation is QA-only and owner-guarded. It uses the shared completi
 engine and lock, then records `SIMULATED:EMP-X`, action mode, administrator initiator
 and actual execution time. Real assigned accounts cannot use this simulation path.
 The normal employee RPC accepts only Google-verified ownership.
+
+## Independent presentation deployment
+
+The presentation workbook provides five derived product views and retains the
+same seven underlying state/configuration tabs. A separate client, backend,
+Google token audience, automation token and n8n workflows pin all writes to this
+workbook. Its backend explicitly rejects the original and accepted QA workbook
+IDs. No accepted QA history or alert is copied into the presentation environment.
+
+```mermaid
+flowchart LR
+  P[Presentation Sheet: product interface] <--> PB[Independent presentation backend]
+  PN[Inactive presentation n8n workflows] --> PB
+  Q[Private QA: retained acceptance records] <--> QB[Existing private QA backend v11]
+  QN[Inactive QA workflows: existing real executions] --> QB
+  O[Original prototype and dry-run schedules]
+```
+
+Presentation cells use stable role aliases; Google-verified identities remain
+private. `GMAIL_TEST` is rejected by this deployment. New checks proved daily
+submission, independent next-day recurrence, replay prevention and unauthenticated
+request rejection. Manager and delivery acceptance proof remains scoped to QA.
+
+The shared presentation workbook is an administrative/reviewer demo. Sheet
+protection and hidden tabs do not isolate read access between editors. A company
+needs its own accounts, credentials, recipient configuration and access-separated
+employee clients. [Deployment/access plan](presentation-environment.md).

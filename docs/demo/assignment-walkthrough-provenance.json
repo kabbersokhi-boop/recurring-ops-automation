@@ -1,0 +1,463 @@
+{
+  "type": "Edited genuine product and retained acceptance walkthrough",
+  "durationSeconds": 511,
+  "audio": "None; synchronized visible captions",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "excluded": "Earlier QA control-page take before the user corrected its banner URL; outdated notification-label take",
+  "newFirstTimeAction": "One authenticated presentation daily report; independent next-day recurrence then zero-create repeat; actual completed-submission replay",
+  "historicalEvidence": "Private QA records, actual n8n execution history, Mailpit captures, manager post-acknowledgement and later resolution, earlier authenticated portal result, previously verified receiving Gmail Inbox",
+  "notClaimed": "Uninterrupted first-time execution of all eight scenarios, new Gmail delivery, production-secure shared employee portal, or two authenticated employees submitting concurrently",
+  "segments": [
+    {
+      "source": "01-employee-and-history.mp4",
+      "start": 60,
+      "duration": 20,
+      "title": "PRODUCT / PRESENTATION \u2014 Operations Overview",
+      "captions": [
+        "Recurring work needs clear ownership, proof and timely follow-up. Google Sheets is the operating interface.",
+        "This is the polished presentation workbook: four fictional employees, with daily, 7-day, 15-day and 30-day assignments.",
+        "Its counts and due dates read actual backend state. The separate private QA environment appears later."
+      ],
+      "filters": "crop=1400:708:46:129,scale=1768:894,pad=1920:894:76:0:white",
+      "kind": "screen recording",
+      "timelineStart": 0,
+      "timelineEnd": 20,
+      "sha256": "4c073894e6c430d5943d21fc0745de2a301b8de1fc3ffadacc8882cea6a6f4af"
+    },
+    {
+      "source": "02-live-daily-completion.mp4",
+      "start": 0,
+      "duration": 25,
+      "title": "PRODUCT / PRESENTATION \u2014 Authenticated employee workflow",
+      "captions": [
+        "Employees use Ops Tasks \u2192 My tasks. The sidebar shows assigned work, its due date and the required proof.",
+        "Employee A is the project owner\u2019s verified Google login. This daily task requires a report, not a Ticket ID.",
+        "The report records meaningful completed work, pending work and count, and blockers. This is fictional demonstration work."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 20,
+      "timelineEnd": 45,
+      "sha256": "92d628df7af7260cfc2ee9fe41359a6ad6d36c844699009c62b58516a79c793e"
+    },
+    {
+      "source": "02-live-daily-completion.mp4",
+      "start": 25,
+      "duration": 25,
+      "title": "PRODUCT / PRESENTATION \u2014 One meaningful daily report",
+      "captions": [
+        "The employee reports what was completed and what remains pending. Here, three fictional portal tasks remain open.",
+        "Blockers and optional remarks are recorded with the same submission. No second spreadsheet update is required.",
+        "Business time is simulated: 21 October at 16:00 India time. Authentication and execution time are real."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 45,
+      "timelineEnd": 70,
+      "sha256": "92d628df7af7260cfc2ee9fe41359a6ad6d36c844699009c62b58516a79c793e"
+    },
+    {
+      "source": "02-live-daily-completion.mp4",
+      "start": 60,
+      "duration": 15,
+      "title": "PRODUCT / PRESENTATION \u2014 Genuine first completion",
+      "captions": [
+        "Submit completion is clicked once. This is the genuine first presentation submission recorded for this walkthrough.",
+        "Typing pauses and the backend wait are shortened by cuts. The following view shows the actual resulting records."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 70,
+      "timelineEnd": 85,
+      "sha256": "92d628df7af7260cfc2ee9fe41359a6ad6d36c844699009c62b58516a79c793e"
+    },
+    {
+      "source": "03-product-record-tour.mp4",
+      "start": 0,
+      "duration": 12,
+      "title": "PRODUCT / PRESENTATION \u2014 Completion recorded automatically",
+      "captions": [
+        "Daily 21 October is Completed. Its proof is recorded and the action source is AUTHENTICATED.",
+        "The other three employees retain separate assignments. No dummy employee is silently authenticated as Employee A."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 85,
+      "timelineEnd": 97,
+      "sha256": "94f57bd09456d20ed0d33f8d4d2862f628a3d48b9193a39a17c372ce84b6f66a"
+    },
+    {
+      "source": "03-product-record-tour.mp4",
+      "start": 30,
+      "duration": 15,
+      "title": "PRODUCT / PRESENTATION \u2014 Activity History",
+      "captions": [
+        "Activity History contains exactly one completion event from that submission, with the verified employee role.",
+        "Business timestamp: 21 October. Actual execution: 13 October. The two clocks are deliberately distinct.",
+        "Private Google identities remain in the private backend audit; presentation cells use stable role aliases."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 97,
+      "timelineEnd": 112,
+      "sha256": "94f57bd09456d20ed0d33f8d4d2862f628a3d48b9193a39a17c372ce84b6f66a"
+    },
+    {
+      "source": "17-presentation-real-n8n-recurrence-result.mp4",
+      "start": 0,
+      "duration": 20,
+      "title": "PRODUCT / PRESENTATION \u2014 Actual n8n daily recurrence",
+      "captions": [
+        "The administrator advanced only this presentation business clock to the next working day.",
+        "Real n8n execution #143898 created one new daily cycle. Its business and actual execution timestamps are visible.",
+        "A separate repeat, #143908, created zero. These executions are genuine retained results; no new run is invoked here."
+      ],
+      "filters": "crop=818:250:551:0,scale=1920:586,pad=1920:894:0:154:white",
+      "kind": "screen recording",
+      "timelineStart": 112,
+      "timelineEnd": 132,
+      "sha256": "824f72133c134fc264001bea2e96c7511363c1b460edc46d8b1d4ad571a68b17"
+    },
+    {
+      "source": "05-product-next-cycle-and-manager.mp4",
+      "start": 65,
+      "duration": 10,
+      "title": "PRODUCT / PRESENTATION \u2014 Next daily cycle",
+      "captions": [
+        "Daily 22 October now appears Pending alongside the completed 21 October cycle.",
+        "Daily work is generated independently each working day. Periodic tasks create linked next cycles on completion."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 132,
+      "timelineEnd": 142,
+      "sha256": "b3921891325de5c57f3f7d9a63f69eb108e2ff63e954d21072bb18512efbb49c"
+    },
+    {
+      "source": "06-presentation-completion-replay.mp4",
+      "start": 17,
+      "duration": 28,
+      "title": "PRODUCT / PRESENTATION \u2014 Repeat completion safely",
+      "captions": [
+        "The QA replay control repeats the already recorded 21 October submission; it does not complete the new daily task.",
+        "The actual sidebar response is \u201cDuplicate prevented: existing completion retained\u201d.",
+        "Verified counts stay at 5 cycles, 1 Completed, 1 history event and 0 alerts. No extra completion was created."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 142,
+      "timelineEnd": 170,
+      "sha256": "de77fbda06ade18f597cd674adf5108063aafb927da8af2bf96755177f3cf516"
+    },
+    {
+      "source": "15-presentation-manager-view-current.mp4",
+      "start": 0,
+      "duration": 12,
+      "title": "PRODUCT / PRESENTATION \u2014 Manager Review",
+      "captions": [
+        "Manager Review consolidates all four employees, overdue work and independent resolution status.",
+        "No presentation alerts have been run. Manager acknowledgement is demonstrated next using preserved private QA evidence."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 170,
+      "timelineEnd": 182,
+      "sha256": "81195280099e6eab6a2814cebba2f4054eb6874e841d92e22344aa3e5a4f2b07"
+    },
+    {
+      "source": "16b-presentation-notification-clarified.mp4",
+      "start": 0,
+      "duration": 11,
+      "title": "PRODUCT / PRESENTATION \u2014 Notification Evidence",
+      "captions": [
+        "This new workbook has no alerts yet. Its empty log is not evidence of failed delivery.",
+        "Verified manager and leadership captures belong to the separate private QA environment. They are not copied into this workbook."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 182,
+      "timelineEnd": 193,
+      "sha256": "b59a9ade9db48e7325f1e53a17b33544a86faff9699d4e6e7c418c3987016a04"
+    },
+    {
+      "source": "07-private-qa-corrected-controls.mp4",
+      "start": 0,
+      "duration": 22,
+      "title": "PROOF / PRIVATE QA \u2014 Separate accepted test environment",
+      "captions": [
+        "We now transition to PRIVATE QA \u2014 TEST MODE: the separate environment used for the eight acceptance scenarios.",
+        "This corrected control page replaces the excluded earlier take. Private URLs and browser chrome are removed.",
+        "Business time is simulated; actual execution and capture times are real. Accepted records are preserved, not reset."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 193,
+      "timelineEnd": 215,
+      "sha256": "23cf305e7a8823cc06f417602a3cc4846f032dce906565abf0368da0da59b11d"
+    },
+    {
+      "source": "08-private-qa-cycle-evidence.mp4",
+      "start": 0,
+      "duration": 25,
+      "title": "PROOF / PRIVATE QA \u2014 Tickets, cycles and distinct employees",
+      "captions": [
+        "The retained queue shows 8 cycles: 5 Completed and 3 Pending. Each employee has a distinct ID and assignment.",
+        "B, C and D have Ticket IDs and next cycles: 22 October, 30 October and 16 November respectively.",
+        "Their completions are explicitly SIMULATED by the authorized administrator through the real engine. They are not dummy Google logins."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 215,
+      "timelineEnd": 240,
+      "sha256": "e86c84b2c77a98253234fa1dcbf0f6f15ac85043cfd3f1b9ed73814ae8cedc1e"
+    },
+    {
+      "source": "21-earlier-authenticated-ticket-evidence-reader.mp4",
+      "start": 0,
+      "duration": 16,
+      "title": "PROOF / PRIVATE QA \u2014 Earlier authenticated Ticket ID completion",
+      "captions": [
+        "This read-only evidence reader shows an earlier verified portal run, temporarily assigned to the owner for authentication testing.",
+        "Ticket QA-PORTAL7-001 closed the 13 October cycle, recorded one event and created 20 October automatically. Final roles are unchanged."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 240,
+      "timelineEnd": 256,
+      "sha256": "e54dcadb379a2bc10b4333fa4448a98bf5a04ff0713aaf8f23064a49c38f5404"
+    },
+    {
+      "source": "09-private-qa-audit-history.mp4",
+      "start": 0,
+      "duration": 27,
+      "title": "PROOF / PRIVATE QA \u2014 Real history and timestamps",
+      "captions": [
+        "Six retained history events include five completions and one manager acknowledgement. Private actor addresses are masked.",
+        "Employee A\u2019s daily reports are AUTHENTICATED. B/C/D completions are SIMULATED. The manager acknowledgement is AUTHENTICATED.",
+        "Notice the real execution timestamps beside simulated business time. One event is recorded per successful state transition."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 256,
+      "timelineEnd": 283,
+      "sha256": "b509fdb6e5d1c46e13625dda5a72f2c7556b1446fe0f4b0ba2cfb608b61ee222"
+    },
+    {
+      "source": "13-real-n8n-manager-executions.mp4",
+      "start": 0,
+      "duration": 24,
+      "title": "PROOF / PRIVATE QA \u2014 Actual manager notification execution",
+      "captions": [
+        "This is actual n8n execution #139398, inspected from its execution history, not newly run for recording.",
+        "At the business threshold of 17:15, two notifications flowed through claim, SMTP capture and receipt recording.",
+        "Green nodes and two-item branches show the completed orchestration. Private endpoint details are redacted."
+      ],
+      "filters": "drawbox=x=0:y=855:w=1920:h=39:color=white:t=fill",
+      "kind": "screen recording",
+      "timelineStart": 283,
+      "timelineEnd": 307,
+      "sha256": "cb299d5c0f7c7fb2e50e1e057671c1870d41f773dc5d7070de185609e8c095b6"
+    },
+    {
+      "source": "13-real-n8n-manager-executions.mp4",
+      "start": 36,
+      "duration": 12,
+      "title": "PROOF / PRIVATE QA \u2014 Actual zero-send manager retry",
+      "captions": [
+        "Retained retry #139569 reserved zero notifications. Its SMTP branch did not execute.",
+        "The original two manager messages remain; normal workflow retries do not create another send."
+      ],
+      "filters": "drawbox=x=0:y=855:w=1920:h=39:color=white:t=fill",
+      "kind": "screen recording",
+      "timelineStart": 307,
+      "timelineEnd": 319,
+      "sha256": "cb299d5c0f7c7fb2e50e1e057671c1870d41f773dc5d7070de185609e8c095b6"
+    },
+    {
+      "source": "11-mailpit-existing-manager-message.mp4",
+      "start": 0,
+      "duration": 25,
+      "title": "PROOF / PRIVATE QA \u2014 Actual Mailpit manager message",
+      "captions": [
+        "This is the actual retained SMTP capture for Employee C, addressed to the safe manager test recipient.",
+        "The message includes task, cycle, due time and pending-task reason. Business date is 15 October; capture date is 13 October.",
+        "Mailpit capture proves receipt by the test SMTP service. It does not establish external Gmail Inbox delivery."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 319,
+      "timelineEnd": 344,
+      "sha256": "19b0b4083be750e2909ada46636d247bf1fb912a1e81cbe91c2dffc7eb5d830b"
+    },
+    {
+      "source": "manager-signed-ack.png",
+      "start": 0,
+      "duration": 10,
+      "title": "PROOF / PRIVATE QA \u2014 Authenticated manager acknowledgement",
+      "captions": [
+        "Retained post-acknowledgement UI: the separate Google-authenticated manager reviewed Employee C.",
+        "The acknowledgement was recorded while the employee task remained Overdue / Pending. Private identity is redacted."
+      ],
+      "filters": "crop=315:210:0:0,scale=1200:800,pad=1920:894:360:47:white",
+      "kind": "retained genuine screenshot",
+      "timelineStart": 344,
+      "timelineEnd": 354,
+      "sha256": "430726a14bacf91bfee71ba779723924207f9d0d6586e0162962eb39a945c7bc"
+    },
+    {
+      "source": "02-manager.mp4",
+      "start": 15,
+      "duration": 15,
+      "title": "PROOF / PRIVATE QA \u2014 Later employee resolution is independent",
+      "captions": [
+        "This previously recorded manager inspection shows C after its later, explicitly SIMULATED completion.",
+        "The acknowledgement remains, while proof and the next cycle appear independently. This is not a new acknowledgement action."
+      ],
+      "filters": "crop=320:310:320:90,scale=922:894,pad=1920:894:499:0:white",
+      "kind": "previously recorded manager inspection",
+      "timelineStart": 354,
+      "timelineEnd": 369,
+      "sha256": "d631f051e631530b9866bb4984e2514ce8dbae7bed4ee0bb958fabdc906f7563"
+    },
+    {
+      "source": "14-real-n8n-leadership-execution.mp4",
+      "start": 0,
+      "duration": 20,
+      "title": "PROOF / PRIVATE QA \u2014 Actual leadership execution",
+      "captions": [
+        "Actual retained leadership execution #139921 processed one message at the next-working-day 14:00 threshold.",
+        "Employee D remained unresolved. Already acknowledged and completed Employee C was excluded. No new send is triggered here."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 369,
+      "timelineEnd": 389,
+      "sha256": "736be0fcc30e0cf19574afefc3ce4dfbd793320528b8552889ed45a1b0593acc"
+    },
+    {
+      "source": "12-mailpit-existing-leadership-message.mp4",
+      "start": 0,
+      "duration": 25,
+      "title": "PROOF / PRIVATE QA \u2014 Actual leadership SMTP capture",
+      "captions": [
+        "The retained leadership message identifies Employee D, Portal Task C and its precise cycle.",
+        "Reason: employee task unresolved. Actual capture was 13 October at 11:31:03.871 UTC; simulated business time was 16 October at 14:00.",
+        "This is Mailpit SMTP evidence. The safe logical leadership recipient is not a company or external leadership mailbox."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 389,
+      "timelineEnd": 414,
+      "sha256": "9f49d83d463e8341b617f7d698df3dbac9cd893c0a8c6e219b0e99548d512f23"
+    },
+    {
+      "source": "10-private-qa-notification-log.mp4",
+      "start": 0,
+      "duration": 18,
+      "title": "PROOF / PRIVATE QA \u2014 Three audited alert records",
+      "captions": [
+        "Alert_Log retains two manager messages and one leadership escalation for the final role scenario.",
+        "Transport and SENT state are recorded separately from task completion. Across preserved QA scenarios, Mailpit captured 8 manager and 3 leadership messages."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 414,
+      "timelineEnd": 432,
+      "sha256": "20e7219f29a1d356cd475cba23ba3c27ef3b240cd02da00134ce048a526997f3"
+    },
+    {
+      "source": "18-recorded-sla-evidence-reader.mp4",
+      "start": 0,
+      "duration": 18,
+      "title": "PROOF / PRIVATE QA \u2014 SLA boundary and calendar evidence",
+      "captions": [
+        "This read-only report renders actual recorded outputs and execution IDs: manager 17:10 \u2192 0; 17:15 \u2192 2.",
+        "Manager review target is next working day 10:00; leadership 10:00 \u2192 0, 14:00 \u2192 1. These are proposed prototype policy times.",
+        "Separate Friday/Monday-holiday testing rolled targets to Tuesday and skipped nonworking-day daily recurrence."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 432,
+      "timelineEnd": 450,
+      "sha256": "07a41a915c4654827d7f242d3667e003d9fba9b7a049accefac80bb790d1a0a8"
+    },
+    {
+      "source": "19-recorded-repeat-evidence-reader.mp4",
+      "start": 0,
+      "duration": 15,
+      "title": "PROOF / PRIVATE QA \u2014 Repeated automation creates no duplicates",
+      "captions": [
+        "Actual recorded manager and leadership retries reserved zero; daily recurrence created one cycle, then zero on repeat.",
+        "Two overlapping administrator simulation calls for D created one completion and one next cycle. Two distinct employee logins overlapping remain unverified."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 450,
+      "timelineEnd": 465,
+      "sha256": "36a8ccf341bdd6696d79590c8fb07236940019c3920228c1bbe09ed6cff20223"
+    },
+    {
+      "source": "05-gmail.mp4",
+      "start": 15,
+      "duration": 12,
+      "title": "PROOF / GMAIL \u2014 Previously verified receiving Inbox",
+      "captions": [
+        "This is previously recorded evidence from the separate receiving test Gmail account: the message carries the Inbox label.",
+        "It is external Inbox verification, separate from Mailpit. No additional Gmail message is sent for this walkthrough."
+      ],
+      "filters": "crop=920:400:40:300,scale=1920:834,pad=1920:894:0:30:white",
+      "kind": "previously recorded receiving Inbox inspection",
+      "timelineStart": 465,
+      "timelineEnd": 477,
+      "sha256": "10a453986ec1917008fd8a518baa0817655bbf06186dad010e30501bc17c1795"
+    },
+    {
+      "source": "gmail-inbox-portal30.png",
+      "start": 0,
+      "duration": 10,
+      "title": "PROOF / GMAIL \u2014 Second verified test message",
+      "captions": [
+        "The retained second Inbox screenshot shows the other approved manager notification, also received at 10:09 AM.",
+        "Only two controlled Gmail messages were sent. The main account was the sender; the separate test manager was the recipient."
+      ],
+      "filters": "crop=1476:360:64:0,scale=1920:468,pad=1920:894:0:213:white",
+      "kind": "retained genuine receiving Inbox screenshot",
+      "timelineStart": 477,
+      "timelineEnd": 487,
+      "sha256": "eaae3d1f4573b21e76d662e600d31fbd7a9ad3d031649f251167c32cdbed4e16"
+    },
+    {
+      "source": "20-recorded-eight-case-acceptance-reader.mp4",
+      "start": 0,
+      "duration": 16,
+      "title": "REVIEW \u2014 Eight integrated cases and separate presentation checks",
+      "captions": [
+        "All eight integrated assignment cases passed against private QA. The 22 local checks are separate supporting regressions.",
+        "The presentation deployment has its own narrower verified completion, recurrence, replay and authorization checks. QA acceptance is not silently transferred to the copy."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 487,
+      "timelineEnd": 503,
+      "sha256": "051f5883055c840ea0f031f1bfcf78f9acadc8558484a8626d8d6ab32bf18432"
+    },
+    {
+      "source": "05-product-next-cycle-and-manager.mp4",
+      "start": 2,
+      "duration": 8,
+      "title": "HANDOFF \u2014 Product, evidence and deployment boundaries",
+      "captions": [
+        "A company deploys with its own Google accounts, credentials, recipients and access-separated employee interfaces.",
+        "This shared workbook is an administrative/reviewer demo. Private QA stays private. The owner decides whether to submit."
+      ],
+      "filters": "",
+      "kind": "screen recording",
+      "timelineStart": 503,
+      "timelineEnd": 511,
+      "sha256": "b3921891325de5c57f3f7d9a63f69eb108e2ff63e954d21072bb18512efbb49c"
+    }
+  ]
+}

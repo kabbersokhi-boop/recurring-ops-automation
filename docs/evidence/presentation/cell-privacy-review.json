@@ -1,0 +1,85 @@
+{
+  "scope": "Complete current grid of all 12 presentation tabs, including hidden state tables; formulas returned",
+  "checks": [
+    "No non-dummy email addresses",
+    "No private Google Sheet, Apps Script or local infrastructure URLs",
+    "No common credential/token patterns"
+  ],
+  "cleanup": "Removed unused inherited qaWebAppUrl value from presentation Settings B13 only. Bound client uses its private Script Property instead.",
+  "tabs": [
+    {
+      "sheet": "Operations Overview",
+      "fullGrid": true,
+      "rowsWithValues": 28,
+      "issues": []
+    },
+    {
+      "sheet": "Activity History",
+      "fullGrid": true,
+      "rowsWithValues": 6,
+      "issues": []
+    },
+    {
+      "sheet": "Employee Work",
+      "fullGrid": true,
+      "rowsWithValues": 6,
+      "issues": []
+    },
+    {
+      "sheet": "Manager Review",
+      "fullGrid": true,
+      "rowsWithValues": 6,
+      "issues": []
+    },
+    {
+      "sheet": "Notification Evidence",
+      "fullGrid": true,
+      "rowsWithValues": 6,
+      "issues": []
+    },
+    {
+      "sheet": "Task_Master",
+      "fullGrid": true,
+      "rowsWithValues": 5,
+      "issues": []
+    },
+    {
+      "sheet": "Demo_Control",
+      "fullGrid": true,
+      "rowsWithValues": 11,
+      "issues": []
+    },
+    {
+      "sheet": "Employee_Queue",
+      "fullGrid": true,
+      "rowsWithValues": 6,
+      "issues": []
+    },
+    {
+      "sheet": "Task_History",
+      "fullGrid": true,
+      "rowsWithValues": 2,
+      "issues": []
+    },
+    {
+      "sheet": "Manager_Dashboard",
+      "fullGrid": true,
+      "rowsWithValues": 6,
+      "issues": []
+    },
+    {
+      "sheet": "Alert_Log",
+      "fullGrid": true,
+      "rowsWithValues": 1,
+      "issues": []
+    },
+    {
+      "sheet": "Settings",
+      "fullGrid": true,
+      "rowsWithValues": 14,
+      "issues": []
+    }
+  ],
+  "result": "PASS",
+  "sharing": "Restricted to approved accounts. No public or domain access enabled."
+}

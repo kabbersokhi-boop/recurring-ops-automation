@@ -60,3 +60,17 @@ Sheet UI, cropped and redacted. There is no reconstructed UI or fabricated email
 [Manager My tasks](screenshots/qa/manager-no-employee-tasks.png) shows no assigned
 employee task controls in the actual manager session. It does not prove a second
 real employee identity; that optional ownership test remains unverified.
+
+## New product-first presentation package
+
+- [8:31 primary walkthrough](demo/assignment-walkthrough.mp4), [captions and proof matrix](demo/assignment-walkthrough.md), [source provenance](demo/assignment-walkthrough-provenance.json).
+- [Full presentation cell privacy review](evidence/presentation/cell-privacy-review.json) and [publication checks](evidence/presentation/publication-review.json).
+
+- [Presentation deployment checks](evidence/presentation/verification.json): genuine daily submission, real next-day recurrence, replay prevention, live rejected unauthenticated calls and isolation.
+- [Operations Overview](screenshots/presentation/operations-overview.png), [Activity History](screenshots/presentation/activity-history.png), [Manager Review](screenshots/presentation/manager-review.png), [completion replay](screenshots/presentation/completion-replay.png).
+- [Corrected QA control page](screenshots/qa/corrected-demo-control.png): re-recorded after the user corrected the accidental banner URL; the earlier take is excluded.
+- [Read-only evidence reader](demo/evidence-reader.html): download/open locally to inspect the actual sanitized workflow outputs and execution IDs. This is an acceptance report viewer, not a replacement operating interface or a fresh business execution.
+
+The primary video uses these new product views and clearly labelled retained QA
+records. The eight integrated acceptance results and earlier technical evidence
+remain intact. Private QA URLs and credentials are not included.

@@ -55,3 +55,23 @@ Only the two approved external messages were sent; repeated tests use Mailpit.
 No assignment was submitted and no employer or company mailbox was contacted.
 Private resource links, controlled Google account addresses and infrastructure
 credentials are supplied privately, never in repository configuration or evidence.
+
+## Presentation finalization scope
+
+The new presentation workbook is independently connected, not a static clone.
+Its genuine authenticated daily report, history, next daily cycle and replay
+prevention have separate [executed results](evidence/presentation/verification.json).
+It has no alert records; no new presentation manager acknowledgement or notification
+delivery is claimed. Those scenarios retain the prior private QA evidence.
+
+The product workbook consolidates all four fictional employees for a reviewer.
+It is not a production-secure per-employee portal: an editor may read shared
+workbook data despite protected/hidden tabs. Company deployment requires separate
+employee access, verified Google identities and company-owned credentials and
+recipients. Google may reveal the owner's identity through file metadata even
+though recorded screens and cells use aliases. Public viewer sharing remains
+subject to the owner's approval; a Viewer cannot submit sidebar actions.
+
+The primary walkthrough uses captions and clearly labelled cuts across actual
+presentation actions and retained QA evidence. It does not rerun all eight cases
+or imply that historical SMTP/Gmail results were newly sent during recording.

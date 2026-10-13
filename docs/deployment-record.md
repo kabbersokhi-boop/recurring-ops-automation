@@ -74,3 +74,38 @@ the sidebar. [Official Google multi-login limitation](https://developers.google.
 [Version 11 digest/readback](evidence/qa/role-deployment-verification.json) matches
 the generated repository backend. QA schedules remain inactive; original dry-run
 schedules remain active. Private role mappings and connection files stay outside Git.
+
+## Independent presentation finalization — 2026-10-13
+
+A new private workbook, **Recurring Operations — Demonstration**, has its own
+bound client, standalone backend, OAuth audience, private token and three inactive
+n8n workflows. Backend version 2 serves RPC; version 1 serves the owner-only
+administrator UI. Both versions contain the same compiled source digest:
+`ca649cef8008fd55c118ba939b5ba3316a812c6e5ca6cc8159045876c9d3dd66`.
+The compiler was rerun and its digest matched the actual deployed readback.
+
+Five derived product views sit over the unchanged state schema. Live Google-verified
+Employee A submitted a meaningful daily report once. One history event and real
+execution time were recorded. A presentation-only business-clock advance followed
+by actual n8n recurrence created the next daily cycle; repeated recurrence and
+sidebar completion added nothing. Live invalid-identity and unauthenticated
+requests were rejected. [Actual separate checks](evidence/presentation/verification.json).
+
+Presentation state: 5 cycles / 1 Completed / 1 history / 0 alerts. Its notification
+workflows were not run, and its wrapper rejects external Gmail mode. The private
+QA record counts, seven tabs, backend v11 and prior acceptance evidence were
+preserved. All 22 local checks passed again. Reviewer sharing has no public/domain
+permission: owner plus the approved test-manager editor only. Public viewer access
+requires the owner's decision; no public editor access was enabled.
+
+The final recording retains the user's workbook styling and excludes the first
+QA control-page take after the user corrected an accidental URL in its banner.
+No private workbook URLs appear in the replacement recording.
+
+The primary product-and-proof video is 8:31 at 1920×1080, with timed captions,
+transcript and provenance. Its full stream decoded successfully and all scenes,
+caption cues and cut boundaries were reviewed from saved frames. The old 5:10
+technical video is preserved. Complete presentation cell inspection found an
+unused inherited endpoint in Settings B13; only that value was cleared. A live
+readback confirmed task definitions, cycles, history and alerts were unchanged.
+The final private QA readback also matched the preserved four state tables exactly.
